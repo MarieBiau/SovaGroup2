@@ -13,8 +13,6 @@ namespace DAL.Test
         {
             var service = new DataService();
             var post = service.FindPost(19);
-
-
             Assert.Equal(1, post.id);
 
 
