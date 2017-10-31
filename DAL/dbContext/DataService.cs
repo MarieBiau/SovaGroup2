@@ -13,24 +13,18 @@ namespace DAL.dbContext
     {
         SovaDbContext db = new SovaDbContext();
 
-        //public Post FindPost(int id)
-        //{
+        public Post FindPost(int id)
+        {
 
 
-
-        //    SqlParameter prm1 = new SqlParameter("@search_text", "java");
-        //    var posts =  db.Database.ExecuteSqlCommand("search @search_text", prm1);
-
-           
-
-        //    var post = db.Posts.FirstOrDefault(x => x.id == id);
-        //    //if (post != null)
-        //    //{
-        //    //    return post;
-        //    //}
-        //    //return null;
-        //    return posts;
-        //}
+            var post = db.Posts.FirstOrDefault(x => x.id == id);
+            //if (post != null)
+            //{
+            //    return post;
+            //}
+            //return null;
+            return post;
+        }
 
         //Already in the database functions
         public Users GetUser(int userId)
