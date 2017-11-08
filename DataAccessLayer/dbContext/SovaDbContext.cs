@@ -19,13 +19,8 @@ namespace DataAccessLayer.dbContext
         public DbSet<ReturnNewestQuestions> ReturnNewestQuestions { get; set; }
         public DbSet<ReturnLinkPosts> ReturnLinkPosts { get; set; }
         public DbSet<ReturnPostTags> ReturnPostTags { get; set; }
-
         
-
-
-
-
-
+    
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -35,7 +30,25 @@ namespace DataAccessLayer.dbContext
             
         }
 
- 
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            //do we need it because these tables are same within databas schema???
+            modelBuilder.Entity<QuestionSearchResults>().Property(x => x.id).HasColumnName("id");
+            modelBuilder.Entity<QuestionSearchResults>().Property(x => x.title).HasColumnName("title");
+            modelBuilder.Entity<QuestionSearchResults>().Property(x => x.body).HasColumnName("body");
+            modelBuilder.Entity<QuestionSearchResults>().Property(x => x.score).HasColumnName("score");
+            modelBuilder.Entity<QuestionSearchResults>().Property(x => x.comment_text).HasColumnName("comment_text");
+            modelBuilder.Entity<QuestionSearchResults>().Property(x => x.tag_name).HasColumnName("tag_name");
+
+
+
+
+        }
+
+
 
     }
 }

@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using AutoMapper;
 using DataAccessLayer.dbContext;
 using DataAccessLayer.dbDTO;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using SovaWebService.Models;
 
 namespace SovaWebService.Controllers
 {
@@ -14,18 +13,16 @@ namespace SovaWebService.Controllers
     public class MarksController : Controller
     {
 
-        private IDataService _dataService;
+        private readonly IDataService _dataService;
+        private readonly IMapper _mapper;
 
-        public MarksController(IDataService dataService)
+        public MarksController(IDataService dataService, IMapper mapper)
         {
             _dataService = dataService;
+            _mapper = mapper;
         }
 
-        // GET: api/Marks
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns>Good marks</returns>
+
         [HttpGet]
         public IActionResult Get()
         {
@@ -42,13 +39,29 @@ namespace SovaWebService.Controllers
         }
 
         //update annotation {id}
-        [HttpPut("{id}")]
-        public IActionResult UpdateCategory(int id, [FromBody]ReturnGoodMarks content)
+        [HttpPatch("{id}")]
+        public IActionResult UpdateAnnotation(int id, [FromBody] JsonPatchDocument<MarksModel> doc)
         {
-            var categoryUpdate = _dataService.UpdateAnnotation(content.id, content.annotation);
 
-            if (categoryUpdate == false) return NotFound();
-            return Ok();
+            // This is a example body of a patch: 
+            // [{"op": "replace", "path": "/annotation", "value": "testing"}]
+            var mark = _dataService.GetMark(id);
+            // not a valid id
+            if (mark == null) return NotFound();
+
+            // map to the model
+            var model = _mapper.Map<MarksModel>(mark);
+            // apply changes
+            doc.ApplyTo(model);
+
+            // now we want to map in the other direction from - MarksModel to mark
+            // Add the ReverseMap() to the mapper config in StartUp.CreateMapper()
+            //_mapper.Map(model, mark);
+            
+            Boolean updateAnnotation = _dataService.UpdateAnnotation(model.id,model.annotation);
+
+            return NoContent();
+            
 
         }
 

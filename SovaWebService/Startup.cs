@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 using DataAccessLayer.dbContext;
+using DataAccessLayer.dbDTO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using SovaWebService.Models;
 
 namespace SovaWebService
 {
@@ -25,8 +22,9 @@ namespace SovaWebService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-
+            services.AddAutoMapper();
             services.AddSingleton<IDataService, DataService>();
+            services.AddSingleton<IMapper>(CreateMapper());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,6 +36,17 @@ namespace SovaWebService
             }
 
             app.UseMvc();
+        }
+
+        public IMapper CreateMapper()
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Marks, MarksModel>()
+                    .ReverseMap();
+            });
+
+            return config.CreateMapper();
         }
     }
 }

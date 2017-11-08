@@ -10,11 +10,7 @@ namespace DataAccessLayer.dbContext
     {
         SovaDbContext db = new SovaDbContext();
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+
         public Post FindPost(int id)
         {
 
@@ -22,11 +18,7 @@ namespace DataAccessLayer.dbContext
 
             return post;
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <returns></returns>
+
         public Users GetUser(int userId)
         {
             var user = db.Users.FirstOrDefault(x => x.Id == userId);
@@ -34,16 +26,12 @@ namespace DataAccessLayer.dbContext
         }
 
 
-        /// <summary>
-        /// Store procedure call to retrieve questions based on string entered
-        /// </summary>
-        /// <param name="text"></param>
-        /// <returns></returns>
-        public List<QuestionSearchResults> FindQuestionByString(string text)
+        public List<QuestionSearchResults> FindQuestionByString(string text, int page, int pageSize)
         {
             List<QuestionSearchResults> listQuestions = new List<QuestionSearchResults>();
 
                 var Questions = db.Questions.FromSql("call search({0})", text);
+
                 foreach (var Question in Questions)
                 {
 
@@ -51,12 +39,30 @@ namespace DataAccessLayer.dbContext
                 
                 }
                 
-            return listQuestions;
+            return listQuestions
+                .OrderBy(x => x.id)
+                .Skip(page * pageSize)
+                .Take(pageSize)
+                .ToList();
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
+
+
+        public int GetNumberOfResults(string text)
+        {
+            List<QuestionSearchResults> listQuestions = new List<QuestionSearchResults>();
+
+            var Questions = db.Questions.FromSql("call search({0})", text);
+
+            foreach (var Question in Questions)
+            {
+
+                listQuestions.Add(Question);
+
+            }
+
+            return listQuestions.Count();
+        }
+
         public List<ReturnSearches> ReturnSearches()
         {
             List<ReturnSearches> listSearches = new List<ReturnSearches>();
@@ -72,24 +78,12 @@ namespace DataAccessLayer.dbContext
             return listSearches;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="post_id">PostId</param>
-        /// <param name="type">1=Question,2=Answer</param>
-        /// <returns></returns>
+
         public bool MarkPost(int post_id, int type)
         {
 
             db.MarkPosts.FromSql("call mark_post({0},{1})", post_id, type);
-
-       
-            //if (results != null)
-            //{
-
-            //    return true;
-            //}
-
+            
             return true;
 
         }
@@ -110,7 +104,7 @@ namespace DataAccessLayer.dbContext
 
         }
 
-        public bool UpdateAnnotation(int id, string annotation)
+        public Boolean UpdateAnnotation(int id, string annotation)
         {
 
             var marks = db.Marks.FirstOrDefault(x => x.id == id);
@@ -122,6 +116,15 @@ namespace DataAccessLayer.dbContext
                 return true;
             }
             return false;
+
+        }
+
+
+        public Marks GetMark(int id)
+        {
+
+            var mark = db.Marks.FirstOrDefault(x => x.posts_id == id);
+            return mark;
 
         }
 
