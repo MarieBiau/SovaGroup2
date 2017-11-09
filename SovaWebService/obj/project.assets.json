@@ -13451,7 +13451,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kestutis\\.nuget\\packages\\": {},
+    "C:\\Users\\Dorin\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -13460,17 +13460,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\SovaWebService\\SovaWebService.csproj",
+      "projectUniqueName": "C:\\Users\\Dorin\\Source\\Repos\\SovaGroup2\\SovaWebService\\SovaWebService.csproj",
       "projectName": "SovaWebService",
-      "projectPath": "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\SovaWebService\\SovaWebService.csproj",
-      "packagesPath": "C:\\Users\\kestutis\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\SovaWebService\\obj\\",
+      "projectPath": "C:\\Users\\Dorin\\Source\\Repos\\SovaGroup2\\SovaWebService\\SovaWebService.csproj",
+      "packagesPath": "C:\\Users\\Dorin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dorin\\Source\\Repos\\SovaGroup2\\SovaWebService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\kestutis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dorin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13483,8 +13483,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\DataAccessLayer\\DataAccessLayer.csproj": {
-              "projectPath": "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\DataAccessLayer\\DataAccessLayer.csproj"
+            "C:\\Users\\Dorin\\Source\\Repos\\SovaGroup2\\DataAccessLayer\\DataAccessLayer.csproj": {
+              "projectPath": "C:\\Users\\Dorin\\Source\\Repos\\SovaGroup2\\DataAccessLayer\\DataAccessLayer.csproj"
             }
           }
         }
