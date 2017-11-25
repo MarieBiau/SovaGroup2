@@ -55,15 +55,6 @@ namespace SovaWebService.Controllers
 
             return Ok(result);
 
-            //if (_dataService.FindQuestionByString(searchText).Count > 0)
-            //{
-            //    return Ok(_dataService.FindQuestionByString(searchText).Take(5));
-
-            //}
-            //else
-            //{
-            //    return NotFound();
-            //}
             
         }
 

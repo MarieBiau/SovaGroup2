@@ -19,8 +19,13 @@ namespace DataAccessLayer.dbContext
         public DbSet<ReturnNewestQuestions> ReturnNewestQuestions { get; set; }
         public DbSet<ReturnLinkPosts> ReturnLinkPosts { get; set; }
         public DbSet<ReturnPostTags> ReturnPostTags { get; set; }
-        
-    
+        public DbSet<BestMatch> BestMatches { get; set; }
+        public DbSet<BestmatchKeywordList> BestmatchKeywordLists { get; set; }
+        public DbSet<ClosestTerm> ClosestTerms { get; set; }
+
+
+
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

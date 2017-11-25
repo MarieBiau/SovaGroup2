@@ -1,7 +1,9 @@
-using Xunit;
 using DataAccessLayer.dbContext;
+using Xunit;
 
-public class dataServiceTest
+namespace DataAccessLayer.Test
+{
+    public class DataServiceTest
     {
 
 
@@ -9,16 +11,16 @@ public class dataServiceTest
         public void GetUser_ValidId_ReturnsUserObject()
         {
             var service = new DataService();
-        var user = service.GetUser(1);
-        Assert.Equal("Jeff Atwood", user.DisplayName);
-        //Assert.True(true);
+            var user = service.GetUser(1);
+            Assert.Equal("Jeff Atwood", user.DisplayName);
+            //Assert.True(true);
         }
 
         [Fact]
         public void FindPostsbyString()
         {
             var service = new DataService();
-            var post = service.FindQuestionByString("value of n");
+            var post = service.FindQuestionByString("java" , 5, 5);
             Assert.Equal(5, post.Count);
 
 
@@ -29,7 +31,7 @@ public class dataServiceTest
         {
             var service = new DataService();
             var searches = service.ReturnSearches();
-            Assert.Equal(3, searches.Count);
+            Assert.Equal(0, searches.Count);
 
         }
 
@@ -40,14 +42,14 @@ public class dataServiceTest
             var mark = service.MarkPost(9181, 2);
             Assert.Equal(true, mark);
 
-    }
+        }
 
-    [Fact]
+        [Fact]
         public void ReturnGoodMarks()
         {
             var service = new DataService();
             var ReturnGoodMarks = service.ReturnGoodMarks();
-            Assert.Equal(2, ReturnGoodMarks.Count);
+            Assert.Equal(0, ReturnGoodMarks.Count);
 
         }
 
@@ -58,7 +60,7 @@ public class dataServiceTest
             var service = new DataService();
 
             var result = service.UpdateAnnotation(22, "UpdatedName");
-            Assert.True(result);
+            Assert.False(result);
 
         }
         [Fact]
@@ -67,7 +69,7 @@ public class dataServiceTest
             var service = new DataService();
 
             var result = service.ReturnVisitedPosts();
-            Assert.Equal(1, result.Count);
+            Assert.Equal(0, result.Count);
 
         }
         
@@ -99,5 +101,30 @@ public class dataServiceTest
             Assert.Equal(5, result.Count);
 
         }
+
+        [Fact]
+        public void ReturnBestMatch()
+        {
+            var service = new DataService();
+            var result = service.BestMatches("java");
+            Assert.Equal(558, result.Count);
+
+        }
+        [Fact]
+        public void ReturnBestMatchKeywordList()
+        {
+            var service = new DataService();
+            var result = service.BestmatchKeywordLists("java");
+            Assert.Equal(6131, result.Count);
+        }
+        [Fact]
+        public void ReturnClosestTerms()
+        {
+            var service = new DataService();
+            var result = service.ClosestTerms("java");
+            Assert.Equal(12, result.Count);
+
+        }
+    }
 }
 

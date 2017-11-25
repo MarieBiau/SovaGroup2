@@ -128,6 +128,7 @@ namespace DataAccessLayer.dbContext
 
         }
 
+
         public List<ReturnVisitedPosts> ReturnVisitedPosts()
         {
             List<ReturnVisitedPosts> listReturnVisitedPosts = new List<ReturnVisitedPosts>();
@@ -192,6 +193,43 @@ namespace DataAccessLayer.dbContext
             return listReturnPostTags;
 
         }
+
+        public List<BestMatch> BestMatches(string text)
+        {
+            List<BestMatch> listreturnPosts = new List<BestMatch>();
+
+            var returnPosts = db.BestMatches.FromSql("call bestmatch({0})", text);
+            foreach (var post in returnPosts)
+            {
+                listreturnPosts.Add(post);
+            }
+            return listreturnPosts;
+        }
+
+        public List<BestmatchKeywordList> BestmatchKeywordLists(string text)
+        {
+            List<BestmatchKeywordList> listreturnPosts = new List<BestmatchKeywordList>();
+            var returnPosts = db.BestmatchKeywordLists.FromSql("call bestmatch_keyword_list({0})", text);
+            foreach (var post in returnPosts)
+            {
+                listreturnPosts.Add(post);
+            }
+            return listreturnPosts;
+        }
+
+        public List<ClosestTerm> ClosestTerms(string text)
+        {
+            List<ClosestTerm> listClosestTerm = new List<ClosestTerm>();
+            var returnclosest_terms = db.ClosestTerms.FromSql("call closest_terms({0})", text);
+            foreach (var term in returnclosest_terms)
+            {
+                listClosestTerm.Add(term);
+            }
+            return listClosestTerm;
+
+        }
+        
+
 
     }
 }
