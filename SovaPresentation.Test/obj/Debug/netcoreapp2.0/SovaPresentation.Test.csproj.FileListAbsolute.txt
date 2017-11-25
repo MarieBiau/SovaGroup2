@@ -20,7 +20,6 @@ C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaPresentat
 C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaPresentation.Test\bin\Debug\netcoreapp2.0\SovaPresentation.Test.runtimeconfig.dev.json
 C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaPresentation.Test\bin\Debug\netcoreapp2.0\SovaPresentation.Test.dll
 C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaPresentation.Test\bin\Debug\netcoreapp2.0\SovaPresentation.Test.pdb
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaPresentation.Test\obj\Debug\netcoreapp2.0\SovaPresentation.Test.csprojResolveAssemblyReference.cache
 C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaPresentation.Test\obj\Debug\netcoreapp2.0\SovaPresentation.Test.csproj.CoreCompileInputs.cache
 C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaPresentation.Test\obj\Debug\netcoreapp2.0\SovaPresentation.Test.AssemblyInfoInputs.cache
 C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaPresentation.Test\obj\Debug\netcoreapp2.0\SovaPresentation.Test.AssemblyInfo.cs
