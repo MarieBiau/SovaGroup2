@@ -10,6 +10,5 @@ namespace DataAccessLayer.dbDTO
         public string title { get; set; }
         public string body { get; set; }
         public DateTime view_date { get; set; }
-
     }
 }

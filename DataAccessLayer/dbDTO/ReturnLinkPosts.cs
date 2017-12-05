@@ -7,8 +7,6 @@ namespace DataAccessLayer.dbDTO
     public class ReturnLinkPosts
     {
         public int id { get; set; }
-        public string title { get; set; }
-
-        
+        public string title { get; set; }        
     }
 }

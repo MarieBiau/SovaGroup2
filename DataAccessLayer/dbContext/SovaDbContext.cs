@@ -3,18 +3,17 @@ using System.Data;
 using DataAccessLayer.dbDTO;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace DataAccessLayer.dbContext
 {
     class SovaDbContext : DbContext
     {
-        public DbSet<Post> Posts { get; set; }
-        public DbSet<Users> Users { get; set; }
+        public DbSet<posts> posts { get; set; }
+        public DbSet<users> users { get; set; }
         public DbSet<QuestionSearchResults> Questions { get; set; }
         public DbSet<ReturnSearches> ReturnSearches { get; set; }
         public DbSet<MarkPost> MarkPosts { get; set; }
         public DbSet<ReturnGoodMarks> ReturnGoodMarks { get; set; }
-        public DbSet<Marks> Marks { get; set; }
+        public DbSet<marks> marks { get; set; }
         public DbSet<ReturnVisitedPosts> ReturnVisitedPosts { get; set; }
         public DbSet<ReturnNewestQuestions> ReturnNewestQuestions { get; set; }
         public DbSet<ReturnLinkPosts> ReturnLinkPosts { get; set; }
@@ -23,18 +22,12 @@ namespace DataAccessLayer.dbContext
         public DbSet<BestmatchKeywordList> BestmatchKeywordLists { get; set; }
         public DbSet<ClosestTerm> ClosestTerms { get; set; }
 
-
-
-
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseMySql(
-                "server=wt-220.ruc.dk;database=raw2;uid=raw2;pwd=raw2");
-            
+                "server=localhost;database=mydb;uid=root;pwd=myriam1");
         }
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -47,13 +40,7 @@ namespace DataAccessLayer.dbContext
             modelBuilder.Entity<QuestionSearchResults>().Property(x => x.score).HasColumnName("score");
             modelBuilder.Entity<QuestionSearchResults>().Property(x => x.comment_text).HasColumnName("comment_text");
             modelBuilder.Entity<QuestionSearchResults>().Property(x => x.tag_name).HasColumnName("tag_name");
-
-
-
-
         }
-
-
 
     }
 }

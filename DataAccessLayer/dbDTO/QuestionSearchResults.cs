@@ -6,13 +6,11 @@ namespace DataAccessLayer.dbDTO
 {
    public class QuestionSearchResults
     {
-
         public int id { get; set; }
         public string title { get; set; }
         public string body { get; set; }
         public int score { get; set; }
         public string comment_text { get; set; }
         public string tag_name { get; set; }
-
     }
 }

@@ -12,6 +12,5 @@ namespace DataAccessLayer.dbDTO
         public string body { get; set; }
         public string annotation { get; set; }
         public DateTime creation_date { get; set; }
-
     }
 }
