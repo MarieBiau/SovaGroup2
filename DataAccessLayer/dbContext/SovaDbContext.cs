@@ -7,13 +7,12 @@ namespace DataAccessLayer.dbContext
 {
     class SovaDbContext : DbContext
     {
-        public DbSet<posts> posts { get; set; }
-        public DbSet<users> users { get; set; }
+        public DbSet<Post> Posts { get; set; }
         public DbSet<QuestionSearchResults> Questions { get; set; }
         public DbSet<ReturnSearches> ReturnSearches { get; set; }
         public DbSet<MarkPost> MarkPosts { get; set; }
         public DbSet<ReturnGoodMarks> ReturnGoodMarks { get; set; }
-        public DbSet<marks> marks { get; set; }
+        public DbSet<Marks> Marks { get; set; }
         public DbSet<ReturnVisitedPosts> ReturnVisitedPosts { get; set; }
         public DbSet<ReturnNewestQuestions> ReturnNewestQuestions { get; set; }
         public DbSet<ReturnLinkPosts> ReturnLinkPosts { get; set; }
