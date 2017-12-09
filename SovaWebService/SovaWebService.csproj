@@ -19,9 +19,4 @@
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\js\components\favorites\" />
-    <Folder Include="wwwroot\js\components\history\" />
-  </ItemGroup>
-
 </Project>

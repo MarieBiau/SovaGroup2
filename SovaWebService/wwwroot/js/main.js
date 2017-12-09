@@ -39,23 +39,24 @@ require(['knockout', 'jquery', 'jqcloud'], function (ko, $) {
 });
 
 require(['knockout'], function (ko) {
+    //home view/page
     ko.components.register("home",
         {
             viewModel: { require: "components/home/homeComp" },
             template: { require: "text!components/home/homecomp_view.html" }
         });
-   /*//history
-    ko.components.register("c2",
+    //history view
+    ko.components.register("favorites",
         {
-            viewModel: { require: "components/c2/c2" },
-            template: { require: "text!components/c2/c2_view.html" }
+            viewModel: { require: "components/favorites/favoriteComp" },
+            template: { require: "text!components/favorites/favoritecomp_view.html" }
         });
-    //favorites
-    ko.components.register("c3",
+    //favorites view
+    ko.components.register("history",
         {
-            viewModel: { require: "components/c3/c3" },
-            template: { require: "text!components/c3/c3_view.html" }
-        });*/
+            viewModel: { require: "components/history/historyComp" },
+            template: { require: "text!components/history/historycomp_view.html" }
+        });
 });
 
 
