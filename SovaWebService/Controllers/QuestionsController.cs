@@ -41,12 +41,6 @@ namespace SovaWebService.Controllers
                     x.body,
                 });
 
-            // no links 
-            var prev = page > 0 ? Url.Link(nameof(GetPosts), new { page = page - 1, pageSize }) : null;
-            var next = page < pages - 1 ? Url.Link(nameof(GetPosts), new { page = page + 1, pageSize }) : null;
-
-
-
             var result = new
             {
                 total,
