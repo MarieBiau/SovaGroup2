@@ -19,11 +19,28 @@ namespace DataAccessLayer.dbContext
             return post;
         }
 
-        public Users GetUser(int userId)
+        public List<Post> FindAllPosts(int page, int pageSize)
         {
-            var user = db.Users.FirstOrDefault(x => x.Id == userId);
-            return user;
+            List<Post> listPosts = new List<Post>();
+
+            var posts = db.Posts;
+
+            foreach (var post in posts)
+            {
+
+                listPosts.Add(post);
+
+            }
+
+            return listPosts
+                .OrderBy(x => x.id)
+                .Skip(page * pageSize)
+                .Take(pageSize)
+                .ToList();
         }
+
+
+
 
 
         public List<QuestionSearchResults> FindQuestionByString(string text, int page, int pageSize)
@@ -79,12 +96,12 @@ namespace DataAccessLayer.dbContext
         }
 
 
-        public bool MarkPost(int post_id, int type)
+        public bool  MarkPost(int post_id, int type)
         {
 
-            db.MarkPosts.FromSql("call mark_post({0},{1})", post_id, type);
+            var result = db.MarkPosts.FromSql("call mark_post({0},{1})", post_id, type);
             
-            return true;
+            return result.Any();
 
         }
 

@@ -18,7 +18,48 @@ namespace SovaWebService.Controllers
             _dataService = dataService;
         }
 
+        // GET: api/Questions
+        [HttpGet(Name = nameof(GetPosts))]
+        public IActionResult GetPosts( int page = 0, int pageSize = 10)
+        {
+            CheckPageSize(ref pageSize);
 
+            var total = _dataService.FindAllPosts(page, pageSize).Count;
+            var pages = GetTotalPages(pageSize, total);
+
+            var posts = _dataService.FindAllPosts(page, pageSize)
+                .Select(x => new {
+                    Link = Url.Link(nameof(GetPosts), new { x.id }),
+                    x.body
+                });
+
+
+            var data = _dataService.FindAllPosts(page, pageSize)
+                .Select(x => new 
+                {
+                    Link = Url.Link(nameof(GetPosts), new { x.id }),
+                    x.body,
+                });
+
+            // no links 
+            var prev = page > 0 ? Url.Link(nameof(GetPosts), new { page = page - 1, pageSize }) : null;
+            var next = page < pages - 1 ? Url.Link(nameof(GetPosts), new { page = page + 1, pageSize }) : null;
+
+
+
+            var result = new
+            {
+                total,
+                pages,
+                prev = Link(nameof(GetPosts), page, pageSize, -1, () => page > 0),
+                next = Link(nameof(GetPosts), page, pageSize, 1, () => page < total - 1),
+                items = data
+            };
+
+            return Ok(result);
+
+
+        }
 
         // GET: api/Questions/java
         [HttpGet("{searchText}", Name = nameof(GetResults))]

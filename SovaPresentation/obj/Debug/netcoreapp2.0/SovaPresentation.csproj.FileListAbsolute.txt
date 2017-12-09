@@ -1,0 +1,11 @@
+C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaPresentation\obj\Debug\netcoreapp2.0\SovaPresentation.csproj.CoreCompileInputs.cache
+C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaPresentation\obj\Debug\netcoreapp2.0\SovaPresentation.AssemblyInfoInputs.cache
+C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaPresentation\obj\Debug\netcoreapp2.0\SovaPresentation.AssemblyInfo.cs
+C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaPresentation\bin\Debug\netcoreapp2.0\SovaPresentation.deps.json
+C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaPresentation\bin\Debug\netcoreapp2.0\SovaPresentation.runtimeconfig.json
+C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaPresentation\bin\Debug\netcoreapp2.0\SovaPresentation.runtimeconfig.dev.json
+C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaPresentation\bin\Debug\netcoreapp2.0\SovaPresentation.dll
+C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaPresentation\bin\Debug\netcoreapp2.0\SovaPresentation.pdb
+C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaPresentation\obj\Debug\netcoreapp2.0\SovaPresentation.csprojResolveAssemblyReference.cache
+C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaPresentation\obj\Debug\netcoreapp2.0\SovaPresentation.dll
+C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaPresentation\obj\Debug\netcoreapp2.0\SovaPresentation.pdb

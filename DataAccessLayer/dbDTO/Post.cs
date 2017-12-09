@@ -10,7 +10,7 @@ namespace DataAccessLayer.dbDTO
         public DateTime creation_date { get; set; }
         public int score { get; set; }
         public string body { get; set; }
-        public int user_id { get; set; }
+        public int users_id { get; set; }
 
     }
 }

@@ -2,6 +2,7 @@
 using DataAccessLayer.dbContext;
 using DataAccessLayer.dbDTO;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,6 +26,7 @@ namespace SovaWebService
             services.AddAutoMapper();
             services.AddSingleton<IDataService, DataService>();
             services.AddSingleton<IMapper>(CreateMapper());
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,8 +35,11 @@ namespace SovaWebService
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                
+                
             }
 
+            app.UseFileServer();
             app.UseMvc();
         }
 
@@ -45,6 +50,8 @@ namespace SovaWebService
                 cfg.CreateMap<Marks, MarksModel>()
                     .ReverseMap();
             });
+
+            
 
             return config.CreateMapper();
         }

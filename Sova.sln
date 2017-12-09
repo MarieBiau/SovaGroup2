@@ -1,12 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SovaPresentation", "SovaPresentation\SovaPresentation.csproj", "{139AA3F3-1005-43C2-A4AC-2706FDC99F85}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SovaPresentation.Test", "SovaPresentation.Test\SovaPresentation.Test.csproj", "{4E3D0E24-4080-4C39-A146-33C81B344043}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{0D87DC91-C829-4006-AC06-2703F5FC2647}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer.Test", "DataAccessLAyer.Test\DataAccessLayer.Test.csproj", "{B9713F5B-AD92-4C6D-A22F-1CAB3034D9C7}"
@@ -14,9 +10,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer.Test", "Dat
 		{0D87DC91-C829-4006-AC06-2703F5FC2647} = {0D87DC91-C829-4006-AC06-2703F5FC2647}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SovaWebService", "SovaWebService\SovaWebService.csproj", "{0CAB4549-1EBB-401D-8712-E2ADECF544E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SovaWebService", "SovaWebService\SovaWebService.csproj", "{0CAB4549-1EBB-401D-8712-E2ADECF544E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SovaWebService.Test", "SovaWebService.Test\SovaWebService.Test.csproj", "{921408D8-3012-4312-A45D-A7F02AA054BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SovaWebService.Test", "SovaWebService.Test\SovaWebService.Test.csproj", "{921408D8-3012-4312-A45D-A7F02AA054BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,14 +20,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{139AA3F3-1005-43C2-A4AC-2706FDC99F85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{139AA3F3-1005-43C2-A4AC-2706FDC99F85}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{139AA3F3-1005-43C2-A4AC-2706FDC99F85}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{139AA3F3-1005-43C2-A4AC-2706FDC99F85}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4E3D0E24-4080-4C39-A146-33C81B344043}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4E3D0E24-4080-4C39-A146-33C81B344043}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4E3D0E24-4080-4C39-A146-33C81B344043}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4E3D0E24-4080-4C39-A146-33C81B344043}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0D87DC91-C829-4006-AC06-2703F5FC2647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0D87DC91-C829-4006-AC06-2703F5FC2647}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D87DC91-C829-4006-AC06-2703F5FC2647}.Release|Any CPU.ActiveCfg = Release|Any CPU

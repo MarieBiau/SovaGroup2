@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using DataAccessLayer.dbDTO;
 
 namespace DataAccessLayer.dbContext
@@ -8,6 +9,7 @@ namespace DataAccessLayer.dbContext
     {
 
         Post FindPost(int id);
+        List<Post> FindAllPosts(int page, int pageSize);
         List<QuestionSearchResults> FindQuestionByString(string searchText, int page, int pageSize);
         int GetNumberOfResults(string text);
         List<ReturnSearches> ReturnSearches();

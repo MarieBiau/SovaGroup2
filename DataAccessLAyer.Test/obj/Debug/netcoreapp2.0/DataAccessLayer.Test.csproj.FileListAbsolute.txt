@@ -1,6 +1,6 @@
 C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\DataAccessLAyer.Test\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\DataAccessLAyer.Test\bin\Debug\netcoreapp2.0\xunit.runner.utility.netstandard15.dll
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\DataAccessLAyer.Test\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netstandard15.dll
+C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\DataAccessLAyer.Test\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\DataAccessLAyer.Test\bin\Debug\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll
 C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\DataAccessLAyer.Test\bin\Debug\netcoreapp2.0\DataAccessLayer.Test.deps.json
 C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\DataAccessLAyer.Test\bin\Debug\netcoreapp2.0\DataAccessLayer.Test.runtimeconfig.json
 C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\DataAccessLAyer.Test\bin\Debug\netcoreapp2.0\DataAccessLayer.Test.runtimeconfig.dev.json

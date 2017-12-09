@@ -6,14 +6,24 @@ namespace DataAccessLayer.Test
     public class DataServiceTest
     {
 
-
         [Fact]
-        public void GetUser_ValidId_ReturnsUserObject()
+        public void FindPostById()
         {
             var service = new DataService();
-            var user = service.GetUser(1);
-            Assert.Equal("Jeff Atwood", user.DisplayName);
-            //Assert.True(true);
+            var post = service.FindPost(71);
+
+            Assert.Equal(71, post.id);
+
+        }
+
+        [Fact]
+        public void GetAllposts()
+        {
+            var service = new DataService();
+            var posts = service.FindAllPosts(0,10);
+
+            Assert.Equal(10, posts.Count);
+
         }
 
         [Fact]
@@ -39,7 +49,8 @@ namespace DataAccessLayer.Test
         public void MarkPost()
         {
             var service = new DataService();
-            var mark = service.MarkPost(9181, 2);
+            var mark = service.MarkPost(1243, 1);
+
             Assert.Equal(true, mark);
 
         }
