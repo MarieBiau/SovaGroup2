@@ -47,7 +47,7 @@ namespace SovaWebService
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<Marks, MarksModel>()
+                cfg.CreateMap<marks, MarksModel>()
                     .ReverseMap();
             });
 

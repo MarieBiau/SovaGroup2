@@ -9,6 +9,5 @@ namespace DataAccessLayer.dbDTO
         public int id { get; set; }
         public string lemma1 { get; set; }
         public int grade { get; set; }
-
     }
 }

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataAccessLayer.dbDTO
 {
-    public class Users
+    public class users
     {
         public int Id { get; set; }
 
