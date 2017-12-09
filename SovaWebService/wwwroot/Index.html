@@ -3,14 +3,22 @@
 <head>
     <title>index</title>
     <link href="css/site.css" rel="stylesheet" />
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="lib/jqcloud2/dist/jqcloud.css" rel="stylesheet" />
+
+
 </head>
 <body>
 
-    <h1 data-bind="text: title"></h1>
-
-    <div data-bind="template: {name: currentView}"></div>
+<h1 data-bind="text: title"></h1>
 
 
+
+<div data-bind="template: {name: currentView}"></div>
+<div data-bind="component: {name: curentView}"></div>
+
+
+<button data-bind="click: switchComponent">Switch</button>
 
 
     <script type="text/html" id="postlist">

@@ -1,10 +1,61 @@
-﻿require.config({
+﻿
+require.config({
+
     baseUrl: "js",
+
     paths: {
-        jquery: "../lib/jquery/dist/jquery.min",
-        knockout: "../lib/knockout/dist/knockout",
-        text: "../lib/text/text"
+        jquery: '../lib/jQuery/dist/jquery.min',
+        knockout: '../lib/knockout/dist/knockout',
+        text: '../lib/text/text',
+        jqcloud: '../lib/jqcloud2/dist/jqcloud.min'
+    },
+    shim: {
+        jqcloud: {
+            deps: ['jquery']
+        }
     }
+});
+
+require(['knockout', 'jquery', 'jqcloud'], function (ko, $) {
+    ko.bindingHandlers.cloud = {
+        init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
+            // This will be called when the binding is first applied to an element
+            // Set up any initial state, event handlers, etc. here
+            var words = allBindings.get('cloud').words;
+            if (words && ko.isObservable(words)) {
+                words.subscribe(function () {
+                    $(element).jQCloud('update', ko.unwrap(words));
+                });
+            }
+        },
+        update: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
+            // This will be called once when the binding is first applied to an element,
+            // and again whenever any observables/computeds that are accessed change
+            // Update the DOM element based on the supplied values here.
+            var words = ko.unwrap(allBindings.get('cloud').words) || [];
+            $(element).jQCloud(words);
+        }
+    };
+});
+
+require(['knockout'], function (ko) {
+    ko.components.register("home",
+        {
+            viewModel: { require: "components/home/homeComp" },
+            template: { require: "text!components/home/homecomp_view.html" }
+        });
+   /*//history
+    ko.components.register("c2",
+        {
+            viewModel: { require: "components/c2/c2" },
+            template: { require: "text!components/c2/c2_view.html" }
+        });
+    //favorites
+    ko.components.register("c3",
+        {
+            viewModel: { require: "components/c3/c3" },
+            template: { require: "text!components/c3/c3_view.html" }
+        });*/
 });
 
 
@@ -17,7 +68,16 @@ require(['jquery', 'knockout'], ($, ko) => {
         var prevLink = ko.observable();
 
         var currentView = ko.observable('postlist');
+        var curentView = ko.observable('postlist');
+        var switchComponent = function () {
+            if (curentView() === "postlist") {
+                curentView("home");
+                console.log("I have changed");
+            } else {
+                curentView("postlist");
+            }
 
+        }
 
         var next = () => {
             $.getJSON(nextLink(), data => {
@@ -83,8 +143,10 @@ require(['jquery', 'knockout'], ($, ko) => {
             prev,
             canPrev,
             currentView,
+            curentView,
             showPost,
             currentPost,
+            switchComponent,
             home
         };
     })();

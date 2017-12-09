@@ -14,7 +14,7 @@ namespace DataAccessLayer.dbContext
         public Post FindPost(int id)
         {
 
-            var post = db.Posts.FirstOrDefault(x => x.id == id);
+            var post = db.posts.FirstOrDefault(x => x.id == id);
 
             return post;
         }
@@ -23,7 +23,7 @@ namespace DataAccessLayer.dbContext
         {
             List<Post> listPosts = new List<Post>();
 
-            var posts = db.Posts;
+            var posts = db.posts;
 
             foreach (var post in posts)
             {
