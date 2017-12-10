@@ -7,8 +7,9 @@ namespace DataAccessLayer.dbContext
 {
     class SovaDbContext : DbContext
     {
-        public DbSet<Post> Posts { get; set; }
-        public DbSet<QuestionSearchResults> Questions { get; set; }
+        public DbSet<Posts> Posts { get; set; }
+        public DbSet<QuestionSearchResults> QuestionSearchResults { get; set; }
+        public DbSet<Question> Questions { get; set; }
         public DbSet<ReturnSearches> ReturnSearches { get; set; }
         public DbSet<MarkPost> MarkPosts { get; set; }
         public DbSet<ReturnGoodMarks> ReturnGoodMarks { get; set; }
@@ -20,12 +21,14 @@ namespace DataAccessLayer.dbContext
         public DbSet<BestMatch> BestMatches { get; set; }
         public DbSet<BestmatchKeywordList> BestmatchKeywordLists { get; set; }
         public DbSet<ClosestTerm> ClosestTerms { get; set; }
+        public DbSet<Answers> Answers { get; set; }
+        public DbSet<Comments> Comments { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseMySql(
-                "server=wt-220;database=raw2;uid=raw2;pwd=raw2");
+                "server=localhost;database=mydb;uid=root;pwd=asas");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

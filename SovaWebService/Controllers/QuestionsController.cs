@@ -17,81 +17,150 @@ namespace SovaWebService.Controllers
         {
             _dataService = dataService;
         }
+        
+
+        [HttpGet("{id}", Name = nameof(GetPost))]
+        public IActionResult GetPost(int id)
+        {
+            var post = _dataService.ReturnQuestionById(id);
+            
+            var result = new
+            {
+                Link = Url.Link(nameof(GetPost), new { post.id }),
+                post.title,
+                post.score,
+                post.body,
+                Answers = Url.Link(nameof(GetAnswers), new { post.id }),
+                
+            };
+
+            return Ok(result);
+
+        }
+
+        [HttpGet("{id}/answers", Name = nameof(GetAnswers))]
+        public IActionResult GetAnswers(int id)
+        {
+
+            var comment = _dataService.ReturnCommentsById(id)
+                .Select(x => new
+                {
+                    Link = Url.Link(nameof(GetPost), new { x.id }),
+                    Parent = Url.Link(nameof(GetPost), new { id }),
+                    body = x.text,
+                    x.creation_date,
+                    x.score
+                });
+
+
+            return Ok(comment);
+        }
+
+
+        //[HttpGet("{searchText}", Name = nameof(GetResults))]
+        //public IActionResult GetResults(string searchText, int page = 0, int pageSize = 10)
+        //{
+
+        //    CheckPageSize(ref pageSize);
+
+        //    var total = _dataService.GetNumberOfResults(searchText);
+        //    var pages = GetTotalPages(pageSize, total);
+
+        //    var data = _dataService.FindQuestionByString(searchText, page, pageSize)
+        //        .Select(x => new SearchResultsModel
+        //        {
+        //            Url = Url.Link(nameof(GetPost), new { x.id }),
+        //            title = x.title,
+        //            body = x.body,
+        //            id = x.id
+
+        //        });
+
+
+        //    var result = new
+        //    {
+        //        total,
+        //        pages,
+        //        prev = Link(nameof(GetResults), page, pageSize, -1, () => page > 0),
+        //        next = Link(nameof(GetResults), page, pageSize, 1, () => page < total - 1),
+        //        items = data
+        //    };
+
+        //    return Ok(result);
+
+
+        //}
+
+
+
+        // GET: api/Questions/java
+        //[HttpGet("{searchText}", Name = nameof(GetResults))]
+        //public IActionResult GetResults(string searchText, int page = 0, int pageSize = 10)
+        //{
+
+        //    CheckPageSize(ref pageSize);
+
+        //    var total = _dataService.GetNumberOfResults(searchText);
+        //    var pages = GetTotalPages(pageSize, total);
+
+        //    var data = _dataService.FindQuestionByString(searchText, page, pageSize)
+        //        .Select(x => new
+        //        {
+        //            Link = Url.Link(nameof(GetPost), new { x.id }),
+        //            title = x.title
+        //            //body = x.body
+
+        //        });
+
+
+        //    var result = new
+        //    {
+        //        total,
+        //        pages,
+        //        prev = Link(nameof(GetPost), page, pageSize, -1, () => page > 0),
+        //        next = Link(nameof(GetPost), page, pageSize, 1, () => page < total - 1),
+        //        items = data
+        //    };
+
+        //    return Ok(result);
+
+
+        //}
 
         // GET: api/Questions
+
         [HttpGet(Name = nameof(GetPosts))]
-        public IActionResult GetPosts( int page = 0, int pageSize = 10)
+        public IActionResult GetPosts(int page = 0, int pageSize = 10)
         {
+
             CheckPageSize(ref pageSize);
 
-            var total = _dataService.FindAllPosts(page, pageSize).Count;
+            var total = _dataService.GetNumberOfResults("");
             var pages = GetTotalPages(pageSize, total);
 
-            var posts = _dataService.FindAllPosts(page, pageSize)
-                .Select(x => new {
-                    Link = Url.Link(nameof(GetPosts), new { x.id }),
-                    x.body
-                });
-
-
-            var data = _dataService.FindAllPosts(page, pageSize)
-                .Select(x => new 
+            var data = _dataService.FindQuestionByString("", page, pageSize)
+                .Select(x => new
                 {
-                    Link = Url.Link(nameof(GetPosts), new { x.id }),
-                    x.body,
+                    Link = Url.Link(nameof(GetPost), new { x.id }),
+                    title = x.title
+
                 });
+
 
             var result = new
             {
                 total,
                 pages,
-                prev = Link(nameof(GetPosts), page, pageSize, -1, () => page > 0),
-                next = Link(nameof(GetPosts), page, pageSize, 1, () => page < total - 1),
+                prev = Link(nameof(GetPost), page, pageSize, -1, () => page > 0),
+                next = Link(nameof(GetPost), page, pageSize, 1, () => page < total - 1),
                 items = data
             };
 
             return Ok(result);
 
-
         }
 
-        // GET: api/Questions/java
-        [HttpGet("{searchText}", Name = nameof(GetResults))]
-        public IActionResult GetResults(string searchText, int page = 0, int pageSize = 2)
-        {
 
-            CheckPageSize(ref pageSize);
-
-            var total = _dataService.GetNumberOfResults(searchText);
-            var totalPages = GetTotalPages(pageSize, total);
-
-            var data = _dataService.FindQuestionByString(searchText, page , pageSize)
-                .Select(x => new SearchResultsModel
-                {
-                    Url = Url.Link(nameof(GetResults), new { id = x.id }),
-                    title = x.title,
-                    body = x.body,
-                    comment_text = x.comment_text,
-                    score = x.score,
-                    tag_name = x.tag_name
-                });
-
-
-            var result = new
-            {
-                Total_Results = total,
-                Pages = totalPages,
-                Page = page,
-                Prev = Link(nameof(GetResults), page, pageSize, -1, () => page > 0),
-                Next = Link(nameof(GetResults), page, pageSize, 1, () => page < totalPages - 1),
-                Url = Link(nameof(GetResults), page, pageSize),
-                Data = data
-            };
-
-            return Ok(result);
-
-            
-        }
 
         // Helpers 
 

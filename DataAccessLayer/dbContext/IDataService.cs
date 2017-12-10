@@ -8,9 +8,16 @@ namespace DataAccessLayer.dbContext
     public interface IDataService
     {
 
-        Post FindPost(int id);
-        List<Post> FindAllPosts(int page, int pageSize);
+        Posts FindPost(int id);
+        List<Posts> FindAllPosts(int page, int pageSize);
         List<QuestionSearchResults> FindQuestionByString(string searchText, int page, int pageSize);
+
+        Question ReturnQuestionById(int id);
+
+
+        List<Comments> ReturnCommentsById(int id);
+
+
         int GetNumberOfResults(string text);
         List<ReturnSearches> ReturnSearches();
         Boolean MarkPost(int post_id, int type);

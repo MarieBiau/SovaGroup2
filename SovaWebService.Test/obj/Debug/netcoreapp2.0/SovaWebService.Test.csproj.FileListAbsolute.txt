@@ -6,6 +6,7 @@ C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebServic
 C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService.Test\bin\Debug\netcoreapp2.0\SovaWebService.Test.runtimeconfig.dev.json
 C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService.Test\bin\Debug\netcoreapp2.0\SovaWebService.Test.dll
 C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService.Test\bin\Debug\netcoreapp2.0\SovaWebService.Test.pdb
+C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService.Test\obj\Debug\netcoreapp2.0\SovaWebService.Test.csprojResolveAssemblyReference.cache
 C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService.Test\obj\Debug\netcoreapp2.0\SovaWebService.Test.csproj.CoreCompileInputs.cache
 C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService.Test\obj\Debug\netcoreapp2.0\SovaWebService.Test.AssemblyInfoInputs.cache
 C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService.Test\obj\Debug\netcoreapp2.0\SovaWebService.Test.AssemblyInfo.cs

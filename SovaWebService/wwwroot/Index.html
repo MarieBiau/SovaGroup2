@@ -2,57 +2,43 @@
 <html>
 <head>
     <title>index</title>
-    <link href="css/site.css" rel="stylesheet" />
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="lib/jqcloud2/dist/jqcloud.css" rel="stylesheet" />
 </head>
-<body>
+<body class="container">
 
-    <h1 data-bind="text: title"></h1>
-
-    <div data-bind="template: {name: currentView}"></div>
-
-
-
-
-    <script type="text/html" id="postlist">
-        <div data-bind="foreach: posts">
-            <div>
-                <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: body"></span></a>
-            </div>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Brand</a>
         </div>
-        <div class="btn-group">
-            <button data-bind="click: prev, enable: canPrev">Prev</button>
-            <button data-bind="click: next, enable: canNext">Next</button>
-        </div>
-    </script>
+              
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    
+            <ul class="nav navbar-nav navbar-right" data-bind="foreach: links">
+                <li data-bind="css: $parent.isActive($data)">
+                    <a href="#" data-bind="click: $parent.change, text: name"></a>
+                </li>
+                      
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
 
-    <script type="text/html" id="postview">
-        <div>
-            <button data-bind="click: home">Back</button>
-        </div>
-        <div data-bind="with: currentPost">
-            <h2 data-bind="text: body"></h2>
-            <h3>
-                Creation Date: <span data-bind="text: creationDate"></span>
-            </h3>
-            <h3>
-                Score: <span data-bind="text: score"></span>
-            </h3>
-            <div data-bind="html: body"></div>
 
-            <hr />
 
-            <div data-bind="foreach: answers">
-                <div data-bind="html: body"></div>
-                <hr />
-                <div>
-                    <button data-bind="click: $parents[1].home">Back</button>
-                </div>
-            </div>
 
-        </div>
 
-    </script>
+<div data-bind="component: { name: currentComp}"></div>
 
-    <script data-main="js/main" src="lib/requirejs/require.js"></script>
+<script data-main="js/main" src="lib/requirejs/require.js"></script>
 </body>
 </html>
