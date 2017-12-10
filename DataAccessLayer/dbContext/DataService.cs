@@ -11,7 +11,7 @@ namespace DataAccessLayer.dbContext
         SovaDbContext db = new SovaDbContext();
 
 
-        public Post FindPost(int id)
+        public Posts FindPost(int id)
         {
 
             var post = db.Posts.FirstOrDefault(x => x.id == id);
@@ -19,9 +19,9 @@ namespace DataAccessLayer.dbContext
             return post;
         }
 
-        public List<Post> FindAllPosts(int page, int pageSize)
+        public List<Posts> FindAllPosts(int page, int pageSize)
         {
-            List<Post> listPosts = new List<Post>();
+            List<Posts> listPosts = new List<Posts>();
 
             var posts = db.Posts;
 
@@ -38,16 +38,12 @@ namespace DataAccessLayer.dbContext
                 .Take(pageSize)
                 .ToList();
         }
-
-
-
-
-
+        
         public List<QuestionSearchResults> FindQuestionByString(string text, int page, int pageSize)
         {
             List<QuestionSearchResults> listQuestions = new List<QuestionSearchResults>();
 
-                var Questions = db.Questions.FromSql("call search({0})", text);
+                var Questions = db.QuestionSearchResults.FromSql("call search({0})", text);
 
                 foreach (var Question in Questions)
                 {
@@ -62,13 +58,46 @@ namespace DataAccessLayer.dbContext
                 .Take(pageSize)
                 .ToList();
         }
+        
+        public Question ReturnQuestionById(int id)
+        {
+
+            var results = db.Questions.FromSql("call return_question({0})", id);
+            //var returnQuestion = results.FirstOrDefault(x=>x.id == id);
+
+            results.Any();
+            return results.FirstOrDefault(x=>x.id == id);
+        }
+
+        public List<Comments> ReturnCommentsById(int id)
+        {
+
+            //List<Question> answerList = new List<Question>();
+            ////var AnsweriIds = db.Answers.Where(x => x.parent_id == id);
+            //List<Question> listAnswerIds = new List<Question>();
+            //var answerIds = db.Questions.FromSql("call return_answers_id({0})", id);
+
+            List<Comments> CommentList = new List<Comments>();
 
 
+            var Comments = db.Comments.Where(x => x.posts_id == id);
+
+
+            foreach (var comment in Comments)
+            {
+
+                CommentList.Add(comment);
+
+            }
+            
+            return CommentList;
+        }
+        
         public int GetNumberOfResults(string text)
         {
             List<QuestionSearchResults> listQuestions = new List<QuestionSearchResults>();
 
-            var Questions = db.Questions.FromSql("call search({0})", text);
+            var Questions = db.QuestionSearchResults.FromSql("call search({0})", text);
 
             foreach (var Question in Questions)
             {
