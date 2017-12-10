@@ -13453,7 +13453,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kestutis\\.nuget\\packages\\": {},
+    "C:\\Users\\Louise\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -13462,17 +13462,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\SovaWebService\\SovaWebService.csproj",
+      "projectUniqueName": "C:\\Users\\Louise\\Documents\\GitHub\\SovaGroup2\\SovaWebService\\SovaWebService.csproj",
       "projectName": "SovaWebService",
-      "projectPath": "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\SovaWebService\\SovaWebService.csproj",
-      "packagesPath": "C:\\Users\\kestutis\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\SovaWebService\\obj\\",
+      "projectPath": "C:\\Users\\Louise\\Documents\\GitHub\\SovaGroup2\\SovaWebService\\SovaWebService.csproj",
+      "packagesPath": "C:\\Users\\Louise\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Louise\\Documents\\GitHub\\SovaGroup2\\SovaWebService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\kestutis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Louise\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13485,8 +13485,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\DataAccessLayer\\DataAccessLayer.csproj": {
-              "projectPath": "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\DataAccessLayer\\DataAccessLayer.csproj"
+            "C:\\Users\\Louise\\Documents\\GitHub\\SovaGroup2\\DataAccessLayer\\DataAccessLayer.csproj": {
+              "projectPath": "C:\\Users\\Louise\\Documents\\GitHub\\SovaGroup2\\DataAccessLayer\\DataAccessLayer.csproj"
             }
           }
         }
@@ -13510,7 +13510,7 @@
           },
           "Microsoft.NETCore.App": {
             "target": "Package",
-            "version": "2.0",
+            "version": "2.0.0",
             "autoReferenced": true
           },
           "AutoMapper": {

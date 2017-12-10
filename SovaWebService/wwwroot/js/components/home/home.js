@@ -1,29 +1,42 @@
 ﻿define(['knockout'], function (ko) {
     return function (params) {
         var title = ko.observable("Component Home");
+        var word1 = "bootstrap";
+        var word2 = "sql";
 
-        var words = ko.observableArray([
-            { text: "Lorem", weight: 13 },
-            { text: "Ipsum", weight: 10.5 },
-            { text: "Dolor", weight: 9.4 },
-            { text: "Sit", weight: 8 },
-            { text: "Amet", weight: 6.2 },
-            { text: "Consectetur", weight: 5 },
-            { text: "Adipiscing", weight: 5 },
-            /* ... */
-        ]);
+        var words = ko.observableArray([]);
 
-        var chageWords = function () {
-            words([
-                { text: "Joe", weight: 13 },
-                { text: "Peter", weight: 10.5 },
-                { text: "Dolor", weight: 9.4 },
-                { text: "Sit", weight: 8 },
-                { text: "Amet", weight: 6.2 },
-                { text: "Consectetur", weight: 5 },
-                { text: "Adipiscing", weight: 5 },
-                /* ... */
-            ]);
+        $.getJSON("api/BestMatchList/" + word1, data => {
+
+            for (var i = 0; i < data.length; i++) {
+
+
+                var wordobj = { text: data[i].lemma, weight: data[i].weight };
+                words.push(wordobj);
+
+                console.log("JSON Data: " + data[i].lemma + " " + data[i].weight);
+            }
+        });
+       
+
+        var changeWords = function () {
+            $.getJSON("api/BestMatchList/" + word2, data => {
+                
+                var obj = [];
+
+                for (var i = 0; i < data.length; i++) {
+
+
+                    var wordobj = { text: data[i].lemma, weight: data[i].weight };
+                    obj.push(wordobj);
+
+
+                    console.log("JSON Data: " + data[i].lemma + " " + data[i].weight);
+                }
+                words(obj);
+
+            });
+
         }
 
 
@@ -37,7 +50,7 @@
         return {
             title,
             words,
-            chageWords
+            changeWords
         };
     }
 });

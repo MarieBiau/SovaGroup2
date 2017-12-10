@@ -5713,7 +5713,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kestutis\\.nuget\\packages\\": {},
+    "C:\\Users\\Louise\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -5722,17 +5722,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\SovaWebService.Test\\SovaWebService.Test.csproj",
+      "projectUniqueName": "C:\\Users\\Louise\\Documents\\GitHub\\SovaGroup2\\SovaWebService.Test\\SovaWebService.Test.csproj",
       "projectName": "SovaWebService.Test",
-      "projectPath": "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\SovaWebService.Test\\SovaWebService.Test.csproj",
-      "packagesPath": "C:\\Users\\kestutis\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\SovaWebService.Test\\obj\\",
+      "projectPath": "C:\\Users\\Louise\\Documents\\GitHub\\SovaGroup2\\SovaWebService.Test\\SovaWebService.Test.csproj",
+      "packagesPath": "C:\\Users\\Louise\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Louise\\Documents\\GitHub\\SovaGroup2\\SovaWebService.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\kestutis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Louise\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5756,22 +5756,22 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
-          "Microsoft.NETCore.App": {
-            "target": "Package",
-            "version": "2.0",
-            "autoReferenced": true
-          },
           "xunit.runner.visualstudio": {
             "target": "Package",
-            "version": "[2.3.1, )"
+            "version": "2.3.1"
+          },
+          "Microsoft.NETCore.App": {
+            "target": "Package",
+            "version": "2.0.0",
+            "autoReferenced": true
           },
           "xunit": {
             "target": "Package",
-            "version": "[2.3.1, )"
+            "version": "2.3.1"
           },
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
-            "version": "[15.5.0, )"
+            "version": "15.5.0"
           }
         },
         "imports": [
