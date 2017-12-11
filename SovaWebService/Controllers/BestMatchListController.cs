@@ -11,7 +11,7 @@ namespace SovaWebService.Controllers
     [Route("api/BestMatchList")]
     public class BestMatchListController : Controller
     {
-        private IDataService _dataService;
+        private readonly IDataService _dataService;
 
         public BestMatchListController(IDataService dataService)
         {

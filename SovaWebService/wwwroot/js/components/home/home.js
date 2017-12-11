@@ -5,6 +5,9 @@
         var word2 = "sql";
         var wordbtn = [];
 
+        
+
+        //words for wordcloud
         var words = ko.observableArray([]);
 
         $.getJSON("api/BestMatchList/" + word1, data => {
@@ -21,6 +24,7 @@
        
 
         var changeWords = function () {
+            //words = ko.observableArray([]);
             $.getJSON("api/BestMatchList/" + word2, data => {
                 
                 var obj = [];
@@ -39,7 +43,18 @@
             });
 
         }
+        //popular tags for buttons
+        //$.getJSON("api/tags/10", data => {
 
+        //    for (var i = 0; i < data.length; i++) {
+
+
+        //        //var wordobj = { text: data[i].name, weight: data[i].weight };
+        //        //words.push(wordobj);
+
+        //        console.log("JSON Data: " + data[i].name);
+        //    }
+        //});
 
         //TODO
         //change fake text to return most used tags...

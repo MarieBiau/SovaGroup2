@@ -118,7 +118,7 @@ namespace DataAccessLayer.Test
         {
             var service = new DataService();
 
-            var result = service.PopularTagsList(8);
+            var result = service.PopularTagsList(10);
             Assert.Equal(10, result.Count);
 
         }
