@@ -25,6 +25,8 @@ namespace DataAccessLayer.dbContext
         Boolean UpdateAnnotation(int id, string annotation);
         Marks GetMark(int id);
 
+        List<PopularTags> PopularTagsList(int number);
+
         List<BestMatch> BestMatches(string text);
         List<BestmatchKeywordList> BestmatchKeywordLists(string text);
         List<ClosestTerm> ClosestTerms(string text);

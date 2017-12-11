@@ -18,6 +18,7 @@ namespace DataAccessLayer.dbContext
         public DbSet<ReturnNewestQuestions> ReturnNewestQuestions { get; set; }
         public DbSet<ReturnLinkPosts> ReturnLinkPosts { get; set; }
         public DbSet<ReturnPostTags> ReturnPostTags { get; set; }
+        public DbSet<PopularTags> PopularTags { get; set; }
         public DbSet<BestMatch> BestMatches { get; set; }
         public DbSet<BestmatchKeywordList> BestmatchKeywordLists { get; set; }
         public DbSet<ClosestTerm> ClosestTerms { get; set; }
@@ -28,7 +29,7 @@ namespace DataAccessLayer.dbContext
         {
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseMySql(
-                "server=localhost;database=mydb;uid=root;pwd=asas");
+                "server=localhost;database=mydb;uid=root;pwd=RUC2014");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

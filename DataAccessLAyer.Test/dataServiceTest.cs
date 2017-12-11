@@ -114,6 +114,16 @@ namespace DataAccessLayer.Test
         }
 
         [Fact]
+        public void PopularTags()
+        {
+            var service = new DataService();
+
+            var result = service.PopularTagsList(8);
+            Assert.Equal(10, result.Count);
+
+        }
+    
+        [Fact]
         public void ReturnBestMatch()
         {
             var service = new DataService();

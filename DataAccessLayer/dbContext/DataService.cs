@@ -223,7 +223,7 @@ namespace DataAccessLayer.dbContext
             return listReturnLinkPosts;
 
         }
-        
+
         public List<ReturnPostTags> ReturnPostTags(int id)
         {
             List<ReturnPostTags> listReturnPostTags = new List<ReturnPostTags>();
@@ -239,6 +239,19 @@ namespace DataAccessLayer.dbContext
             return listReturnPostTags;
 
         }
+
+        //getting most used tags
+        public List<PopularTags> PopularTagsList(int number)
+        {
+            List<PopularTags> listreturnTags = new List<PopularTags>();
+            var returnTags = db.PopularTags.FromSql("call count_tags_occurrences({0})", number);
+            foreach (var tag in returnTags)
+            {
+                listreturnTags.Add(tag);
+            }
+            return listreturnTags;
+        }
+        
 
         public List<BestMatch> BestMatches(string text)
         {

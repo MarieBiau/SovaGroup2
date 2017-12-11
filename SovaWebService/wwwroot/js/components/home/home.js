@@ -3,6 +3,7 @@
         var title = ko.observable("Component Home");
         var word1 = "bootstrap";
         var word2 = "sql";
+        var wordbtn = [];
 
         var words = ko.observableArray([]);
 
@@ -42,7 +43,11 @@
 
         //TODO
         //change fake text to return most used tags...
-        //call controller for newews posts
+        //make buttons (array) for change of name
+        //expand changeword function to take more words 
+        //make inout field, where user can write own words
+        //give cloud words links to posts search
+        //call controller for newest posts
 
 
 
