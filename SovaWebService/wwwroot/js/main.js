@@ -5,6 +5,7 @@
         knockout: "../lib/knockout/dist/knockout",
         text: "../lib/text/text",    
         jqcloud: '../lib/jqcloud2/dist/jqcloud.min'
+     
     },
     shim: {
         jqcloud: {

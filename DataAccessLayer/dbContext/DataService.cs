@@ -59,40 +59,57 @@ namespace DataAccessLayer.dbContext
                 .ToList();
         }
         
-        public Question ReturnQuestionById(int id)
+        public Posts ReturnQuestionById(int id)
         {
+            var results = db.Posts.FirstOrDefault(x=>x.id == id);
 
-            var results = db.Questions.FromSql("call return_question({0})", id);
-            //var returnQuestion = results.FirstOrDefault(x=>x.id == id);
+            return results;
+            //var results = db.Questions.FromSql("call return_question({0})", id);
 
-            results.Any();
-            return results.FirstOrDefault(x=>x.id == id);
+            //if (results.Any())
+            //{
+
+            //    return results.FirstOrDefault(x => x.id == id);
+            //}
+            //else
+            //{
+            //    var returnAnswer = db.Questions.FromSql("call return_answer({0})", id);
+            //    return returnAnswer.FirstOrDefault(x => x.id == id);
+
+            //}
+
+            //return results.FirstOrDefault(x => x.id == id);
+
+
         }
 
         public List<Comments> ReturnCommentsById(int id)
         {
 
-            //List<Question> answerList = new List<Question>();
-            ////var AnsweriIds = db.Answers.Where(x => x.parent_id == id);
-            //List<Question> listAnswerIds = new List<Question>();
-            //var answerIds = db.Questions.FromSql("call return_answers_id({0})", id);
-
             List<Comments> CommentList = new List<Comments>();
-
-
-            var Comments = db.Comments.Where(x => x.posts_id == id);
-
+            var Comments =  db.Comments.Where(x => x.posts_id == id);
 
             foreach (var comment in Comments)
             {
-
                 CommentList.Add(comment);
-
             }
-            
-            return CommentList;
+            return  CommentList;
         }
-        
+
+        public List<AnswersSearchResults> ReturnAnswersById(int id)
+        {
+
+            List<AnswersSearchResults> answerList = new List<AnswersSearchResults>();
+            var answers = db.AnswersSearchResults.FromSql("call return_answers({0})", id);
+
+            foreach (var answer in answers)
+            {
+                answerList.Add(answer);
+            }
+
+            return answerList;
+        }
+
         public int GetNumberOfResults(string text)
         {
             List<QuestionSearchResults> listQuestions = new List<QuestionSearchResults>();

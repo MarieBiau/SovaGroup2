@@ -12,14 +12,17 @@ namespace DataAccessLayer.dbContext
         List<Posts> FindAllPosts(int page, int pageSize);
         List<QuestionSearchResults> FindQuestionByString(string searchText, int page, int pageSize);
 
-        Question ReturnQuestionById(int id);
+        Posts ReturnQuestionById(int id);
 
 
-        List<Comments> ReturnCommentsById(int id);
-
+        List<Comments> ReturnCommentsById(int id); 
+        List<AnswersSearchResults> ReturnAnswersById(int id);
+        List<ReturnNewestQuestions> ReturnNewestPosts(int id);
 
         int GetNumberOfResults(string text);
         List<ReturnSearches> ReturnSearches();
+        List<ReturnVisitedPosts> ReturnVisitedPosts();
+
         Boolean MarkPost(int post_id, int type);
         List<ReturnGoodMarks> ReturnGoodMarks();
         Boolean UpdateAnnotation(int id, string annotation);

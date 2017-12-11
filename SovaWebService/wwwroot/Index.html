@@ -2,43 +2,55 @@
 <html>
 <head>
     <title>index</title>
-    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="lib/jqcloud2/dist/jqcloud.css" rel="stylesheet" />
+    <link href="lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 </head>
-<body class="container">
+<body>
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Sova Web Project</a>
+                </div>
 
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Brand</a>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    <ul class="nav navbar-nav navbar-right" data-bind="foreach: links">
+                        <li data-bind="css: $parent.isActive($data)">
+                            <a href="#" data-bind="click: $parent.change, text: name"></a>
+                        </li>
+
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+       
+        
+        <div class="row">
+            
+            <br/>
+
+            <div class="col-lg-4 col-lg-offset-4">
+
+                <input type="search" id="search" value="" class="form-control" placeholder="Search for posts!">
+            </div>
         </div>
-              
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    
-            <ul class="nav navbar-nav navbar-right" data-bind="foreach: links">
-                <li data-bind="css: $parent.isActive($data)">
-                    <a href="#" data-bind="click: $parent.change, text: name"></a>
-                </li>
-                      
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
 
+        <div data-bind="component: { name: currentComp}"></div>
 
-
-
-
-<div data-bind="component: { name: currentComp}"></div>
+    </div>
 
 <script data-main="js/main" src="lib/requirejs/require.js"></script>
+<script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+
 </body>
 </html>

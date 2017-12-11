@@ -26,7 +26,8 @@ namespace SovaWebService
             services.AddAutoMapper();
             services.AddSingleton<IDataService, DataService>();
             services.AddSingleton<IMapper>(CreateMapper());
-            
+            services.AddRouting();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,7 +41,18 @@ namespace SovaWebService
             }
 
             app.UseFileServer();
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+
+                routes.MapRoute(
+                    name: "custom",
+                    template: "{controller}/{action}");
+                    
+
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller}/{action}/{id?}");
+            });
         }
 
         public IMapper CreateMapper()

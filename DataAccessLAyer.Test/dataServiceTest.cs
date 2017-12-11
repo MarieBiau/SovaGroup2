@@ -136,6 +136,14 @@ namespace DataAccessLayer.Test
             Assert.Equal(12, result.Count);
 
         }
+        [Fact]
+        public void ReturnAnswersById()
+        {
+            var service = new DataService();
+            var result = service.ReturnAnswersById(19);
+            Assert.Equal(21, result.Count);
+
+        }
     }
 }
 

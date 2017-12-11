@@ -1,6 +1,18 @@
 ﻿<h1 data-bind="text: title"></h1>
 
-<div data-bind="cloud: {words}" style="width: 200px; height: 200px"></div>
+<div class="col-md-6" data-bind="cloud: {words}" style="min-width: 200px; min-height: 200px"></div>
 
-<button data-bind="click: chageWords">Change Words</button>
+<!--<button data-bind="click: chageWords">Change Words</button>-->
 
+
+<div class="col-md-6" data-bind="template: {name: currentView}"></div>
+
+<script type="text/html" id="postlist">
+    <h1>Latest Questions</h1>
+    <div data-bind="foreach: posts">
+        <div>
+            <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a>
+        </div>
+    </div>
+
+</script>

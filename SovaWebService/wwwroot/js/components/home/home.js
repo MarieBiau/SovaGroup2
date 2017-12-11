@@ -26,18 +26,21 @@
             ]);
         }
 
+        var posts = ko.observableArray([]);
+        var currentView = ko.observable('postlist');
 
-        //TODO
-        //change fake text to return most used tags...
-        //call controller for newews posts
-
-
+        $.getJSON("api/newestposts/", data => {
+            posts(data.items);
+            console.log(data.items);
+        });
 
 
         return {
             title,
             words,
-            chageWords
+            chageWords,
+            posts,
+            currentView
         };
     }
 });

@@ -20,17 +20,20 @@ namespace SovaWebService.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            if (_dataService.ReturnSearches().Count > 0)
-            {
+            var returnSearches = _dataService.ReturnSearches()
+                .Select(x => new
+                {
+                     text = x.text,
+                     date = x.search_date
 
-                //return latest top 10 or other amount requested by client
-                return Ok(_dataService.ReturnSearches());
+                }).Take(5);
 
-            }
-            else
+            var result = new
             {
-                return NotFound();
-            }
+                items = returnSearches
+            };
+
+            return Ok(result);
         }
 
         // GET: api/searches/if 0 means take all
