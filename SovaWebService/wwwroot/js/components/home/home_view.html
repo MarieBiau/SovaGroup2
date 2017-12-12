@@ -1,7 +1,12 @@
 ﻿<h1 data-bind="text: title"></h1>
+<form>
+    Find the best match to a word by typing in a word and see it in a new word cloud:<br>
+    <input data-bind="textInput: word"><br>
+    <input type="submit" value="Submit" data-bind="click: submitword">
+</form>
+
 <div data-bind="cloud: {words}" style="width: 500px; height: 500px"></div>
-<button data-bind="click: changeWords">Change Words</button>
-<div data-bind="foreach: wordbtn">
-    <button data-bind="click: $parent.changeWords" text="tagobj"></button>
-</div>
+<button data-bind="click: showtags">See most common tags</button>
+
+
 
