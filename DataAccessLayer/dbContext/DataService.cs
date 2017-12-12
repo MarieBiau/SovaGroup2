@@ -8,40 +8,49 @@ namespace DataAccessLayer.dbContext
 {
     public class DataService : IDataService
     {
-        SovaDbContext db = new SovaDbContext();
 
 
         public Posts FindPost(int id)
         {
+            using (var db = new SovaDbContext())
+            {
 
-            var post = db.Posts.FirstOrDefault(x => x.id == id);
+                var post = db.Posts.FirstOrDefault(x => x.id == id);
 
-            return post;
+                return post;
+            }
         }
 
         public List<Posts> FindAllPosts(int page, int pageSize)
         {
-            List<Posts> listPosts = new List<Posts>();
-
-            var posts = db.Posts;
-
-            foreach (var post in posts)
+            using (var db = new SovaDbContext())
             {
 
-                listPosts.Add(post);
+                List<Posts> listPosts = new List<Posts>();
 
+                var posts = db.Posts;
+
+                foreach (var post in posts)
+                {
+
+                    listPosts.Add(post);
+
+                }
+
+                return listPosts
+                    .OrderBy(x => x.id)
+                    .Skip(page * pageSize)
+                    .Take(pageSize)
+                    .ToList();
             }
-
-            return listPosts
-                .OrderBy(x => x.id)
-                .Skip(page * pageSize)
-                .Take(pageSize)
-                .ToList();
         }
         
         public List<QuestionSearchResults> FindQuestionByString(string text, int page, int pageSize)
         {
-            List<QuestionSearchResults> listQuestions = new List<QuestionSearchResults>();
+            using (var db = new SovaDbContext())
+            {
+
+                List<QuestionSearchResults> listQuestions = new List<QuestionSearchResults>();
 
                 var Questions = db.QuestionSearchResults.FromSql("call search({0})", text);
 
@@ -49,243 +58,291 @@ namespace DataAccessLayer.dbContext
                 {
 
                     listQuestions.Add(Question);
-                
+
                 }
-                
-            return listQuestions
-                .OrderBy(x => x.id)
-                .Skip(page * pageSize)
-                .Take(pageSize)
-                .ToList();
+
+                return listQuestions
+                    .OrderBy(x => x.id)
+                    .Skip(page * pageSize)
+                    .Take(pageSize)
+                    .ToList();
+            }
         }
         
         public Question ReturnQuestionById(int id)
         {
+            using (var db = new SovaDbContext())
+            {
 
-            var results = db.Questions.FromSql("call return_question({0})", id);
-            //var returnQuestion = results.FirstOrDefault(x=>x.id == id);
 
-            results.Any();
-            return results.FirstOrDefault(x=>x.id == id);
+                var results = db.Questions.FromSql("call return_question({0})", id);
+                //var returnQuestion = results.FirstOrDefault(x=>x.id == id);
+
+                results.Any();
+                return results.FirstOrDefault(x => x.id == id);
+            }
         }
 
         public List<Comments> ReturnCommentsById(int id)
         {
-
-            //List<Question> answerList = new List<Question>();
-            ////var AnsweriIds = db.Answers.Where(x => x.parent_id == id);
-            //List<Question> listAnswerIds = new List<Question>();
-            //var answerIds = db.Questions.FromSql("call return_answers_id({0})", id);
-
-            List<Comments> CommentList = new List<Comments>();
-
-
-            var Comments = db.Comments.Where(x => x.posts_id == id);
-
-
-            foreach (var comment in Comments)
+            using (var db = new SovaDbContext())
             {
 
-                CommentList.Add(comment);
 
+                //List<Question> answerList = new List<Question>();
+                ////var AnsweriIds = db.Answers.Where(x => x.parent_id == id);
+                //List<Question> listAnswerIds = new List<Question>();
+                //var answerIds = db.Questions.FromSql("call return_answers_id({0})", id);
+
+                List<Comments> CommentList = new List<Comments>();
+
+
+                var Comments = db.Comments.Where(x => x.posts_id == id);
+
+
+                foreach (var comment in Comments)
+                {
+
+                    CommentList.Add(comment);
+
+                }
+
+                return CommentList;
             }
-            
-            return CommentList;
         }
         
         public int GetNumberOfResults(string text)
         {
-            List<QuestionSearchResults> listQuestions = new List<QuestionSearchResults>();
-
-            var Questions = db.QuestionSearchResults.FromSql("call search({0})", text);
-
-            foreach (var Question in Questions)
+            using (var db = new SovaDbContext())
             {
 
-                listQuestions.Add(Question);
+                List<QuestionSearchResults> listQuestions = new List<QuestionSearchResults>();
 
+                var Questions = db.QuestionSearchResults.FromSql("call search({0})", text);
+
+                foreach (var Question in Questions)
+                {
+
+                    listQuestions.Add(Question);
+
+                }
+
+                return listQuestions.Count();
             }
-
-            return listQuestions.Count();
         }
 
         public List<ReturnSearches> ReturnSearches()
         {
-            List<ReturnSearches> listSearches = new List<ReturnSearches>();
-
-            var Searches = db.ReturnSearches.FromSql("call return_searches()");
-            foreach (var search in Searches)
+            using (var db = new SovaDbContext())
             {
 
-                listSearches.Add(search);
+                List<ReturnSearches> listSearches = new List<ReturnSearches>();
 
+                var Searches = db.ReturnSearches.FromSql("call return_searches()");
+                foreach (var search in Searches)
+                {
+
+                    listSearches.Add(search);
+
+                }
+
+                return listSearches;
             }
-
-            return listSearches;
         }
 
 
         public bool  MarkPost(int post_id, int type)
         {
+            using (var db = new SovaDbContext())
+            {
 
-            var result = db.MarkPosts.FromSql("call mark_post({0},{1})", post_id, type);
-            
-            return result.Any();
+                var result = db.MarkPosts.FromSql("call mark_post({0},{1})", post_id, type);
 
+                return result.Any();
+            }
         }
 
         public List<ReturnGoodMarks> ReturnGoodMarks()
         {
-            List<ReturnGoodMarks> listReturnGoodMarks = new List<ReturnGoodMarks>();
-
-            var Marks = db.ReturnGoodMarks.FromSql("call return_good_marks()");
-            foreach (var mark in Marks)
+            using (var db = new SovaDbContext())
             {
 
-                listReturnGoodMarks.Add(mark);
+                List<ReturnGoodMarks> listReturnGoodMarks = new List<ReturnGoodMarks>();
 
+                var Marks = db.ReturnGoodMarks.FromSql("call return_good_marks()");
+                foreach (var mark in Marks)
+                {
+
+                    listReturnGoodMarks.Add(mark);
+
+                }
+
+                return listReturnGoodMarks;
             }
-
-            return listReturnGoodMarks;
-
         }
 
         public Boolean UpdateAnnotation(int id, string annotation)
         {
-
-            var marks = db.Marks.FirstOrDefault(x => x.id == id);
-            if (marks != null)
+            using (var db = new SovaDbContext())
             {
-                marks.annotation = annotation;
 
-                db.SaveChanges();
-                return true;
+                var marks = db.Marks.FirstOrDefault(x => x.id == id);
+                if (marks != null)
+                {
+                    marks.annotation = annotation;
+
+                    db.SaveChanges();
+                    return true;
+                }
+                return false;
             }
-            return false;
-
         }
 
 
         public Marks GetMark(int id)
         {
+            using (var db = new SovaDbContext())
+            {
 
-            var mark = db.Marks.FirstOrDefault(x => x.posts_id == id);
-            return mark;
 
+                var mark = db.Marks.FirstOrDefault(x => x.posts_id == id);
+                return mark;
+            }
         }
 
 
         public List<ReturnVisitedPosts> ReturnVisitedPosts()
         {
-            List<ReturnVisitedPosts> listReturnVisitedPosts = new List<ReturnVisitedPosts>();
-
-            var visitedPosts = db.ReturnVisitedPosts.FromSql("call return_visited_posts()");
-            foreach (var post in visitedPosts)
+            using (var db = new SovaDbContext())
             {
 
-                listReturnVisitedPosts.Add(post);
+                List<ReturnVisitedPosts> listReturnVisitedPosts = new List<ReturnVisitedPosts>();
 
+                var visitedPosts = db.ReturnVisitedPosts.FromSql("call return_visited_posts()");
+                foreach (var post in visitedPosts)
+                {
+
+                    listReturnVisitedPosts.Add(post);
+
+                }
+
+                return listReturnVisitedPosts;
             }
-
-            return listReturnVisitedPosts;
-
         }
 
         public List<ReturnNewestQuestions> ReturnNewestPosts(int amount)
         {
-            List<ReturnNewestQuestions> listReturnNewestQuestions = new List<ReturnNewestQuestions>();
-
-            var newestPosts = db.ReturnNewestQuestions.FromSql("call return_newest_questions({0})",amount);
-            foreach (var post in newestPosts)
+            using (var db = new SovaDbContext())
             {
 
-                listReturnNewestQuestions.Add(post);
+                List<ReturnNewestQuestions> listReturnNewestQuestions = new List<ReturnNewestQuestions>();
 
+                var newestPosts = db.ReturnNewestQuestions.FromSql("call return_newest_questions({0})", amount);
+                foreach (var post in newestPosts)
+                {
+
+                    listReturnNewestQuestions.Add(post);
+
+                }
+
+                return listReturnNewestQuestions;
             }
-
-            return listReturnNewestQuestions;
-
         }
 
 
         public List<ReturnLinkPosts> ReturnLinkPosts(int id)
         {
-            List<ReturnLinkPosts> listReturnLinkPosts = new List<ReturnLinkPosts>();
-
-            var linkPosts = db.ReturnLinkPosts.FromSql("call return_linkposts({0})", id);
-            foreach (var post in linkPosts)
+            using (var db = new SovaDbContext())
             {
 
-                listReturnLinkPosts.Add(post);
+                List<ReturnLinkPosts> listReturnLinkPosts = new List<ReturnLinkPosts>();
 
+                var linkPosts = db.ReturnLinkPosts.FromSql("call return_linkposts({0})", id);
+                foreach (var post in linkPosts)
+                {
+
+                    listReturnLinkPosts.Add(post);
+
+                }
+
+                return listReturnLinkPosts;
             }
-
-            return listReturnLinkPosts;
-
         }
 
         public List<ReturnPostTags> ReturnPostTags(int id)
         {
-            List<ReturnPostTags> listReturnPostTags = new List<ReturnPostTags>();
-
-            var postTags = db.ReturnPostTags.FromSql("call return_tags({0})", id);
-            foreach (var tag in postTags)
+            using (var db = new SovaDbContext())
             {
 
-                listReturnPostTags.Add(tag);
+                List<ReturnPostTags> listReturnPostTags = new List<ReturnPostTags>();
 
+                var postTags = db.ReturnPostTags.FromSql("call return_tags({0})", id);
+                foreach (var tag in postTags)
+                {
+
+                    listReturnPostTags.Add(tag);
+
+                }
+
+                return listReturnPostTags;
             }
-
-            return listReturnPostTags;
-
         }
 
         //getting most used tags
         public List<PopularTags> PopularTagsList(int number)
         {
-            List<PopularTags> listreturnTags = new List<PopularTags>();
-            var returnTags = db.PopularTags.FromSql("call count_tags_occurrences({0})", number);
-            foreach (var tag in returnTags)
+            using (var db = new SovaDbContext())
             {
-                listreturnTags.Add(tag);
+
+                List<PopularTags> listreturnTags = new List<PopularTags>();
+                var returnTags = db.PopularTags.FromSql("call count_tags_occurrences({0})", number);
+                foreach (var tag in returnTags)
+                {
+                    listreturnTags.Add(tag);
+                }
+                return listreturnTags;
             }
-            return listreturnTags;
         }
         
 
         public List<BestMatch> BestMatches(string text)
         {
-            List<BestMatch> listreturnPosts = new List<BestMatch>();
-
-            var returnPosts = db.BestMatches.FromSql("call bestmatch({0})", text);
-            foreach (var post in returnPosts)
+            using (var db = new SovaDbContext())
             {
-                listreturnPosts.Add(post);
+
+                List<BestMatch> listreturnPosts = new List<BestMatch>();
+
+                var returnPosts = db.BestMatches.FromSql("call bestmatch({0})", text);
+                foreach (var post in returnPosts)
+                {
+                    listreturnPosts.Add(post);
+                }
+                return listreturnPosts;
             }
-            return listreturnPosts;
         }
 
         public List<BestmatchKeywordList> BestmatchKeywordLists(string text)
         {
-            List<BestmatchKeywordList> listreturnPosts = new List<BestmatchKeywordList>();
-            var returnPosts = db.BestmatchKeywordLists.FromSql("call bestmatch_keyword_list({0})", text);
-            foreach (var post in returnPosts)
+            using (var db = new SovaDbContext())
             {
-                listreturnPosts.Add(post);
+                var returnPosts = db.BestmatchKeywordLists.FromSql("call bestmatch_keyword_list({0})", text).ToList();
+                return returnPosts;
             }
-            return listreturnPosts;
         }
 
         public List<ClosestTerm> ClosestTerms(string text)
         {
-            List<ClosestTerm> listClosestTerm = new List<ClosestTerm>();
-            var returnclosest_terms = db.ClosestTerms.FromSql("call closest_terms({0})", text);
-            foreach (var term in returnclosest_terms)
+            using (var db = new SovaDbContext())
             {
-                listClosestTerm.Add(term);
-            }
-            return listClosestTerm;
 
+                List<ClosestTerm> listClosestTerm = new List<ClosestTerm>();
+                var returnclosest_terms = db.ClosestTerms.FromSql("call closest_terms({0})", text);
+                foreach (var term in returnclosest_terms)
+                {
+                    listClosestTerm.Add(term);
+                }
+                return listClosestTerm;
+            }
         }
         
 
