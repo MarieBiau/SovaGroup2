@@ -1,18 +1,26 @@
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\DataAccessLayer\bin\Debug\netcoreapp2.0\DataAccessLayer.deps.json
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\DataAccessLayer\bin\Debug\netcoreapp2.0\DataAccessLayer.dll
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\DataAccessLayer\bin\Debug\netcoreapp2.0\DataAccessLayer.pdb
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\DataAccessLayer\obj\Debug\netcoreapp2.0\DataAccessLayer.csprojResolveAssemblyReference.cache
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\DataAccessLayer\obj\Debug\netcoreapp2.0\DataAccessLayer.csproj.CoreCompileInputs.cache
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\DataAccessLayer\obj\Debug\netcoreapp2.0\DataAccessLayer.AssemblyInfoInputs.cache
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\DataAccessLayer\obj\Debug\netcoreapp2.0\DataAccessLayer.AssemblyInfo.cs
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\DataAccessLayer\obj\Debug\netcoreapp2.0\DataAccessLayer.dll
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\DataAccessLayer\obj\Debug\netcoreapp2.0\DataAccessLayer.pdb
-C:\Users\Louise\Documents\GitHub\SovaGroup2\DataAccessLayer\bin\Debug\netcoreapp2.0\DataAccessLayer.deps.json
-C:\Users\Louise\Documents\GitHub\SovaGroup2\DataAccessLayer\bin\Debug\netcoreapp2.0\DataAccessLayer.dll
-C:\Users\Louise\Documents\GitHub\SovaGroup2\DataAccessLayer\bin\Debug\netcoreapp2.0\DataAccessLayer.pdb
-C:\Users\Louise\Documents\GitHub\SovaGroup2\DataAccessLayer\obj\Debug\netcoreapp2.0\DataAccessLayer.csprojResolveAssemblyReference.cache
-C:\Users\Louise\Documents\GitHub\SovaGroup2\DataAccessLayer\obj\Debug\netcoreapp2.0\DataAccessLayer.csproj.CoreCompileInputs.cache
-C:\Users\Louise\Documents\GitHub\SovaGroup2\DataAccessLayer\obj\Debug\netcoreapp2.0\DataAccessLayer.AssemblyInfoInputs.cache
-C:\Users\Louise\Documents\GitHub\SovaGroup2\DataAccessLayer\obj\Debug\netcoreapp2.0\DataAccessLayer.AssemblyInfo.cs
-C:\Users\Louise\Documents\GitHub\SovaGroup2\DataAccessLayer\obj\Debug\netcoreapp2.0\DataAccessLayer.dll
-C:\Users\Louise\Documents\GitHub\SovaGroup2\DataAccessLayer\obj\Debug\netcoreapp2.0\DataAccessLayer.pdb
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/DataAccessLayer/bin/Debug/netcoreapp2.0/DataAccessLayer.deps.json
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/DataAccessLayer/bin/Debug/netcoreapp2.0/DataAccessLayer.dll
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/DataAccessLayer/bin/Debug/netcoreapp2.0/DataAccessLayer.pdb
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/DataAccessLayer/obj/Debug/netcoreapp2.0/DataAccessLayer.csprojResolveAssemblyReference.cache
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/DataAccessLayer/obj/Debug/netcoreapp2.0/DataAccessLayer.csproj.CoreCompileInputs.cache
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/DataAccessLayer/obj/Debug/netcoreapp2.0/DataAccessLayer.AssemblyInfoInputs.cache
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/DataAccessLayer/obj/Debug/netcoreapp2.0/DataAccessLayer.AssemblyInfo.cs
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/DataAccessLayer/obj/Debug/netcoreapp2.0/DataAccessLayer.dll
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/DataAccessLayer/obj/Debug/netcoreapp2.0/DataAccessLayer.pdb
+C:/Users/Louise/Documents/GitHub/SovaGroup2/DataAccessLayer/bin/Debug/netcoreapp2.0/DataAccessLayer.deps.json
+C:/Users/Louise/Documents/GitHub/SovaGroup2/DataAccessLayer/bin/Debug/netcoreapp2.0/DataAccessLayer.dll
+C:/Users/Louise/Documents/GitHub/SovaGroup2/DataAccessLayer/bin/Debug/netcoreapp2.0/DataAccessLayer.pdb
+C:/Users/Louise/Documents/GitHub/SovaGroup2/DataAccessLayer/obj/Debug/netcoreapp2.0/DataAccessLayer.csprojResolveAssemblyReference.cache
+C:/Users/Louise/Documents/GitHub/SovaGroup2/DataAccessLayer/obj/Debug/netcoreapp2.0/DataAccessLayer.csproj.CoreCompileInputs.cache
+C:/Users/Louise/Documents/GitHub/SovaGroup2/DataAccessLayer/obj/Debug/netcoreapp2.0/DataAccessLayer.AssemblyInfoInputs.cache
+C:/Users/Louise/Documents/GitHub/SovaGroup2/DataAccessLayer/obj/Debug/netcoreapp2.0/DataAccessLayer.AssemblyInfo.cs
+C:/Users/Louise/Documents/GitHub/SovaGroup2/DataAccessLayer/obj/Debug/netcoreapp2.0/DataAccessLayer.dll
+C:/Users/Louise/Documents/GitHub/SovaGroup2/DataAccessLayer/obj/Debug/netcoreapp2.0/DataAccessLayer.pdb
+/home/marie/RAWDATA_C#/SovaGroup2/DataAccessLayer/bin/Debug/netcoreapp2.0/DataAccessLayer.deps.json
+/home/marie/RAWDATA_C#/SovaGroup2/DataAccessLayer/bin/Debug/netcoreapp2.0/DataAccessLayer.dll
+/home/marie/RAWDATA_C#/SovaGroup2/DataAccessLayer/bin/Debug/netcoreapp2.0/DataAccessLayer.pdb
+/home/marie/RAWDATA_C#/SovaGroup2/DataAccessLayer/obj/Debug/netcoreapp2.0/DataAccessLayer.csproj.CoreCompileInputs.cache
+/home/marie/RAWDATA_C#/SovaGroup2/DataAccessLayer/obj/Debug/netcoreapp2.0/DataAccessLayer.AssemblyInfoInputs.cache
+/home/marie/RAWDATA_C#/SovaGroup2/DataAccessLayer/obj/Debug/netcoreapp2.0/DataAccessLayer.AssemblyInfo.cs
+/home/marie/RAWDATA_C#/SovaGroup2/DataAccessLayer/obj/Debug/netcoreapp2.0/DataAccessLayer.dll
+/home/marie/RAWDATA_C#/SovaGroup2/DataAccessLayer/obj/Debug/netcoreapp2.0/DataAccessLayer.pdb
