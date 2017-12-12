@@ -3,9 +3,24 @@
         var title = ko.observable("Component Home");
         var word1 = "bootstrap";
         var word2 = "sql";
-        var wordbtn = [];
+        var wordbtn = ko.observableArray([]);
+        var tagobj = ko.observable("help");
+
+        //popular tags for buttons
+        $.getJSON("api/tags/10", data => {
+
+            for (var i = 0; i < data.length; i++) {
+
+
+                tagobj = data[i].name;
+                wordbtn.push(tagobj);
+
+                console.log("JSON tags: " + tagobj);
+            }
+        });
 
         
+
 
         //words for wordcloud
         var words = ko.observableArray([]);
@@ -43,19 +58,7 @@
             });
 
         }
-        //popular tags for buttons
-        //$.getJSON("api/tags/10", data => {
-
-        //    for (var i = 0; i < data.length; i++) {
-
-
-        //        //var wordobj = { text: data[i].name, weight: data[i].weight };
-        //        //words.push(wordobj);
-
-        //        console.log("JSON Data: " + data[i].name);
-        //    }
-        //});
-
+        
         //TODO
         //change fake text to return most used tags...
         //make buttons (array) for change of name
@@ -70,6 +73,8 @@
         return {
             title,
             words,
+            wordbtn,
+            tagobj,
             changeWords
         };
     }
