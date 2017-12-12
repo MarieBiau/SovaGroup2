@@ -29,7 +29,7 @@ namespace DataAccessLayer.dbContext
         {
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseMySql(
-                "server=localhost;database=mydb;uid=root;pwd=RUC2014");
+                "server=localhost;database=mydb;uid=root;pwd=");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
