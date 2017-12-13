@@ -2,18 +2,12 @@
 
 <div data-bind="template: {name: currentView}"></div>
 
-
-
 <script type="text/html" id="postlist">
     <div data-bind="foreach: posts">
         <div>
             <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a>
         </div>
     </div>
-    <!--<div class="btn-group">
-        <button data-bind="click: prev, enable: canPrev">Prev</button>
-        <button data-bind="click: next, enable: canNext">Next</button>
-    </div>-->
     <nav aria-label="Page navigation">
         <ul class="pagination">
             <li>
@@ -22,16 +16,6 @@
                 </a>
             </li>
             
-            <!--<li data-bind="foreach: links">
-                <div data-bind="html: body"></div>
-                <hr/>
-
-            </li>-->
-            <!--<li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>-->
             <li>
                 <a href="#" aria-label="Next" data-bind="click: next, enable: canNext">
                     <span aria-hidden="true">&raquo;</span>

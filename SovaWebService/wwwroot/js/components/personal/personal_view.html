@@ -1,1 +1,16 @@
 ﻿<h1 data-bind="text: title"></h1>
+
+<div class="col-md-6" data-bind="template: {name: currentView}"></div>
+
+
+<script type="text/html" id="postlist">
+    <div data-bind="foreach: posts">
+        <div>
+            <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a>
+            <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: body"></span></a>
+            <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: annotation"></span></a>
+            <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: date"></span></a>
+        </div>
+    </div>
+
+</script>

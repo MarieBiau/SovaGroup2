@@ -8,6 +8,7 @@ namespace DataAccessLayer.dbDTO
     {
         public int id { get; set; }
         public double rank { get; set; }
+        public string title { get; set; }
         public string body { get; set; }
     }
 }

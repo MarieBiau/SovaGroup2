@@ -3,32 +3,76 @@
         var title = ko.observable("Component History");
 
 
-        var posts = ko.observableArray([]);
+        var recentSearchPosts = ko.observableArray([]);
+        var recentSearchView = ko.observable('postlist');
         var visitedPosts = ko.observableArray([]);
-        var currentView = ko.observable('postlist');
         var visitedPostsView = ko.observable('visitedpostlist');
 
-        $.getJSON("api/searches/", data => {
-            posts(data.items);
-            console.log(data.items);
-        });
+        var currentPost = ko.observable();
 
-        var millisecondsToWait = 500;
-        setTimeout(function () {
-            // Whatever you want to do after the wait
+        var showPost = (data) => {
+            $.getJSON(data.link, postData => {
+                var post = {
+                    title: postData.title,
+                    score: postData.score,
+                    creationDate: postData.creationDate,
+                    body: postData.body
+
+                }
+
+
+                $.getJSON(postData.comments, cms => {
+
+                    post.comments = ko.observableArray(cms);
+                    console.log(post.comments);
+
+                    $.getJSON(postData.answers, ans => {
+
+                        post.answers = ko.observableArray(ans);
+                        console.log(post.answers);
+                        currentPost(post);
+                    });
+
+                });
+
+
+
+            });
+            title("Post");
+            recentSearchView('postview');
+        };
+
+        var home = () => {
+            title("Show Posts");
+            recentSearchView('postlist');
+        };
+
+        $.getJSON("api/searches/", data => {
+            recentSearchPosts(data.items);
+            console.log(data.items);
+
             $.getJSON("api/visited/", data => {
                 visitedPosts(data.items);
                 console.log(data.items);
             });
-        }, millisecondsToWait);
+
+
+        });
+
+
+
+
 
 
         return {
             title,
-            posts,
-            currentView,
+            recentSearchPosts,
+            recentSearchView,
             visitedPosts,
-            visitedPostsView
+            visitedPostsView,
+            showPost,
+            currentPost,
+            home
         };
     }
 });

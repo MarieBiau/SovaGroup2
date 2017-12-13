@@ -144,6 +144,16 @@ namespace DataAccessLayer.Test
             Assert.Equal(21, result.Count);
 
         }
+
+        [Fact]
+        public void DeleteMarkPostbyId()
+        {
+            var service = new DataService();
+            var result = service.DeleteMarkPost(19);
+            Assert.Equal(true, result);
+
+        }
+
     }
 }
 

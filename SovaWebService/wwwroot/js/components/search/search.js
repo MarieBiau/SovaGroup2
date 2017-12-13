@@ -10,8 +10,6 @@
         var prevLink = ko.observable();
         var searchField = ko.observable();
        
-
-
         var currentView = ko.observable('postlist');
 
 
@@ -55,24 +53,18 @@
 
                     post.comments = ko.observableArray(cms);
                     console.log(post.comments);
-                    currentPost(post);
+                    //currentPost(post);
 
-
-
-                });
-
-                var millisecondsToWait = 500;
-                setTimeout(function () {
-                    // Whatever you want to do after the wait
                     $.getJSON(postData.answers, ans => {
 
                         post.answers = ko.observableArray(ans);
                         console.log(post.answers);
                         currentPost(post);
                     });
-                }, millisecondsToWait);
 
+                });
 
+               
 
             });
             title("Post");
@@ -84,7 +76,7 @@
             currentView('postlist');
         };
 
-        $.getJSON("api/questions/search/.NET Testing Framework Advice", data => {
+        $.getJSON("api/bestmatch/search/NET", data => {
             posts(data.items);
             nextLink(data.next);
             prevLink(data.prev);

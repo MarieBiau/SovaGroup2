@@ -24,11 +24,14 @@ namespace DataAccessLayer.dbContext
         List<ReturnVisitedPosts> ReturnVisitedPosts();
 
         Boolean MarkPost(int post_id, int type);
+        Boolean DeleteMarkPost(int id);
+
+
         List<ReturnGoodMarks> ReturnGoodMarks();
         Boolean UpdateAnnotation(int id, string annotation);
         Marks GetMark(int id);
 
-        List<BestMatch> BestMatches(string text);
+        List<BestMatch> BestMatches(string text, int page, int pageSize);
         List<BestmatchKeywordList> BestmatchKeywordLists(string text);
         List<ClosestTerm> ClosestTerms(string text);
 

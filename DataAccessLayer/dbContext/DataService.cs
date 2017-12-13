@@ -64,23 +64,7 @@ namespace DataAccessLayer.dbContext
             var results = db.Posts.FirstOrDefault(x=>x.id == id);
 
             return results;
-            //var results = db.Questions.FromSql("call return_question({0})", id);
-
-            //if (results.Any())
-            //{
-
-            //    return results.FirstOrDefault(x => x.id == id);
-            //}
-            //else
-            //{
-            //    var returnAnswer = db.Questions.FromSql("call return_answer({0})", id);
-            //    return returnAnswer.FirstOrDefault(x => x.id == id);
-
-            //}
-
-            //return results.FirstOrDefault(x => x.id == id);
-
-
+        
         }
 
         public List<Comments> ReturnCommentsById(int id)
@@ -144,10 +128,33 @@ namespace DataAccessLayer.dbContext
 
         public bool  MarkPost(int post_id, int type)
         {
-
+            //1 Good
+            //2 bad
             var result = db.MarkPosts.FromSql("call mark_post({0},{1})", post_id, type);
             
             return result.Any();
+
+        }
+
+        public bool DeleteMarkPost(int post_id)
+        {
+
+            using (var db = new SovaDbContext())
+            {
+
+
+                var mark = db.Marks.FirstOrDefault(x => x.posts_id == post_id);
+
+                if (mark != null)
+                {
+                    db.Marks.Remove(mark);
+                    db.SaveChanges();
+
+                    return true;
+                }
+            }
+
+            return false;
 
         }
 
@@ -257,7 +264,7 @@ namespace DataAccessLayer.dbContext
 
         }
 
-        public List<BestMatch> BestMatches(string text)
+        public List<BestMatch> BestMatches(string text, int page, int pageSize)
         {
             List<BestMatch> listreturnPosts = new List<BestMatch>();
 
@@ -266,7 +273,11 @@ namespace DataAccessLayer.dbContext
             {
                 listreturnPosts.Add(post);
             }
-            return listreturnPosts;
+            return listreturnPosts
+                .OrderBy(x => x.id)
+                .Skip(page * pageSize)
+                .Take(pageSize)
+                .ToList();
         }
 
         public List<BestmatchKeywordList> BestmatchKeywordLists(string text)
