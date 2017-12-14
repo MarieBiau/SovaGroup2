@@ -64,7 +64,7 @@
         };
 
         var home = () => {
-            title("Show Posts");
+            title("Show posts");
             currentView('postlist');
         };
 

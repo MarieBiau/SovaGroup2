@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DataAccessLayer.dbDTO
 {
-   public class Answers
+   public class answers
     {
 
         [Key]

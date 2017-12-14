@@ -64,8 +64,8 @@ namespace SovaWebService.Controllers
                 //post.title,
                 post.score,
                 post.body,
-                Answers = Url.Link(nameof(GetAnswersBestMatch), new { post.id }),
-                Comments = Url.Link(nameof(GetCommentsBestMatch), new { post.id }),
+                answers = Url.Link(nameof(GetAnswersBestMatch), new { post.id }),
+                comments = Url.Link(nameof(GetCommentsBestMatch), new { post.id }),
                 linkedPosts = Url.Link(nameof(GetlinkedPosts), new { post.id }),
                 showTags = Url.Link(nameof(GetshowTags), new { post.id }),
 

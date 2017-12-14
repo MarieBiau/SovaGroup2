@@ -70,12 +70,12 @@
         };
 
         var home = () => {
-            title("Show Posts");
+            title("Show posts");
             recentSearchView('postlist');
         };
 
         var homevisited = () => {
-            title("Show Posts");
+            title("Show posts");
             visitedPostsView('visitedpostlist');
         };
 

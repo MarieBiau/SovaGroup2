@@ -4,7 +4,7 @@
         //create logic to observe input field and search button click
 
 
-        var title = ko.observable("Show Posts");
+        var title = ko.observable("Show posts");
         var posts = ko.observableArray([]);
         var nextLink = ko.observable();
         var prevLink = ko.observable();
@@ -92,7 +92,7 @@
         };
 
         var home = () => {
-            title("Show Posts");
+            title("Show posts");
             currentView('postlist');
         };
 

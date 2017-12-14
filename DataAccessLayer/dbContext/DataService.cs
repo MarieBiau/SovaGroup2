@@ -11,19 +11,19 @@ namespace DataAccessLayer.dbContext
         SovaDbContext db = new SovaDbContext();
 
 
-        public Posts FindPost(int id)
+        public posts FindPost(int id)
         {
 
-            var post = db.Posts.FirstOrDefault(x => x.id == id);
+            var post = db.posts.FirstOrDefault(x => x.id == id);
 
             return post;
         }
 
-        public List<Posts> FindAllPosts(int page, int pageSize)
+        public List<posts> FindAllPosts(int page, int pageSize)
         {
-            List<Posts> listPosts = new List<Posts>();
+            List<posts> listPosts = new List<posts>();
 
-            var posts = db.Posts;
+            var posts = db.posts;
 
             foreach (var post in posts)
             {
@@ -59,21 +59,21 @@ namespace DataAccessLayer.dbContext
                 .ToList();
         }
         
-        public Posts ReturnQuestionById(int id)
+        public posts ReturnQuestionById(int id)
         {
-            var results = db.Posts.FirstOrDefault(x=>x.id == id);
+            var results = db.posts.FirstOrDefault(x=>x.id == id);
 
             return results;
         
         }
 
-        public List<Comments> ReturnCommentsById(int id)
+        public List<comments> ReturnCommentsById(int id)
         {
 
-            List<Comments> CommentList = new List<Comments>();
-            var Comments =  db.Comments.Where(x => x.posts_id == id);
+            List<comments> CommentList = new List<comments>();
+            var comments =  db.comments.Where(x => x.posts_id == id);
 
-            foreach (var comment in Comments)
+            foreach (var comment in comments)
             {
                 CommentList.Add(comment);
             }
@@ -143,11 +143,11 @@ namespace DataAccessLayer.dbContext
             {
 
 
-                var mark = db.Marks.FirstOrDefault(x => x.posts_id == post_id);
+                var mark = db.marks.FirstOrDefault(x => x.posts_id == post_id);
 
                 if (mark != null)
                 {
-                    db.Marks.Remove(mark);
+                    db.marks.Remove(mark);
                     db.SaveChanges();
 
                     return true;
@@ -162,8 +162,8 @@ namespace DataAccessLayer.dbContext
         {
             List<ReturnGoodMarks> listReturnGoodMarks = new List<ReturnGoodMarks>();
 
-            var Marks = db.ReturnGoodMarks.FromSql("call return_good_marks()");
-            foreach (var mark in Marks)
+            var marks = db.ReturnGoodMarks.FromSql("call return_good_marks()");
+            foreach (var mark in marks)
             {
 
                 listReturnGoodMarks.Add(mark);
@@ -177,7 +177,7 @@ namespace DataAccessLayer.dbContext
         public Boolean UpdateAnnotation(int id, string annotation)
         {
 
-            var marks = db.Marks.FirstOrDefault(x => x.id == id);
+            var marks = db.marks.FirstOrDefault(x => x.id == id);
             if (marks != null)
             {
                 marks.annotation = annotation;
@@ -190,10 +190,10 @@ namespace DataAccessLayer.dbContext
         }
 
 
-        public Marks GetMark(int id)
+        public marks GetMark(int id)
         {
 
-            var mark = db.Marks.FirstOrDefault(x => x.posts_id == id);
+            var mark = db.marks.FirstOrDefault(x => x.posts_id == id);
             return mark;
 
         }

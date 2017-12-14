@@ -8,14 +8,14 @@ namespace DataAccessLayer.dbContext
     public interface IDataService
     {
 
-        Posts FindPost(int id);
-        List<Posts> FindAllPosts(int page, int pageSize);
+        posts FindPost(int id);
+        List<posts> FindAllPosts(int page, int pageSize);
         List<QuestionSearchResults> FindQuestionByString(string searchText, int page, int pageSize);
 
-        Posts ReturnQuestionById(int id);
+        posts ReturnQuestionById(int id);
 
 
-        List<Comments> ReturnCommentsById(int id); 
+        List<comments> ReturnCommentsById(int id); 
         List<AnswersSearchResults> ReturnAnswersById(int id);
         List<ReturnNewestQuestions> ReturnNewestPosts(int id);
 
@@ -29,7 +29,7 @@ namespace DataAccessLayer.dbContext
 
         List<ReturnGoodMarks> ReturnGoodMarks();
         Boolean UpdateAnnotation(int id, string annotation);
-        Marks GetMark(int id);
+        marks GetMark(int id);
 
         List<BestMatch> BestMatches(string text, int page, int pageSize);
         List<BestmatchKeywordList> BestmatchKeywordLists(string text);

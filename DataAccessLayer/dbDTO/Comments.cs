@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataAccessLayer.dbDTO
 {
-   public class Comments
+   public class comments
     {
 
         public int id { get; set; }

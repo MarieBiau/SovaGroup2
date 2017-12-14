@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataAccessLayer.dbDTO
 {
-  public  class Marks
+  public  class marks
     {
         public int id { get; set; }
         public int posts_id { get; set; }

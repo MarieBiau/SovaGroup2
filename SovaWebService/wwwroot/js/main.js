@@ -99,7 +99,7 @@ require(['knockout'], function (ko) {
 //require(['jquery', 'knockout'], ($, ko) => {
 
 //    var vm = (function () {
-//        var title = ko.observable("Show Posts");
+//        var title = ko.observable("Show posts");
 //        var posts = ko.observableArray([]);
 //        var nextLink = ko.observable();
 //        var prevLink = ko.observable();
@@ -151,7 +151,7 @@ require(['knockout'], function (ko) {
 //        };
 
 //        var home = () => {
-//            title("Show Posts");
+//            title("Show posts");
 //            currentView('postlist');
 //        };
 

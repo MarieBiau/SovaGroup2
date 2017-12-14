@@ -56,8 +56,8 @@ namespace SovaWebService.Controllers
                 //post.title,
                 post.score,
                 post.body,
-                Answers = Url.Link(nameof(GetAnswersVisited), new { post.id }),
-                Comments = Url.Link(nameof(GetCommentsVisited), new { post.id }),
+                answers = Url.Link(nameof(GetAnswersVisited), new { post.id }),
+                comments = Url.Link(nameof(GetCommentsVisited), new { post.id }),
 
             };
 

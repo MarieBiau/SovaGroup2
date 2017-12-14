@@ -2,7 +2,7 @@
 
 namespace DataAccessLayer.dbDTO
 {
-    public class Posts
+    public class posts
     {
 
         public int id { get; set; }
