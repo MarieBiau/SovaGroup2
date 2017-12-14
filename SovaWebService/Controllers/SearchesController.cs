@@ -24,7 +24,7 @@ namespace SovaWebService.Controllers
             var returnSearches = _dataService.ReturnSearches()
                 .Select(x => new
                 {
-                    Link = Url.Link(nameof(GetPostSearches), new { x.id }),
+                    Link = Url.Link(nameof(GetPostSearches), new { x.text }),
                     text = x.text,
                      date = x.search_date
 
@@ -39,23 +39,26 @@ namespace SovaWebService.Controllers
         }
 
 
-        [HttpGet("{id}", Name = nameof(GetPostSearches))]
-        public IActionResult GetPostSearches(int id)
+        [HttpGet("{searchText}", Name = nameof(GetPostSearches))]
+        public IActionResult GetPostSearches(string searchText, int page = 0, int pageSize = 10)
         {
-            var post = _dataService.ReturnQuestionById(id);
+
+
+            var post = _dataService.BestMatches(searchText, page, pageSize);
 
             var result = new
             {
-                Link = Url.Link(nameof(GetPostSearches), new { post.id }),
+                Link = Url.Link(nameof(GetPostSearches), new { post[0].id }),
                 //post.title,
-                post.score,
-                post.body,
-                Answers = Url.Link(nameof(GetAnswersSearches), new { post.id }),
-                Comments = Url.Link(nameof(GetCommentsSearches), new { post.id }),
+                post[0].rank,
+                post[0].body,
+                Answers = Url.Link(nameof(GetAnswersSearches), new { post[0].id }),
+                Comments = Url.Link(nameof(GetCommentsSearches), new { post[0].id }),
 
             };
 
             return Ok(result);
+
 
         }
 
@@ -103,6 +106,16 @@ namespace SovaWebService.Controllers
             return f()
                 ? Url.Link(route, new { page = page + pageInc, pageSize })
                 : null;
+        }
+
+        private static int GetTotalPages(int pageSize, int total)
+        {
+            return (int)Math.Ceiling(total / (double)pageSize);
+        }
+
+        private static void CheckPageSize(ref int pageSize)
+        {
+            pageSize = pageSize > 50 ? 50 : pageSize;
         }
 
         // GET: api/searches/if 0 means take all

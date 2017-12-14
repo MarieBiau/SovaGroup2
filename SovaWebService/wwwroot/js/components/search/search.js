@@ -11,6 +11,7 @@
         var searchField = ko.observable();
        
         var currentView = ko.observable('postlist');
+        var linkedPostsView = ko.observable('linkedPosts');
 
 
         var next = () => {
@@ -59,7 +60,24 @@
 
                         post.answers = ko.observableArray(ans);
                         console.log(post.answers);
-                        currentPost(post);
+                        //currentPost(post);
+
+                        $.getJSON(postData.linkedPosts, linkPosts => {
+
+                            post.linkedPosts = ko.observableArray(linkPosts);
+                            console.log(post.linkedPosts);
+                            //currentPost(post);
+
+                            $.getJSON(postData.showTags, stags => {
+
+                                post.showTags = ko.observableArray(stags);
+                                console.log(post.showTags);
+                                currentPost(post);
+                            });
+
+                        });
+
+
                     });
 
                 });
@@ -69,6 +87,8 @@
             });
             title("Post");
             currentView('postview');
+            linkedPostsView('linkedPosts');
+
         };
 
         var home = () => {
@@ -82,6 +102,7 @@
             prevLink(data.prev);
             console.log(data.items);
         });
+
 
 
         return {

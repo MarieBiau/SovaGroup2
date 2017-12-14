@@ -35,5 +35,8 @@ namespace DataAccessLayer.dbContext
         List<BestmatchKeywordList> BestmatchKeywordLists(string text);
         List<ClosestTerm> ClosestTerms(string text);
 
+        List<ReturnLinkPosts> ReturnLinkPosts(int id);
+        List<ReturnPostTags> ReturnPostTags(int id);
+
     }
 }

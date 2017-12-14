@@ -41,7 +41,7 @@
 
         <hr/>
 
-        <div data-bind="foreach: answers">
+        <div style="background-color: darkgreen" data-bind="foreach: answers">
             <div data-bind="html: body"></div>
             <hr/>
 
@@ -51,9 +51,29 @@
             <hr/>
 
         </div>
+        
+        <div style="background-color: red" data-bind="foreach: linkedPosts">
+            <div>
+                <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a>
+            </div>
+            <hr/>
+
+        </div>
+        
+        <div style="background-color: black" data-bind="foreach: showTags">
+            <div>
+                <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: name"></span></a>
+            </div>
+            <hr/>
+
+        </div>
 
 
     </div>
+    
+
 
 </script>
+
+
 

@@ -117,7 +117,7 @@ namespace DataAccessLayer.Test
         public void ReturnBestMatch()
         {
             var service = new DataService();
-            var result = service.BestMatches("java");
+            var result = service.BestMatches("java",0,0);
             Assert.Equal(558, result.Count);
 
         }

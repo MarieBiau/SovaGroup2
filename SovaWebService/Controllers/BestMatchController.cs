@@ -66,6 +66,8 @@ namespace SovaWebService.Controllers
                 post.body,
                 Answers = Url.Link(nameof(GetAnswersBestMatch), new { post.id }),
                 Comments = Url.Link(nameof(GetCommentsBestMatch), new { post.id }),
+                linkedPosts = Url.Link(nameof(GetlinkedPosts), new { post.id }),
+                showTags = Url.Link(nameof(GetshowTags), new { post.id }),
 
             };
 
@@ -106,6 +108,37 @@ namespace SovaWebService.Controllers
 
             return Ok(comments);
         }
+
+        [HttpGet("{id}/linkedPosts", Name = nameof(GetlinkedPosts))]
+        public IActionResult GetlinkedPosts(int id)
+        {
+
+            var linkedPosts = _dataService.ReturnLinkPosts(id)
+                .Select(x => new
+                {
+                    Link = Url.Link(nameof(GetlinkedPosts), new { x.id }),
+                    Parent = Url.Link(nameof(GetlinkedPosts), new { id }),
+                    title = x.title
+                });
+
+            return Ok(linkedPosts);
+        }
+
+        [HttpGet("{id}/showTags", Name = nameof(GetshowTags))]
+        public IActionResult GetshowTags(int id)
+        {
+
+            var linkedPosts = _dataService.ReturnPostTags(id)
+                .Select(x => new
+                {
+                    Link = Url.Link(nameof(GetshowTags), new { x.id }),
+                    Parent = Url.Link(nameof(GetshowTags), new { id }),
+                    name = x.name
+                });
+
+            return Ok(linkedPosts);
+        }
+
 
         // Helpers 
 

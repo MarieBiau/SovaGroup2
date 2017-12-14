@@ -13,7 +13,7 @@
 
 </script>
 
-<script type="text/html" id="postview">
+<!--<script type="text/html" id="postview">
     <div>
         <button data-bind="click: home">Back</button>
     </div>
@@ -43,7 +43,7 @@
 
     </div>
 
-</script>
+</script>-->
 
 
 
@@ -51,10 +51,42 @@
     <h1>Recent visited on ...</h1>
     <div data-bind="foreach: visitedPosts">
         <div>
-            <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a>
+            <a href="#" data-bind="click: $parent.ShowVisitedPost"><span data-bind="text: title"></span></a>
             <span data-bind="text: date"></span>
             <span data-bind="text: body"></span>
         </div>
+    </div>
+
+</script>
+
+<script type="text/html" id="visitedPostsView">
+    <div>
+        <button data-bind="click: homevisited">Back</button>
+    </div>
+    <div data-bind="with: currentPostVisited">
+        <h2 data-bind="text: title"></h2>
+        <h3>
+            Creation Date: <span data-bind="text: creationDate"></span>
+        </h3>
+        <h3>
+            Score: <span data-bind="text: score"></span>
+        </h3>
+        <div data-bind="html: body"></div>
+
+        <hr />
+
+        <div data-bind="foreach: answers">
+            <div data-bind="html: body"></div>
+            <hr />
+
+        </div>
+        <div style="background-color: blue" data-bind="foreach: comments">
+            <div data-bind="html: body"></div>
+            <hr />
+
+        </div>
+
+
     </div>
 
 </script>
