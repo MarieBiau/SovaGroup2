@@ -3,12 +3,16 @@
     paths: {
         jquery: "../lib/jquery/dist/jquery.min",
         knockout: "../lib/knockout/dist/knockout",
-        text: "../lib/text/text",    
-        jqcloud: '../lib/jqcloud2/dist/jqcloud.min'
-     
+        text: "../lib/text/text",
+        jqcloud: '../lib/jqcloud2/dist/jqcloud.min',
+        bootstrap: '../lib/bootstrap/dist/js/bootstrap.min'
+
     },
     shim: {
         jqcloud: {
+            deps: ['jquery']
+        },
+        bootstrap: {
             deps: ['jquery']
         }
     }
@@ -60,7 +64,7 @@ require(['knockout'], function (ko) {
         });
 });
 
-require(['knockout'], function (ko) {
+require(['knockout','bootstrap'], function (ko) {
 
     var vm = (function () {
         var links = [
@@ -70,6 +74,13 @@ require(['knockout'], function (ko) {
             { name: 'Search', comp: 'search' }
         ];
         var currentComp = ko.observable('home');
+        var currentParams = ko.observable({});
+        var searchText = ko.observable("");
+
+        var submitSearch = function () {
+            currentParams({ searchText: searchText() });
+            currentComp("search");
+        }
 
         var isActive = function (menu) {
             if (menu.comp === currentComp()) {
@@ -85,8 +96,12 @@ require(['knockout'], function (ko) {
         return {
             links,
             currentComp,
+            currentParams,
             change,
-            isActive
+            isActive,
+            submitSearch,
+            searchText
+
         };
     })();
 

@@ -2,28 +2,67 @@
     return function (params) {
         var title = ko.observable("Component Home");
 
-        var words = ko.observableArray([
-            { text: "Lorem", weight: 13 },
-            { text: "Ipsum", weight: 10.5 },
-            { text: "Dolor", weight: 9.4 },
-            { text: "Sit", weight: 8 },
-            { text: "Amet", weight: 6.2 },
-            { text: "Consectetur", weight: 5 },
-            { text: "Adipiscing", weight: 5 },
-            /* ... */
-        ]);
+        var word = ko.observable();
 
-        var chageWords = function () {
-            words([
-                { text: "Joe", weight: 13 },
-                { text: "Peter", weight: 10.5 },
-                { text: "Dolor", weight: 9.4 },
-                { text: "Sit", weight: 8 },
-                { text: "Amet", weight: 6.2 },
-                { text: "Consectetur", weight: 5 },
-                { text: "Adipiscing", weight: 5 },
-                /* ... */
-            ]);
+        var submitword = function () {
+            word = word();
+            changeWords();
+        }
+
+        
+
+        //tags for wordcloud
+        var words = ko.observableArray([]);
+        $.getJSON("api/tags/10", data => {
+
+            for (var i = 0; i < data.length; i++) {
+
+                var wordobj = { text: data[i].name, weight: data[i].occurrences };
+
+                words.push(wordobj);
+
+                console.log("JSON Data: " + data[i].name + " " + data[i].occurences);
+            }
+            console.log(word());
+
+        });
+
+        //to make word clouds with tags when pressing a button
+        var showtags = function () {
+
+            $.getJSON("api/tags/10", data => {
+                var obj = [];
+                for (var i = 0; i < data.length; i++) {
+
+                    var wordobj = { text: data[i].name, weight: data[i].occurrences };
+
+                    obj.push(wordobj);
+
+                    console.log("JSON Data: " + data[i].name + " " + data[i].occurences);
+                }
+                words(obj);
+            });
+        }
+
+
+
+        var changeWords = function () {
+            //words = ko.observableArray([]);
+            $.getJSON("api/BestMatchList/" + word, data => {
+
+                var obj = [];
+
+                for (var i = 0; i < data.length; i++) {
+
+                    var wordobj = { text: data[i].lemma, weight: data[i].weight };
+                    obj.push(wordobj);
+
+                    console.log("JSON Data: " + data[i].lemma + " " + data[i].weight);
+                }
+                words(obj);
+
+            });
+
         }
 
         var posts = ko.observableArray([]);
@@ -77,12 +116,17 @@
         return {
             title,
             words,
-            chageWords,
+            showtags,
+            word,
+            submitword,
+            changeWords,
             posts,
             currentView,
             showPost,
             currentPost,
             home
         };
+
+
     }
 });

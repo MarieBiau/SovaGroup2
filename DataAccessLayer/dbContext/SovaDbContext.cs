@@ -24,8 +24,9 @@ namespace DataAccessLayer.dbContext
         public DbSet<answers> answers { get; set; }
         public DbSet<comments> comments { get; set; }
         public DbSet<AnswersSearchResults> AnswersSearchResults { get; set; }
+        public DbSet<PopularTags> PopularTags { get; set; }
 
-        
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -1,9 +1,25 @@
 ﻿body {
-    margin-left: 20px;
+    margin-left: 2em;
+    margin-right: 2em;
 }
 
-.btn-group {
-    margin: 20px;
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2em;
+    margin: 1em auto 0.4em 2em;
+}
+
+h2 {
+    display: inline-block;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+    margin: auto 2em 1.3em 3.5em;
+}
+
+h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1em;
+    margin-left: 2em;
 }
 
 a {
@@ -11,9 +27,76 @@ a {
 }
 
     a:link {
-        color: blue;
+        color: navy;
     }
 
     a:visited {
-        color: blue;
+        color: navy;
     }
+
+.btn {
+    box-shadow: 2px 2px;
+    background-color: #f0f0f000;
+    color: #000000e3;
+}
+
+.prev-next {
+    margin: 2em 0.5em auto auto;
+}
+
+.text-expanded {
+    letter-spacing: 2px;
+}
+
+hr {
+    margin: 2em auto 2em auto;
+    border-color: grey;
+}
+
+.search-form {
+    display: block;
+    text-align: center;
+    margin-bottom: 3em;
+}
+
+.search-text {
+    width: 30em;
+}
+
+.search-image {
+    width: 1.5%;
+}
+
+.left-right {
+    width: 100%;
+}
+
+.left {
+    float: left;
+    width: 50%;
+    border: black solid;
+}
+
+.right {
+    float: right;
+    width: 50%;
+    border: black solid;
+}
+
+.thumb {
+    display: block;
+    width: 40%;
+    margin-bottom: 0.5em;
+}
+
+.annotation {
+    display: block;
+    width: 50%;
+    margin-bottom: 0.5em;
+}
+
+.modal-body textarea {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}

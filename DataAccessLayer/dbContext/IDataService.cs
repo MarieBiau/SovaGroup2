@@ -38,5 +38,7 @@ namespace DataAccessLayer.dbContext
         List<ReturnLinkPosts> ReturnLinkPosts(int id);
         List<ReturnPostTags> ReturnPostTags(int id);
 
+        List<PopularTags> PopularTagsList(int number);
+
     }
 }

@@ -8,7 +8,7 @@
         var posts = ko.observableArray([]);
         var nextLink = ko.observable();
         var prevLink = ko.observable();
-        var searchField = ko.observable();
+        var searchText = ko.observable(params.searchText || '');
        
         var currentView = ko.observable('postlist');
         var linkedPostsView = ko.observable('linkedPosts');
@@ -96,7 +96,7 @@
             currentView('postlist');
         };
 
-        $.getJSON("api/bestmatch/search/NET", data => {
+        $.getJSON("api/bestmatch/search/" + searchText(), data => {
             posts(data.items);
             nextLink(data.next);
             prevLink(data.prev);
@@ -115,7 +115,9 @@
             currentView,
             showPost,
             currentPost,
-            home
+            home,
+            searchText
+
         };
         
 
