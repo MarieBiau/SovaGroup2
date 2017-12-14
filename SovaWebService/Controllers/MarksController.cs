@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using AutoMapper;
 using DataAccessLayer.dbContext;
 using DataAccessLayer.dbDTO;
@@ -26,16 +27,22 @@ namespace SovaWebService.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            if (_dataService.ReturnGoodMarks().Count > 0)
-            {
 
-                return Ok(_dataService.ReturnGoodMarks());
+            var goodMarksList = _dataService.ReturnGoodMarks()
+                .Select(x => new
+                {
+                    title = x.title,
+                    body = x.body.Substring(3, 100),
+                    annotation = x.annotation,
+                    date = x.creation_date
 
-            }
-            else
+                });
+            var result = new
             {
-                return NotFound();
-            }
+                items = goodMarksList
+            };
+
+            return Ok(result);
         }
 
         //update annotation {id}

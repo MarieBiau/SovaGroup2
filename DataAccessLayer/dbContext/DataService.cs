@@ -59,40 +59,41 @@ namespace DataAccessLayer.dbContext
                 .ToList();
         }
         
-        public Question ReturnQuestionById(int id)
+        public Posts ReturnQuestionById(int id)
         {
+            var results = db.Posts.FirstOrDefault(x=>x.id == id);
 
-            var results = db.Questions.FromSql("call return_question({0})", id);
-            //var returnQuestion = results.FirstOrDefault(x=>x.id == id);
-
-            results.Any();
-            return results.FirstOrDefault(x=>x.id == id);
+            return results;
+        
         }
 
         public List<Comments> ReturnCommentsById(int id)
         {
 
-            //List<Question> answerList = new List<Question>();
-            ////var AnsweriIds = db.Answers.Where(x => x.parent_id == id);
-            //List<Question> listAnswerIds = new List<Question>();
-            //var answerIds = db.Questions.FromSql("call return_answers_id({0})", id);
-
             List<Comments> CommentList = new List<Comments>();
-
-
-            var Comments = db.Comments.Where(x => x.posts_id == id);
-
+            var Comments =  db.Comments.Where(x => x.posts_id == id);
 
             foreach (var comment in Comments)
             {
-
                 CommentList.Add(comment);
-
             }
-            
-            return CommentList;
+            return  CommentList;
         }
-        
+
+        public List<AnswersSearchResults> ReturnAnswersById(int id)
+        {
+
+            List<AnswersSearchResults> answerList = new List<AnswersSearchResults>();
+            var answers = db.AnswersSearchResults.FromSql("call return_answers({0})", id);
+
+            foreach (var answer in answers)
+            {
+                answerList.Add(answer);
+            }
+
+            return answerList;
+        }
+
         public int GetNumberOfResults(string text)
         {
             List<QuestionSearchResults> listQuestions = new List<QuestionSearchResults>();
@@ -127,10 +128,33 @@ namespace DataAccessLayer.dbContext
 
         public bool  MarkPost(int post_id, int type)
         {
-
+            //1 Good
+            //2 bad
             var result = db.MarkPosts.FromSql("call mark_post({0},{1})", post_id, type);
             
             return result.Any();
+
+        }
+
+        public bool DeleteMarkPost(int post_id)
+        {
+
+            using (var db = new SovaDbContext())
+            {
+
+
+                var mark = db.Marks.FirstOrDefault(x => x.posts_id == post_id);
+
+                if (mark != null)
+                {
+                    db.Marks.Remove(mark);
+                    db.SaveChanges();
+
+                    return true;
+                }
+            }
+
+            return false;
 
         }
 
@@ -240,7 +264,7 @@ namespace DataAccessLayer.dbContext
 
         }
 
-        public List<BestMatch> BestMatches(string text)
+        public List<BestMatch> BestMatches(string text, int page, int pageSize)
         {
             List<BestMatch> listreturnPosts = new List<BestMatch>();
 
@@ -249,9 +273,14 @@ namespace DataAccessLayer.dbContext
             {
                 listreturnPosts.Add(post);
             }
-            return listreturnPosts;
+            return listreturnPosts
+                .OrderBy(x => x.id)
+                .Skip(page * pageSize)
+                .Take(pageSize)
+                .ToList();
         }
 
+        
         public List<BestmatchKeywordList> BestmatchKeywordLists(string text)
         {
             List<BestmatchKeywordList> listreturnPosts = new List<BestmatchKeywordList>();

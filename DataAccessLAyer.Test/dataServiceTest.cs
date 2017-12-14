@@ -117,7 +117,7 @@ namespace DataAccessLayer.Test
         public void ReturnBestMatch()
         {
             var service = new DataService();
-            var result = service.BestMatches("java");
+            var result = service.BestMatches("java",0,0);
             Assert.Equal(558, result.Count);
 
         }
@@ -136,6 +136,24 @@ namespace DataAccessLayer.Test
             Assert.Equal(12, result.Count);
 
         }
+        [Fact]
+        public void ReturnAnswersById()
+        {
+            var service = new DataService();
+            var result = service.ReturnAnswersById(19);
+            Assert.Equal(21, result.Count);
+
+        }
+
+        [Fact]
+        public void DeleteMarkPostbyId()
+        {
+            var service = new DataService();
+            var result = service.DeleteMarkPost(19);
+            Assert.Equal(true, result);
+
+        }
+
     }
 }
 

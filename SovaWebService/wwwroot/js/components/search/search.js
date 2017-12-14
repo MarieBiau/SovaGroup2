@@ -8,8 +8,10 @@
         var posts = ko.observableArray([]);
         var nextLink = ko.observable();
         var prevLink = ko.observable();
-
+        var searchField = ko.observable();
+       
         var currentView = ko.observable('postlist');
+        var linkedPostsView = ko.observable('linkedPosts');
 
 
         var next = () => {
@@ -44,15 +46,49 @@
                     score: postData.score,
                     creationDate: postData.creationDate,
                     body: postData.body
+                    
                 }
+                
 
-                $.getJSON(postData.answers, ans => {
-                    post.answers = ko.observableArray(ans);
-                    currentPost(post);
+                $.getJSON(postData.comments, cms => {
+
+                    post.comments = ko.observableArray(cms);
+                    console.log(post.comments);
+                    //currentPost(post);
+
+                    $.getJSON(postData.answers, ans => {
+
+                        post.answers = ko.observableArray(ans);
+                        console.log(post.answers);
+                        //currentPost(post);
+
+                        $.getJSON(postData.linkedPosts, linkPosts => {
+
+                            post.linkedPosts = ko.observableArray(linkPosts);
+                            console.log(post.linkedPosts);
+                            //currentPost(post);
+
+                            $.getJSON(postData.showTags, stags => {
+
+                                post.showTags = ko.observableArray(stags);
+                                console.log(post.showTags);
+                                currentPost(post);
+                            });
+
+                        });
+
+
+                    });
+
                 });
+
+               
+
             });
             title("Post");
             currentView('postview');
+            linkedPostsView('linkedPosts');
+
         };
 
         var home = () => {
@@ -60,12 +96,13 @@
             currentView('postlist');
         };
 
-        $.getJSON("api/questions/", data => {
+        $.getJSON("api/bestmatch/search/NET", data => {
             posts(data.items);
             nextLink(data.next);
             prevLink(data.prev);
             console.log(data.items);
         });
+
 
 
         return {

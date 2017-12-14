@@ -2,19 +2,27 @@
 
 <div data-bind="template: {name: currentView}"></div>
 
-
-
-
 <script type="text/html" id="postlist">
     <div data-bind="foreach: posts">
         <div>
             <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a>
         </div>
     </div>
-    <div class="btn-group">
-        <button data-bind="click: prev, enable: canPrev">Prev</button>
-        <button data-bind="click: next, enable: canNext">Next</button>
-    </div>
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous" data-bind="click: prev, enable: canPrev">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="#" aria-label="Next" data-bind="click: next, enable: canNext">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </script>
 
 <script type="text/html" id="postview">
@@ -33,12 +41,39 @@
 
         <hr/>
 
-        <div data-bind="foreach: answers">
+        <div style="background-color: darkgreen" data-bind="foreach: answers">
             <div data-bind="html: body"></div>
             <hr/>
 
         </div>
+        <div style="background-color: blue" data-bind="foreach: comments">
+            <div data-bind="html: body"></div>
+            <hr/>
+
+        </div>
+        
+        <div style="background-color: red" data-bind="foreach: linkedPosts">
+            <div>
+                <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a>
+            </div>
+            <hr/>
+
+        </div>
+        
+        <div style="background-color: black" data-bind="foreach: showTags">
+            <div>
+                <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: name"></span></a>
+            </div>
+            <hr/>
+
+        </div>
+
 
     </div>
+    
+
 
 </script>
+
+
+

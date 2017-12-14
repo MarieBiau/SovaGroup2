@@ -23,6 +23,9 @@ namespace DataAccessLayer.dbContext
         public DbSet<ClosestTerm> ClosestTerms { get; set; }
         public DbSet<Answers> Answers { get; set; }
         public DbSet<Comments> Comments { get; set; }
+        public DbSet<AnswersSearchResults> AnswersSearchResults { get; set; }
+
+        
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

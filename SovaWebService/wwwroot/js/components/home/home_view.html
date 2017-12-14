@@ -1,4 +1,51 @@
+<<<<<<< HEAD
 ﻿<h1 data-bind="text: title"></h1>
 <div data-bind="cloud: {words}" style="width: 500px; height: 500px"></div>
 <button data-bind="click: changeWords">Change Words</button>
+=======
+﻿<div class="col-md-6" data-bind="cloud: {words}" style="min-width: 200px; min-height: 200px"></div>
 
+<div class="col-md-6" data-bind="template: {name: currentView}"></div>
+
+<script type="text/html" id="postlist">
+    <h1>Latest Questions</h1>
+    <div data-bind="foreach: posts">
+        <div>
+            <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a>
+        </div>
+    </div>
+>>>>>>> 741e3225b55e13314459f17a7e91b8d1e85ba9a9
+
+</script>
+
+<script type="text/html" id="postview">
+    <div>
+        <button data-bind="click: home">Back</button>
+    </div>
+    <div data-bind="with: currentPost">
+        <h2 data-bind="text: title"></h2>
+        <h3>
+            Creation Date: <span data-bind="text: creationDate"></span>
+        </h3>
+        <h3>
+            Score: <span data-bind="text: score"></span>
+        </h3>
+        <div data-bind="html: body"></div>
+
+        <hr />
+
+        <div data-bind="foreach: answers">
+            <div data-bind="html: body"></div>
+            <hr />
+
+        </div>
+        <div style="background-color: blue" data-bind="foreach: comments">
+            <div data-bind="html: body"></div>
+            <hr />
+
+        </div>
+
+
+    </div>
+
+</script>
