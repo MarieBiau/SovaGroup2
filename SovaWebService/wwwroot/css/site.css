@@ -100,3 +100,17 @@ hr {
 .search-date {
     margin-left: 2em;
 }
+
+.sidebar {
+    
+
+    position: absolute;
+    right: 0%;
+    top: 4%;
+
+}
+.sidebar-linked {
+    position: absolute;
+    right: 0%;
+    top: 50%;
+}

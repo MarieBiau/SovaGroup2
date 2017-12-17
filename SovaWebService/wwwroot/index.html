@@ -21,7 +21,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">SOVA</a>
+                    <span class="navbar-brand" >SOVA GROUP 2</span>
                 </div><!-- /.navbar-header -->
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -34,12 +34,25 @@
             </div><!-- /.container-fluid -->
         </nav>
     
-        <form class="search-form">
+        <!--<form class="search-form">
             <input type="text" class="search-text" placeholder="Search word or phrase" data-bind="textInput: searchText">
             <input type="image" class="search-image" src="img/search.png" alt="Submit" data-bind="click: submitSearch">
-        </form>
+        </form>-->
+        
+        
+        <form class="search-form">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" data-bind="textInput: searchText">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit" data-bind="click: submitSearch">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form> 
 
         <div data-bind="component: {name: currentComp, params: currentParams}"></div>
+
 
     </div>
     

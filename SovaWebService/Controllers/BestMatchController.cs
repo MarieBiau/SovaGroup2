@@ -118,8 +118,8 @@ namespace SovaWebService.Controllers
                     Link = Url.Link(nameof(GetCommentsBestMatch), new { x.id }),
                     Parent = Url.Link(nameof(GetCommentsBestMatch), new { id }),
                     body = x.text,
-                    x.creation_date,
-                    x.score
+                    creationDate = x.creation_date,
+                    score = x.score
                 });
 
             return Ok(comments);

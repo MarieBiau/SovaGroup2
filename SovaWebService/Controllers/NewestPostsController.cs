@@ -28,7 +28,7 @@ namespace SovaWebService.Controllers
                 {
                     Link = Url.Link(nameof(GetPostHome), new { x.id }),
                     title = x.title,
-                    //body = x.body,
+                    body = x.body.Substring(0, x.body.Length < 300 ? x.body.Length : 300),
                     date = x.creation_date,
                     //score = x.score
 
@@ -57,6 +57,10 @@ namespace SovaWebService.Controllers
                 post.creation_date,
                 answers = Url.Link(nameof(GetAnswersHome), new { post.id }),
                 comments = Url.Link(nameof(GetCommentsHome), new { post.id }),
+                linkedPosts = Url.Link(nameof(GetlinkedPostsHome), new { post.id }),
+                showTags = Url.Link(nameof(GetshowTagsHome), new { post.id }),
+                addMark = Url.Link(nameof(addMarkHome), new { post.id }),
+                removeMark = Url.Link(nameof(removeMarkHome), new { post.id }),
 
             };
 
@@ -96,6 +100,65 @@ namespace SovaWebService.Controllers
                 });
 
             return Ok(comments);
+        }
+
+        [HttpGet("{id}/linkedPosts", Name = nameof(GetlinkedPostsHome))]
+        public IActionResult GetlinkedPostsHome(int id)
+        {
+
+            var linkedPosts = _dataService.ReturnLinkPosts(id)
+                .Select(x => new
+                {
+                    Link = Url.Link(nameof(GetlinkedPostsHome), new { x.id }),
+                    Parent = Url.Link(nameof(GetlinkedPostsHome), new { id }),
+                    title = x.title
+                });
+
+            return Ok(linkedPosts);
+        }
+
+        [HttpGet("{id}/showTags", Name = nameof(GetshowTagsHome))]
+        public IActionResult GetshowTagsHome(int id)
+        {
+
+            var linkedPosts = _dataService.ReturnPostTags(id)
+                .Select(x => new
+                {
+                    Link = Url.Link(nameof(GetshowTagsHome), new { x.id }),
+                    Parent = Url.Link(nameof(GetshowTagsHome), new { id }),
+                    name = x.name
+                });
+
+            return Ok(linkedPosts);
+        }
+
+        [HttpGet("{id}/addMark", Name = nameof(addMarkHome))]
+        public IActionResult addMarkHome(int id)
+        {
+            var checkIfMarkExist = _dataService.GetMark(id);
+
+            if (checkIfMarkExist != null)
+            {
+
+                return Ok();
+            }
+            else
+            {
+                var MarkPost = _dataService.MarkPost(id, 1);
+                return Ok(MarkPost);
+
+            }
+
+        }
+
+        [HttpGet("{id}/removeMark", Name = nameof(removeMarkHome))]
+        public IActionResult removeMarkHome(int id)
+        {
+
+            var MarkPost = _dataService.DeleteMarkPost(id);
+            return Ok(MarkPost);
+
+
         }
 
 

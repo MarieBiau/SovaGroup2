@@ -9,8 +9,6 @@
             changeWords();
         }
 
-        
-
         //tags for wordcloud
         var words = ko.observableArray([]);
         $.getJSON("api/tags/10", data => {
@@ -90,7 +88,18 @@
 
                         post.answers = ko.observableArray(ans);
                         //console.log(post.answers);
-                        currentPost(post);
+                        //currentPost(post);
+                        $.getJSON(postData.linkedPosts, linkPosts => {
+
+                            post.linkedPosts = ko.observableArray(linkPosts);
+
+                            $.getJSON(postData.showTags, stags => {
+
+                                post.showTags = ko.observableArray(stags);
+                                currentPost(post);
+
+                            });
+                        });
                     });
 
                 });
@@ -98,7 +107,7 @@
 
 
             });
-            title("Post");
+            title("Question");
             currentView('postview');
         };
 

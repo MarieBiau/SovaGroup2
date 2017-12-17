@@ -302,6 +302,8 @@ namespace DataAccessLayer.dbContext
 
         public List<BestMatch> BestMatches(string text, int page, int pageSize)
         {
+            //update Searches table 
+            AddSearches(text);
             using (var db = new SovaDbContext())
             {
                 List<BestMatch> listreturnPosts = new List<BestMatch>();
@@ -316,6 +318,15 @@ namespace DataAccessLayer.dbContext
                     .Skip(page * pageSize)
                     .Take(pageSize)
                     .ToList();
+            }
+        }
+
+        public int AddSearches(string text)
+        {
+            using (var db = new SovaDbContext())
+            {
+                var returnPosts = db.AddSearches.FromSql("call search({0})", text);
+                return returnPosts.Count();
             }
         }
 
