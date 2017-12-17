@@ -52,6 +52,7 @@ namespace SovaWebService.Controllers
                 //post.title,
                 post[0].rank,
                 post[0].body,
+                post[0].creation_date,
                 answers = Url.Link(nameof(GetAnswersSearches), new { post[0].id }),
                 comments = Url.Link(nameof(GetCommentsSearches), new { post[0].id }),
 

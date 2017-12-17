@@ -51,7 +51,7 @@ namespace DataAccessLayer.Test
             var service = new DataService();
             var mark = service.MarkPost(1243, 1);
 
-            Assert.Equal(true, mark);
+            Assert.Equal(1, mark.Count);
 
         }
 
@@ -150,6 +150,15 @@ namespace DataAccessLayer.Test
         {
             var service = new DataService();
             var result = service.DeleteMarkPost(19);
+            Assert.Equal(true, result);
+
+        }
+
+        [Fact]
+        public void addVisitedById()
+        {
+            var service = new DataService();
+            var result = service.AddVisitedPost(1820);
             Assert.Equal(true, result);
 
         }

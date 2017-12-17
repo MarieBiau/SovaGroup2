@@ -71,13 +71,13 @@ namespace DataAccessLayer.dbContext
             return results;
         }
 
-        //public bool AddVisitedPost(int id)
-        //{
-        //    //return updated posts id 
+        public bool AddVisitedPost(int id)
+        {
+            //return updated posts id 
 
-        //    var results = db.AddVisitedPost.FromSql("call add_visited_post({0})", id);
-        //    return results.Any();
-        //}
+            var results = db.AddVisitedPost.FromSql("call add_visited_post({0})", id);
+            return results.Any();
+        }
 
         public List<comments> ReturnCommentsById(int id)
         {
@@ -148,6 +148,7 @@ namespace DataAccessLayer.dbContext
             }
         }
 
+<<<<<<< HEAD
         public bool  MarkPost(int post_id, int type)
         {
             using (var db = new SovaDbContext())
@@ -156,6 +157,32 @@ namespace DataAccessLayer.dbContext
                 //2 Bad
                 var result = db.MarkPosts.FromSql("call mark_post({0},{1})", post_id, type);
                 return result.Any();
+=======
+        public List<MarkPost>  MarkPost(int post_id, int type)
+        {
+            //using (var db = new SovaDbContext())
+            //{
+    
+            //}
+
+            ////1 Good
+            ////2 Bad
+            //MarkPost results = db.MarkPosts.FromSql("call mark_post({0},{1})", post_id, type);
+            //return results;
+
+
+            using (var db = new SovaDbContext())
+            {
+                List<MarkPost> listMarkPost = new List<MarkPost>();
+
+                var marks = db.MarkPosts.FromSql("call mark_post({0},{1})", post_id, type);
+                foreach (var mark in marks)
+                {
+                    listMarkPost.Add(mark);
+                }
+
+                return listMarkPost;
+>>>>>>> forSafetypush
             }
         }
 

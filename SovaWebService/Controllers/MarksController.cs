@@ -52,7 +52,7 @@ namespace SovaWebService.Controllers
             var post = _dataService.ReturnQuestionById(id);
 
             //add visited 
-            //_dataService.AddVisitedPost(id);
+            _dataService.AddVisitedPost(id);
 
             var result = new
             {
@@ -60,6 +60,7 @@ namespace SovaWebService.Controllers
                 //post.title,
                 post.score,
                 post.body,
+                post.creation_date,
                 answers = Url.Link(nameof(GetAnswersMarks), new { post.id }),
                 comments = Url.Link(nameof(GetCommentsMarks), new { post.id }),
                 linkedPosts = Url.Link(nameof(GetlinkedMarks), new { post.id }),
@@ -201,9 +202,17 @@ namespace SovaWebService.Controllers
         public IActionResult addMark(int id)
         {
 
-            var MarkPost = _dataService.MarkPost(id, 1);
+            var checkIfMarkExist = _dataService.GetMark(id);
 
-            return Ok(MarkPost);
+            if (checkIfMarkExist.posts_id == id)
+            {
+                return Ok();
+            }
+            else
+            {
+                var MarkPost = _dataService.MarkPost(id, 1);
+                return Ok(MarkPost);
+            }
 
 
         }

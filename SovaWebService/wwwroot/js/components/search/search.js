@@ -1,21 +1,21 @@
 ﻿define(['jquery', 'knockout'], function ($,ko) {
     return function (params) {
 
-        //create logic to observe input field and search button click
-
-
         var title = ko.observable("Show posts");
         var posts = ko.observableArray([]);
+        var answers = ko.observableArray([]);
+        var currentPost = ko.observable();
         var nextLink = ko.observable();
         var prevLink = ko.observable();
         var searchText = ko.observable(params.searchText || '');
+        
        
         var currentView = ko.observable('postlist');
         var linkedPostsView = ko.observable('linkedPosts');
 
 
         //annotation binding
-        var annotation = ko.observable();
+        //var annotation = ko.observable();
         var save = true;
         var marked = ko.observable(true);
         var bool = null;
@@ -37,18 +37,44 @@
 
         addMark = (data) => {
 
-            $.getJSON("api/marks/" + data.id + "/addMark");
-            
+
+            $.getJSON(data.link,
+                postData => {
+                    var post = {
+                        title: postData.title,
+                        score: postData.score,
+                        creationDate: postData.creation_date,
+                        body: postData.body
+
+                    }
+                    
+                    $.getJSON(postData.addMark);
+                    alert("Reload Page addMark saved!");
+
+                });
         };
 
         removeMark = (data) => {
-            $.getJSON("api/marks/" + data.id + "/removeMark");
+            $.getJSON(data.link,
+                postData => {
+                    var post = {
+                        title: postData.title,
+                        score: postData.score,
+                        creationDate: postData.creation_date,
+                        body: postData.body
+
+                    }
+
+                    $.getJSON(postData.addMark);
+                    alert("Reload Page removeMark saved!");
+                });
+
         };
 
         saveAnnotation = (data) => {
 
-            var json = '[{ "op": "replace", "path": "/annotation", "value": "' + annotation + '" }]';
-            $.ajax({
+            var json = '[{ "op": "replace", "path": "/annotation", "value": "' + annotationText() + '" }]';
+            $.post({
                 type: "PATCH",
                 contentType: "application/json",
                 url: "api/marks/" + data.id + "/updateAnnotation",
@@ -63,11 +89,7 @@
             //alert("saved");
             //do some stuff
         }
-
-
-
-
-
+        
         var next = () => {
             $.getJSON(nextLink(), data => {
                 posts(data.items);
@@ -91,14 +113,13 @@
             return prevLink() !== null;
         });
 
-        var currentPost = ko.observable();
 
         var showPost = (data) => {
             $.getJSON(data.link, postData => {
                 var post = {
                     title: postData.title,
                     score: postData.score,
-                    creationDate: postData.creationDate,
+                    creationDate: postData.creation_date,
                     body: postData.body
                     
                 }
@@ -119,12 +140,7 @@
 
                                 post.showTags = ko.observableArray(stags);
                                 currentPost(post);
-                                //$.getJSON(postData.commentsOfAnswers, anws => {
-
-                                //    post.commentsOfAnswers = ko.observableArray(anws);
-                                //    console.log(post.commentsOfAnswers + "commentsOfAnswers");
-                                //    currentPost(post);
-                                //});
+    
                             });
                         });
                     });
@@ -136,6 +152,14 @@
             linkedPostsView('linkedPosts');
 
         };
+
+        
+
+        $.getJSON("api/bestmatch/", dataAnswers => {
+
+            answers(data.items);
+
+        });
 
         var home = () => {
             title("Show posts");
@@ -165,7 +189,6 @@
             searchText,
             addMark,
             removeMark,
-            annotation,
             marked,
             checkIfMarked,
             bool,

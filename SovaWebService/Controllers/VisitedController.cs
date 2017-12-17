@@ -48,13 +48,14 @@ namespace SovaWebService.Controllers
         {
             var post = _dataService.ReturnQuestionById(id);
             //add visited 
-            //_dataService.AddVisitedPost(id);
+            _dataService.AddVisitedPost(id);
             var result = new
             {
                 Link = Url.Link(nameof(GetPostVisited), new { post.id }),
                 //post.title,
                 post.score,
                 post.body,
+                post.creation_date,
                 answers = Url.Link(nameof(GetAnswersVisited), new { post.id }),
                 comments = Url.Link(nameof(GetCommentsVisited), new { post.id }),
 

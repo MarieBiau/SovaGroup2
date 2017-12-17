@@ -11,9 +11,11 @@
     </form>
     <div class="cloud" data-bind="cloud: {words}"></div>
 </div>
-
 <div class="col-md-6" data-bind="template: {name: currentView}"></div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> forSafetypush
 <script type="text/html" id="postlist">
     <h1>Latest Questions</h1>
     <div data-bind="foreach: posts">
@@ -22,7 +24,6 @@
         </div>
     </div>
 </script>
-
 <script type="text/html" id="postview">
     <div>
         <button data-bind="click: home">Back</button>
@@ -31,16 +32,25 @@
         <h1 data-bind="text: title"></h1>
         <h2 class="creation-date">Creation Date: <span data-bind="text: creationDate"></span></h2>
         <h2>Score: <span data-bind="text: score"></span></h2>
+<<<<<<< HEAD
 
         <div class="row">
             <div class="col-md-1">
                 <input type="image" class="thumb" src="../../img/blue_thumb.png"/>
                 <input type="image" class="thumb" src="../../img/red_thumb.png"/>
                 <input type="image" class="annotation" data-toggle="modal" data-target="#myModal" src="../../img/annotation.jpg"/>
+=======
+        <div class="row">
+            <div class="col-md-1">
+                <input type="image" class="thumb" src="../../img/blue_thumb.png" />
+                <input type="image" class="thumb" src="../../img/red_thumb.png" />
+                <input type="image" class="annotation" data-toggle="modal" data-target="#myModal" src="../../img/annotation.jpg" />
+>>>>>>> forSafetypush
             </div>
             <div class="col-md-11">
                 <div data-bind="html: body"></div>
             </div>
+<<<<<<< HEAD
         </div>
 
         <hr/>
@@ -64,10 +74,33 @@
             <hr/>
         </div>
         
+=======
+        </div>
+        <hr />
+        <div style="background-color: blue" data-bind="foreach: comments">
+            <div data-bind="html: body"></div>
+            <hr />
+        </div>
+        <div style="background-color: darkgreen" data-bind="foreach: answers">
+            <div class="row">
+                <div class="col-md-1">
+                    <input type="image" class="thumb" src="../../img/blue_thumb.png" />
+                    <input type="image" class="thumb" src="../../img/red_thumb.png" />
+                    <input type="image" class="annotation" data-toggle="modal" data-target="#myModal" src="../../img/annotation.jpg" />
+                </div>
+                <div class="col-md-11">
+                    <div data-bind="html: body"></div>
+                </div>
+            </div>
+            <hr />
+        </div>
+
+>>>>>>> forSafetypush
         <div style="background-color: red" data-bind="foreach: linkedPosts">
             <div>
                 <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a>
             </div>
+<<<<<<< HEAD
             <hr/>
         </div>
         
@@ -76,11 +109,23 @@
                 <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: name"></span></a>
             </div>
             <hr/>
+=======
+            <hr />
+>>>>>>> forSafetypush
         </div>
 
+        <div style="background-color: black" data-bind="foreach: showTags">
+            <div>
+                <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: name"></span></a>
+            </div>
+            <hr />
+        </div>
     </div>
 </script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> forSafetypush
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">

@@ -16,7 +16,7 @@
                 var post = {
                     title: postData.title,
                     score: postData.score,
-                    creationDate: postData.creationDate,
+                    creationDate: postData.creation_date,
                     body: postData.body
 
                 }
@@ -45,10 +45,12 @@
                 var post = {
                     title: postData.title,
                     score: postData.score,
-                    creationDate: postData.creationDate,
+                    creationDate: postData.creation_date,
                     body: postData.body
 
                 }
+
+                
 
                 $.getJSON(postData.comments, cms => {
 
