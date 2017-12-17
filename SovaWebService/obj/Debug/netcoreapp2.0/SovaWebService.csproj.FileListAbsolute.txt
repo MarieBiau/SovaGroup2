@@ -1,13 +1,25 @@
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService\bin\Debug\netcoreapp2.0\SovaWebService.deps.json
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService\bin\Debug\netcoreapp2.0\SovaWebService.runtimeconfig.json
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService\bin\Debug\netcoreapp2.0\SovaWebService.runtimeconfig.dev.json
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService\bin\Debug\netcoreapp2.0\SovaWebService.dll
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService\bin\Debug\netcoreapp2.0\SovaWebService.pdb
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService\bin\Debug\netcoreapp2.0\DataAccessLayer.dll
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService\bin\Debug\netcoreapp2.0\DataAccessLayer.pdb
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService\obj\Debug\netcoreapp2.0\SovaWebService.csprojResolveAssemblyReference.cache
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService\obj\Debug\netcoreapp2.0\SovaWebService.csproj.CoreCompileInputs.cache
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService\obj\Debug\netcoreapp2.0\SovaWebService.AssemblyInfoInputs.cache
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService\obj\Debug\netcoreapp2.0\SovaWebService.AssemblyInfo.cs
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService\obj\Debug\netcoreapp2.0\SovaWebService.dll
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService\obj\Debug\netcoreapp2.0\SovaWebService.pdb
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService/bin/Debug/netcoreapp2.0/SovaWebService.deps.json
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService/bin/Debug/netcoreapp2.0/SovaWebService.runtimeconfig.json
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService/bin/Debug/netcoreapp2.0/SovaWebService.runtimeconfig.dev.json
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService/bin/Debug/netcoreapp2.0/SovaWebService.dll
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService/bin/Debug/netcoreapp2.0/SovaWebService.pdb
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService/bin/Debug/netcoreapp2.0/DataAccessLayer.dll
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService/bin/Debug/netcoreapp2.0/DataAccessLayer.pdb
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService/obj/Debug/netcoreapp2.0/SovaWebService.csprojResolveAssemblyReference.cache
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService/obj/Debug/netcoreapp2.0/SovaWebService.csproj.CoreCompileInputs.cache
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService/obj/Debug/netcoreapp2.0/SovaWebService.AssemblyInfoInputs.cache
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService/obj/Debug/netcoreapp2.0/SovaWebService.AssemblyInfo.cs
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService/obj/Debug/netcoreapp2.0/SovaWebService.dll
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService/obj/Debug/netcoreapp2.0/SovaWebService.pdb
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService/bin/Debug/netcoreapp2.0/SovaWebService.deps.json
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService/bin/Debug/netcoreapp2.0/SovaWebService.runtimeconfig.json
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService/bin/Debug/netcoreapp2.0/SovaWebService.runtimeconfig.dev.json
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService/bin/Debug/netcoreapp2.0/SovaWebService.dll
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService/bin/Debug/netcoreapp2.0/SovaWebService.pdb
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService/bin/Debug/netcoreapp2.0/DataAccessLayer.dll
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService/bin/Debug/netcoreapp2.0/DataAccessLayer.pdb
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService/obj/Debug/netcoreapp2.0/SovaWebService.csproj.CoreCompileInputs.cache
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService/obj/Debug/netcoreapp2.0/SovaWebService.AssemblyInfoInputs.cache
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService/obj/Debug/netcoreapp2.0/SovaWebService.AssemblyInfo.cs
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService/obj/Debug/netcoreapp2.0/SovaWebService.dll
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService/obj/Debug/netcoreapp2.0/SovaWebService.pdb

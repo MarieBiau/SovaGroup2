@@ -1,8 +1,24 @@
 ﻿<h1 data-bind="text: title"></h1>
 
-<div class="col-md-6" data-bind="template: {name: currentView}"></div>
+<div data-bind="template: {name: currentView}"></div>
 
-<input type="image" class="annotation" data-toggle="modal" data-target="#myModal" src="../../img/annotation.jpg" data-bind="enable: bool">
+<script type="text/html" id="postlist">
+    <div data-bind="foreach: posts">
+        <div>
+            <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a>
+            <span class="search-date" data-bind="text: date"></span>
+            <div class="row">
+                <div class="col-md-1">
+                    <input type="image" class="annotation" data-toggle="modal" data-target="#myModal" src="../../img/annotation.jpg"/>
+                </div>
+                <div class="col-md-11">
+                    <div data-bind="html: body"></div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+</script>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -22,17 +38,3 @@
         </div>
     </div>
 </div>
-
-
-
-<script type="text/html" id="postlist">
-    <div data-bind="foreach: posts">
-        <div>
-            <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a>
-            <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: body"></span></a>
-            <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: annotation"></span></a>
-            <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: date"></span></a>
-        </div>
-    </div>
-
-</script>

@@ -27,15 +27,13 @@ namespace SovaWebService.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-
             var goodMarksList = _dataService.ReturnGoodMarks()
                 .Select(x => new
                 {
                     title = x.title,
-                    body = x.body.Substring(3, 100),
+                    body = x.body.Substring(0, x.body.Length < 300 ? x.body.Length : 300),
                     annotation = x.annotation,
                     date = x.creation_date
-
                 });
             var result = new
             {

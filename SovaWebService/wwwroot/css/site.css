@@ -6,38 +6,25 @@
 h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 2em;
-    margin: 1em auto 0.4em 2em;
+    margin-bottom: 0.7em;
 }
 
 h2 {
     display: inline-block;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1.2em;
-    margin: auto 2em 1.3em 3.5em;
-}
-
-h3 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 1em;
-    margin-left: 2em;
 }
 
 a {
     font-size: 1.2em;
 }
 
-    a:link {
-        color: navy;
-    }
+a:link {
+    color: navy;
+}
 
-    a:visited {
-        color: navy;
-    }
-
-.btn {
-    box-shadow: 2px 2px;
-    background-color: #f0f0f000;
-    color: #000000e3;
+a:visited {
+    color: rgb(98, 0, 128);
 }
 
 .prev-next {
@@ -85,13 +72,13 @@ hr {
 
 .thumb {
     display: block;
-    width: 40%;
+    width: 60%;
     margin-bottom: 0.5em;
 }
 
 .annotation {
     display: block;
-    width: 50%;
+    width: 80%;
     margin-bottom: 0.5em;
 }
 
@@ -99,4 +86,17 @@ hr {
     width: 100%;
     max-width: 100%;
     max-height: 100%;
+}
+
+.cloud {
+    min-width: 200px;
+    min-height: 200px;
+}
+
+.creation-date {
+    margin: auto 3em 1.5em auto;
+}
+
+.search-date {
+    margin-left: 2em;
 }

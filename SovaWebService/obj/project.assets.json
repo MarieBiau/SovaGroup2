@@ -13453,40 +13453,35 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kestutis\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/home/marie/.nuget/packages/": {},
+    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\SovaWebService\\SovaWebService.csproj",
+      "projectUniqueName": "/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService/SovaWebService.csproj",
       "projectName": "SovaWebService",
-      "projectPath": "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\SovaWebService\\SovaWebService.csproj",
-      "packagesPath": "C:\\Users\\kestutis\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\SovaWebService\\obj\\",
+      "projectPath": "/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService/SovaWebService.csproj",
+      "packagesPath": "/home/marie/.nuget/packages/",
+      "outputPath": "/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\kestutis\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/marie/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\DataAccessLayer\\DataAccessLayer.csproj": {
-              "projectPath": "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\DataAccessLayer\\DataAccessLayer.csproj"
+            "/home/marie/RAWDATA_C#/SovaGroup2/DataAccessLayer/DataAccessLayer.csproj": {
+              "projectPath": "/home/marie/RAWDATA_C#/SovaGroup2/DataAccessLayer/DataAccessLayer.csproj"
             }
           }
         }
@@ -13500,26 +13495,26 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
-          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
-            "target": "Package",
-            "version": "3.2.0"
-          },
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-            "target": "Package",
-            "version": "2.0.1"
-          },
           "Microsoft.NETCore.App": {
             "target": "Package",
-            "version": "2.0",
+            "version": "2.0.0",
             "autoReferenced": true
           },
           "AutoMapper": {
             "target": "Package",
             "version": "6.2.1"
           },
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+            "target": "Package",
+            "version": "3.2.0"
+          },
           "Microsoft.AspNetCore.All": {
             "target": "Package",
             "version": "2.0.3"
+          },
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+            "target": "Package",
+            "version": "2.0.1"
           }
         },
         "imports": [

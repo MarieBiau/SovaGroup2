@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SovaWebService.Controllers
 {
-    [Route("api/Visited")]
+    [Route("api/visited")]
     public class VisitedController : Controller
     {
 
@@ -28,10 +28,8 @@ namespace SovaWebService.Controllers
                 {
                     Link = Url.Link(nameof(GetPostVisited), new { x.id }),
                     title = x.title,
-                    body = x.body.Substring(3, 100),
+                    body = x.body.Substring(0, x.body.Length < 300 ? x.body.Length : 300),
                     date = x.view_date
-                    //da
-
                 });
 
 

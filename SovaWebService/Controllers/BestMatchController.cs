@@ -32,8 +32,8 @@ namespace SovaWebService.Controllers
                 .Select(x => new
                 {
                     Link = Url.Link(nameof(GetPostBestMatch), new { x.id }),
-                    title = x.title
-
+                    title = x.title,
+                    body = x.body.Substring(0, x.body.Length < 300 ? x.body.Length : 300)
                 });
 
             var prev = page > 0 ? Url.Link(nameof(GetResultsOfBestMatch), new { page = page - 1, pageSize }) : null;

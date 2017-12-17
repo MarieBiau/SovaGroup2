@@ -1,14 +1,27 @@
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService.Test\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService.Test\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService.Test\bin\Debug\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService.Test\bin\Debug\netcoreapp2.0\SovaWebService.Test.deps.json
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService.Test\bin\Debug\netcoreapp2.0\SovaWebService.Test.runtimeconfig.json
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService.Test\bin\Debug\netcoreapp2.0\SovaWebService.Test.runtimeconfig.dev.json
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService.Test\bin\Debug\netcoreapp2.0\SovaWebService.Test.dll
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService.Test\bin\Debug\netcoreapp2.0\SovaWebService.Test.pdb
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService.Test\obj\Debug\netcoreapp2.0\SovaWebService.Test.csprojResolveAssemblyReference.cache
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService.Test\obj\Debug\netcoreapp2.0\SovaWebService.Test.csproj.CoreCompileInputs.cache
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService.Test\obj\Debug\netcoreapp2.0\SovaWebService.Test.AssemblyInfoInputs.cache
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService.Test\obj\Debug\netcoreapp2.0\SovaWebService.Test.AssemblyInfo.cs
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService.Test\obj\Debug\netcoreapp2.0\SovaWebService.Test.dll
-C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\SovaWebService.Test\obj\Debug\netcoreapp2.0\SovaWebService.Test.pdb
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService.Test/bin/Debug/netcoreapp2.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService.Test/bin/Debug/netcoreapp2.0/xunit.runner.reporters.netcoreapp10.dll
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService.Test/bin/Debug/netcoreapp2.0/xunit.runner.utility.netcoreapp10.dll
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService.Test/bin/Debug/netcoreapp2.0/SovaWebService.Test.deps.json
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService.Test/bin/Debug/netcoreapp2.0/SovaWebService.Test.runtimeconfig.json
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService.Test/bin/Debug/netcoreapp2.0/SovaWebService.Test.runtimeconfig.dev.json
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService.Test/bin/Debug/netcoreapp2.0/SovaWebService.Test.dll
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService.Test/bin/Debug/netcoreapp2.0/SovaWebService.Test.pdb
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService.Test/obj/Debug/netcoreapp2.0/SovaWebService.Test.csprojResolveAssemblyReference.cache
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService.Test/obj/Debug/netcoreapp2.0/SovaWebService.Test.csproj.CoreCompileInputs.cache
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService.Test/obj/Debug/netcoreapp2.0/SovaWebService.Test.AssemblyInfoInputs.cache
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService.Test/obj/Debug/netcoreapp2.0/SovaWebService.Test.AssemblyInfo.cs
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService.Test/obj/Debug/netcoreapp2.0/SovaWebService.Test.dll
+C:/Users/kestutis/Documents/Visual Studio 2017/Projects/SovaGroup2/SovaWebService.Test/obj/Debug/netcoreapp2.0/SovaWebService.Test.pdb
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService.Test/bin/Debug/netcoreapp2.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService.Test/bin/Debug/netcoreapp2.0/xunit.runner.reporters.netcoreapp10.dll
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService.Test/bin/Debug/netcoreapp2.0/xunit.runner.utility.netcoreapp10.dll
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService.Test/bin/Debug/netcoreapp2.0/SovaWebService.Test.deps.json
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService.Test/bin/Debug/netcoreapp2.0/SovaWebService.Test.runtimeconfig.json
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService.Test/bin/Debug/netcoreapp2.0/SovaWebService.Test.runtimeconfig.dev.json
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService.Test/bin/Debug/netcoreapp2.0/SovaWebService.Test.dll
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService.Test/bin/Debug/netcoreapp2.0/SovaWebService.Test.pdb
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService.Test/obj/Debug/netcoreapp2.0/SovaWebService.Test.csproj.CoreCompileInputs.cache
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService.Test/obj/Debug/netcoreapp2.0/SovaWebService.Test.AssemblyInfoInputs.cache
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService.Test/obj/Debug/netcoreapp2.0/SovaWebService.Test.AssemblyInfo.cs
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService.Test/obj/Debug/netcoreapp2.0/SovaWebService.Test.dll
+/home/marie/RAWDATA_C#/SovaGroup2/SovaWebService.Test/obj/Debug/netcoreapp2.0/SovaWebService.Test.pdb
