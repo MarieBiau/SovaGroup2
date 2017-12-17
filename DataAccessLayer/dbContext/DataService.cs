@@ -61,11 +61,22 @@ namespace DataAccessLayer.dbContext
         
         public posts ReturnQuestionById(int id)
         {
-            var results = db.posts.FirstOrDefault(x=>x.id == id);
 
+            posts results;
+            using (var db = new SovaDbContext())
+            {
+                results = db.posts.FirstOrDefault(x => x.id == id);
+            }
             return results;
-        
         }
+
+        //public bool AddVisitedPost(int id)
+        //{
+        //    //return updated posts id 
+
+        //    var results = db.AddVisitedPost.FromSql("call add_visited_post({0})", id);
+        //    return results.Any();
+        //}
 
         public List<comments> ReturnCommentsById(int id)
         {
@@ -76,6 +87,13 @@ namespace DataAccessLayer.dbContext
             foreach (var comment in comments)
             {
                 CommentList.Add(comment);
+            }
+
+            using (var db = new SovaDbContext())
+            {
+
+                db.QuestionSearchResults.FromSql("call add_visited_post({0})", id);
+
             }
             return  CommentList;
         }
@@ -89,6 +107,13 @@ namespace DataAccessLayer.dbContext
             foreach (var answer in answers)
             {
                 answerList.Add(answer);
+            }
+
+            using (var db = new SovaDbContext())
+            {
+
+                db.QuestionSearchResults.FromSql("call add_visited_post({0})", id);
+
             }
 
             return answerList;
@@ -130,9 +155,14 @@ namespace DataAccessLayer.dbContext
         {
             //1 Good
             //2 bad
-            var result = db.MarkPosts.FromSql("call mark_post({0},{1})", post_id, type);
-            
-            return result.Any();
+
+            using (var db = new SovaDbContext())
+            {
+
+                db.MarkPosts.FromSql("call mark_post({0},{1})", post_id, type);
+
+            }
+            return true;
 
         }
 
@@ -177,7 +207,7 @@ namespace DataAccessLayer.dbContext
         public Boolean UpdateAnnotation(int id, string annotation)
         {
 
-            var marks = db.marks.FirstOrDefault(x => x.id == id);
+            var marks = db.marks.FirstOrDefault(x => x.posts_id == id);
             if (marks != null)
             {
                 marks.annotation = annotation;
@@ -266,21 +296,36 @@ namespace DataAccessLayer.dbContext
 
         public List<BestMatch> BestMatches(string text, int page, int pageSize)
         {
-            List<BestMatch> listreturnPosts = new List<BestMatch>();
 
-            var returnPosts = db.BestMatches.FromSql("call bestmatch({0})", text);
-            foreach (var post in returnPosts)
+            using (var db = new SovaDbContext())
             {
-                listreturnPosts.Add(post);
+                List<BestMatch> listreturnPosts = new List<BestMatch>();
+
+                var returnPosts = db.BestMatches.FromSql("call bestmatch({0})", text);
+                foreach (var post in returnPosts)
+                {
+                    listreturnPosts.Add(post);
+                }
+                return listreturnPosts.OrderBy(x => x.id)
+                    .Skip(page * pageSize)
+                    .Take(pageSize)
+                    .ToList();
+
             }
-            return listreturnPosts
-                .OrderBy(x => x.id)
-                .Skip(page * pageSize)
-                .Take(pageSize)
-                .ToList();
         }
 
-        
+        public int BestMatchesTotal(string text)
+        {
+
+            using (var db = new SovaDbContext())
+            {
+
+                var returnPosts = db.BestMatches.FromSql("call bestmatch({0})", text);
+                return returnPosts.Count();
+            }
+        }
+
+
         public List<BestmatchKeywordList> BestmatchKeywordLists(string text)
         {
             List<BestmatchKeywordList> listreturnPosts = new List<BestmatchKeywordList>();

@@ -7,11 +7,14 @@
         var currentView = ko.observable('postlist');
 
         //annotation binding
+        var annotationInput = ko.observable();
         var annotation = ko.observable();
         var save = true;
-        var marked = ko.observable(true);
-        var bool = null;
+        var marked = ko.observable(false);
+        var bool = true;
         var saveAnnotation = ko.observable();
+        var addMark = ko.observable();
+        var removeMark = ko.observable();
 
 
         var checkIfMarked = function() {
@@ -25,18 +28,106 @@
         bool=checkIfMarked();
         console.log(checkIfMarked());
 
-        saveAnnotation = function () {
+        addMark = (data) => {
+
+            $.getJSON("api/marks/" + data.id + "/addMark");
+
+
+        };
+
+        removeMark = (data) => {
+            $.getJSON("api/marks/" + data.id + "/removeMark");
+        };
+
+                 annotationInput = function () {
             if (save === true) {
 
                 var annotation = this.annotation();
 
                 console.log(annotation);
-               
+
             }
         }
 
+        
+        saveAnnotation = (data) => {
 
-        console.log(annotation());
+
+
+
+            var json = '[{ "op": "replace", "path": "/annotation", "value": "' + annotation + '" }]';
+            $.ajax({
+                type: "PATCH",
+                contentType: "application/json",
+                url: "api/marks/" + data.id + "/updateAnnotation",
+                data: json,
+                success: success
+            });
+
+
+        };
+
+        function success() {
+            //alert("saved");
+            //do some stuff
+        }
+
+
+
+        
+
+
+        var currentPost = ko.observable();
+
+        var showPost = (data) => {
+            $.getJSON(data.link, postData => {
+                var post = {
+                    title: postData.title,
+                    score: postData.score,
+                    creationDate: postData.creationDate,
+                    body: postData.body,
+                    id: postData.id
+
+                }
+
+                $.getJSON(postData.comments, cms => {
+
+                    post.comments = ko.observableArray(cms);
+
+                    $.getJSON(postData.answers, ans => {
+
+                        post.answers = ko.observableArray(ans);
+
+                        $.getJSON(postData.linkedPosts, linkPosts => {
+
+                            post.linkedPosts = ko.observableArray(linkPosts);
+
+                            $.getJSON(postData.showTags, stags => {
+
+                                post.showTags = ko.observableArray(stags);
+                                currentPost(post);
+                                //$.getJSON(postData.commentsOfAnswers, anws => {
+
+                                //    post.commentsOfAnswers = ko.observableArray(anws);
+                                //    console.log(post.commentsOfAnswers + "commentsOfAnswers");
+                                //    currentPost(post);
+                                //});
+                            });
+                        });
+                    });
+                });
+
+            });
+            title("Post");
+            currentView('postview');
+         
+
+        };
+
+        var home = () => {
+            title("Show posts");
+            currentView('postlist');
+        };
 
         $.getJSON("api/marks/", data => {
             posts(data.items);
@@ -46,6 +137,9 @@
 
 
         return {
+            currentPost,
+            home,
+            showPost,
             title,
             posts,
             currentView,
@@ -53,7 +147,10 @@
             marked,
             checkIfMarked,
             bool,
-            saveAnnotation
+            saveAnnotation,
+            addMark,
+            removeMark,
+
         };
 
     }

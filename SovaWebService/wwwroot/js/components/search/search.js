@@ -14,6 +14,60 @@
         var linkedPostsView = ko.observable('linkedPosts');
 
 
+        //annotation binding
+        var annotation = ko.observable();
+        var save = true;
+        var marked = ko.observable(true);
+        var bool = null;
+        var saveAnnotation = ko.observable();
+        var addMark = ko.observable();
+        var removeMark = ko.observable();
+
+
+        var checkIfMarked = function () {
+            if (marked() === true) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+        bool = checkIfMarked();
+        console.log(checkIfMarked());
+
+        addMark = (data) => {
+
+            $.getJSON("api/marks/" + data.id + "/addMark");
+            
+        };
+
+        removeMark = (data) => {
+            $.getJSON("api/marks/" + data.id + "/removeMark");
+        };
+
+        saveAnnotation = (data) => {
+
+            var json = '[{ "op": "replace", "path": "/annotation", "value": "' + annotation + '" }]';
+            $.ajax({
+                type: "PATCH",
+                contentType: "application/json",
+                url: "api/marks/" + data.id + "/updateAnnotation",
+                data: json,
+                success: success
+            });
+
+
+        };
+
+        function success() {
+            //alert("saved");
+            //do some stuff
+        }
+
+
+
+
+
         var next = () => {
             $.getJSON(nextLink(), data => {
                 posts(data.items);
@@ -49,41 +103,33 @@
                     
                 }
                 
-
                 $.getJSON(postData.comments, cms => {
 
                     post.comments = ko.observableArray(cms);
-                    console.log(post.comments);
-                    //currentPost(post);
 
                     $.getJSON(postData.answers, ans => {
 
                         post.answers = ko.observableArray(ans);
-                        console.log(post.answers);
-                        //currentPost(post);
 
                         $.getJSON(postData.linkedPosts, linkPosts => {
 
                             post.linkedPosts = ko.observableArray(linkPosts);
-                            console.log(post.linkedPosts);
-                            //currentPost(post);
 
                             $.getJSON(postData.showTags, stags => {
 
                                 post.showTags = ko.observableArray(stags);
-                                console.log(post.showTags);
                                 currentPost(post);
+                                //$.getJSON(postData.commentsOfAnswers, anws => {
+
+                                //    post.commentsOfAnswers = ko.observableArray(anws);
+                                //    console.log(post.commentsOfAnswers + "commentsOfAnswers");
+                                //    currentPost(post);
+                                //});
                             });
-
                         });
-
-
                     });
-
                 });
-
-               
-
+                
             });
             title("Post");
             currentView('postview');
@@ -116,7 +162,14 @@
             showPost,
             currentPost,
             home,
-            searchText
+            searchText,
+            addMark,
+            removeMark,
+            annotation,
+            marked,
+            checkIfMarked,
+            bool,
+            saveAnnotation
 
         };
         

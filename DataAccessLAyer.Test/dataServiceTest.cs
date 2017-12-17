@@ -70,7 +70,7 @@ namespace DataAccessLayer.Test
         {
             var service = new DataService();
 
-            var result = service.UpdateAnnotation(22, "UpdatedName");
+            var result = service.UpdateAnnotation(19, "UpdatedName");
             Assert.False(result);
 
         }
