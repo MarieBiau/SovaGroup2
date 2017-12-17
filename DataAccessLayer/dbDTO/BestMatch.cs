@@ -10,5 +10,7 @@ namespace DataAccessLayer.dbDTO
         public double rank { get; set; }
         public string title { get; set; }
         public string body { get; set; }
+        public DateTime creation_date { get; set; }
+        
     }
 }

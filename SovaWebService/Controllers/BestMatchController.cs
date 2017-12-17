@@ -39,8 +39,9 @@ namespace SovaWebService.Controllers
                 .Select(x => new
                 {
                     Link = Url.Link(nameof(GetPostBestMatch), new { x.id }),
-                    title = x.title
-
+                    title = x.title,
+                    body = x.body.Substring(0, x.body.Length < 300 ? x.body.Length : 300),
+                    creationDate = x.creation_date
                 });
 
             var prev = page > 0 ? Url.Link(nameof(GetResultsOfBestMatch), new { page = page - 1, pageSize }) : null;
@@ -66,7 +67,7 @@ namespace SovaWebService.Controllers
             var post = _dataService.ReturnQuestionById(id);
 
             //add visited 
-            //_dataService.AddVisitedPost(id);
+            _dataService.AddVisitedPost(id);
 
             var result = new
             {
@@ -74,10 +75,13 @@ namespace SovaWebService.Controllers
                 //post.title,
                 post.score,
                 post.body,
+                post.creation_date,
                 answers = Url.Link(nameof(GetAnswersBestMatch), new { post.id }),
                 comments = Url.Link(nameof(GetCommentsBestMatch), new { post.id }),
                 linkedPosts = Url.Link(nameof(GetlinkedPosts), new { post.id }),
                 showTags = Url.Link(nameof(GetshowTags), new { post.id }),
+                addMark = Url.Link(nameof(addMark), new { post.id }),
+                removeMark = Url.Link(nameof(removeMark), new { post.id }),
                 //commentsOfAnswers = Url.Link(nameof(GetcommentsOfAnswers), new { post.id }),
 
             };
@@ -104,7 +108,7 @@ namespace SovaWebService.Controllers
 
 
 
-       [HttpGet("{id}/comments", Name = nameof(GetCommentsBestMatch))]
+        [HttpGet("{id}/comments", Name = nameof(GetCommentsBestMatch))]
         public IActionResult GetCommentsBestMatch(int id)
         {
 
@@ -151,33 +155,24 @@ namespace SovaWebService.Controllers
             return Ok(linkedPosts);
         }
 
-        //[HttpGet("{id}/commentsOfAnswers", Name = nameof(GetcommentsOfAnswers))]
-        //public IActionResult GetcommentsOfAnswers(int id)
-        //{
-        //    //get comments of the answers id 
-        //    var answers = _dataService.ReturnAnswersById(id)
-        //        .Select(x => new
-        //        {
-        //            Link = Url.Link(nameof(GetPostBestMatch), new { x.id }),
-        //            Parent = Url.Link(nameof(GetPostBestMatch), new { id }),
-        //            body = x.body,
-        //            x.creation_date,
-        //            x.score
-        //        });
+        [HttpGet("{id}/commentsOfAnswers", Name = nameof(GetcommentsOfAnswers))]
+        public IActionResult GetcommentsOfAnswers(int id)
+        {
+            //get comments of the answers id 
 
 
-        //    var comments = _dataService.ReturnCommentsById(id)
-        //        .Select(x => new
-        //        {
-        //            Link = Url.Link(nameof(GetCommentsBestMatch), new { x.id }),
-        //            Parent = Url.Link(nameof(GetCommentsBestMatch), new { id }),
-        //            body = x.text,
-        //            x.creation_date,
-        //            x.score
-        //        });
+            var comments = _dataService.ReturnCommentsById(id)
+                .Select(x => new
+                {
+                    Link = Url.Link(nameof(GetcommentsOfAnswers), new { x.id }),
+                    Parent = Url.Link(nameof(GetcommentsOfAnswers), new { id }),
+                    body = x.text,
+                    x.creation_date,
+                    x.score
+                });
 
-        //    return Ok(comments);
-        //}
+            return Ok(comments);
+        }
 
 
         // Helpers 
@@ -209,18 +204,26 @@ namespace SovaWebService.Controllers
 
         }
 
-        [HttpGet("{id}/addMark")]
+        [HttpGet("{id}/addMark", Name = nameof(addMark))]
         public IActionResult addMark(int id)
         {
+            var checkIfMarkExist = _dataService.GetMark(id);
 
-            var MarkPost = _dataService.MarkPost(id, 1);
+            if (checkIfMarkExist != null)
+            {
 
-            return Ok(MarkPost);
+                return Ok();
+            }
+            else
+            {
+                var MarkPost = _dataService.MarkPost(id, 1);
+                return Ok(MarkPost);
 
-
+            }
+            
         }
 
-        [HttpGet("{id}/removeMark")]
+        [HttpGet("{id}/removeMark", Name = nameof(removeMark))]
         public IActionResult removeMark(int id)
         {
 
@@ -229,6 +232,8 @@ namespace SovaWebService.Controllers
 
 
         }
+
+
 
 
 

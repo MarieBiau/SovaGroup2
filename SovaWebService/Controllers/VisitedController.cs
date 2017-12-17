@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SovaWebService.Controllers
 {
-    [Route("api/Visited")]
+    [Route("api/visited")]
     public class VisitedController : Controller
     {
 
@@ -28,10 +28,8 @@ namespace SovaWebService.Controllers
                 {
                     Link = Url.Link(nameof(GetPostVisited), new { x.id }),
                     title = x.title,
-                    body = x.body.Substring(3, 100),
+                    body = x.body.Substring(0, x.body.Length < 300 ? x.body.Length : 300),
                     date = x.view_date
-                    //da
-
                 });
 
 
@@ -50,13 +48,14 @@ namespace SovaWebService.Controllers
         {
             var post = _dataService.ReturnQuestionById(id);
             //add visited 
-            //_dataService.AddVisitedPost(id);
+            _dataService.AddVisitedPost(id);
             var result = new
             {
                 Link = Url.Link(nameof(GetPostVisited), new { post.id }),
                 //post.title,
                 post.score,
                 post.body,
+                post.creation_date,
                 answers = Url.Link(nameof(GetAnswersVisited), new { post.id }),
                 comments = Url.Link(nameof(GetCommentsVisited), new { post.id }),
 

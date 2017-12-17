@@ -29,7 +29,7 @@ namespace SovaWebService.Controllers
                     Link = Url.Link(nameof(GetPostHome), new { x.id }),
                     title = x.title,
                     //body = x.body,
-                    //date = x.creation_date,
+                    date = x.creation_date,
                     //score = x.score
 
                 });
@@ -47,13 +47,14 @@ namespace SovaWebService.Controllers
         {
             var post = _dataService.ReturnQuestionById(id);
             //add visited 
-            //_dataService.AddVisitedPost(id);
+            _dataService.AddVisitedPost(id);
             var result = new
             {
                 Link = Url.Link(nameof(GetPostHome), new { post.id }),
                 //post.title,
                 post.score,
                 post.body,
+                post.creation_date,
                 answers = Url.Link(nameof(GetAnswersHome), new { post.id }),
                 comments = Url.Link(nameof(GetCommentsHome), new { post.id }),
 

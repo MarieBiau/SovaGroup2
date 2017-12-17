@@ -23,7 +23,7 @@ namespace DataAccessLayer.dbContext
         List<ReturnSearches> ReturnSearches();
         List<ReturnVisitedPosts> ReturnVisitedPosts();
 
-        Boolean MarkPost(int post_id, int type);
+        List<MarkPost> MarkPost(int post_id, int type);
         Boolean DeleteMarkPost(int id);
 
 
@@ -41,7 +41,7 @@ namespace DataAccessLayer.dbContext
 
         List<PopularTags> PopularTagsList(int number);
 
-        //bool AddVisitedPost(int id);
+        bool AddVisitedPost(int id);
 
     }
 }

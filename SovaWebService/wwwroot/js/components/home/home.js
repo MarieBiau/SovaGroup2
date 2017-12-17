@@ -21,9 +21,9 @@
 
                 words.push(wordobj);
 
-                console.log("JSON Data: " + data[i].name + " " + data[i].occurences);
+               // console.log("JSON Data: " + data[i].name + " " + data[i].occurences);
             }
-            console.log(word());
+            //console.log(word());
 
         });
 
@@ -38,7 +38,7 @@
 
                     obj.push(wordobj);
 
-                    console.log("JSON Data: " + data[i].name + " " + data[i].occurences);
+                   // console.log("JSON Data: " + data[i].name + " " + data[i].occurences);
                 }
                 words(obj);
             });
@@ -57,7 +57,7 @@
                     var wordobj = { text: data[i].lemma, weight: data[i].weight };
                     obj.push(wordobj);
 
-                    console.log("JSON Data: " + data[i].lemma + " " + data[i].weight);
+                   // console.log("JSON Data: " + data[i].lemma + " " + data[i].weight);
                 }
                 words(obj);
 
@@ -75,7 +75,7 @@
                 var post = {
                     title: postData.title,
                     score: postData.score,
-                    creationDate: postData.creationDate,
+                    creationDate: postData.creation_date,
                     body: postData.body
 
                 }
@@ -84,12 +84,12 @@
                 $.getJSON(postData.comments, cms => {
 
                     post.comments = ko.observableArray(cms);
-                    console.log(post.comments);
+                   // console.log(post.comments);
 
                     $.getJSON(postData.answers, ans => {
 
                         post.answers = ko.observableArray(ans);
-                        console.log(post.answers);
+                        //console.log(post.answers);
                         currentPost(post);
                     });
 
@@ -109,7 +109,7 @@
 
         $.getJSON("api/newestposts/", data => {
             posts(data.items);
-            console.log(data.items);
+           // console.log(data.items);
         });
 
 

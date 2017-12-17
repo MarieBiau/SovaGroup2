@@ -5,9 +5,9 @@
 
         var posts = ko.observableArray([]);
         var currentView = ko.observable('postlist');
-
+        var currentPost = ko.observable();
         //annotation binding
-        var annotationInput = ko.observable();
+        var annotationText = ko.observable();
         var annotation = ko.observable();
         var save = true;
         var marked = ko.observable(false);
@@ -29,33 +29,26 @@
         console.log(checkIfMarked());
 
         addMark = (data) => {
-
+    
             $.getJSON("api/marks/" + data.id + "/addMark");
+            console.log(data.id);
+            alert("addMark saved!");
 
-
+             
         };
 
         removeMark = (data) => {
             $.getJSON("api/marks/" + data.id + "/removeMark");
+            console.log(data.id);
+            alert("removeMark saved!");
+
         };
 
-                 annotationInput = function () {
-            if (save === true) {
-
-                var annotation = this.annotation();
-
-                console.log(annotation);
-
-            }
-        }
 
         
         saveAnnotation = (data) => {
 
-
-
-
-            var json = '[{ "op": "replace", "path": "/annotation", "value": "' + annotation + '" }]';
+            var json = '[{ "op": "replace", "path": "/annotation", "value": "' + annotationText() + '" }]';
             $.ajax({
                 type: "PATCH",
                 contentType: "application/json",
@@ -68,23 +61,16 @@
         };
 
         function success() {
-            //alert("saved");
+            alert("Annotation saved!");
             //do some stuff
         }
-
-
-
         
-
-
-        var currentPost = ko.observable();
-
         var showPost = (data) => {
             $.getJSON(data.link, postData => {
                 var post = {
                     title: postData.title,
                     score: postData.score,
-                    creationDate: postData.creationDate,
+                    creationDate: postData.creation_date,
                     body: postData.body,
                     id: postData.id
 
@@ -106,6 +92,7 @@
 
                                 post.showTags = ko.observableArray(stags);
                                 currentPost(post);
+
                                 //$.getJSON(postData.commentsOfAnswers, anws => {
 
                                 //    post.commentsOfAnswers = ko.observableArray(anws);
@@ -133,7 +120,10 @@
             posts(data.items);
             console.log(data.items);
 
-            });
+        });
+
+
+
 
 
         return {
@@ -150,6 +140,7 @@
             saveAnnotation,
             addMark,
             removeMark,
+            annotationText
 
         };
 

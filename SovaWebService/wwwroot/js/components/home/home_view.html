@@ -1,15 +1,17 @@
-﻿<div class="col-md-6" data-bind="cloud: {words}" style="min-width: 200px; min-height: 200px">
+﻿<div class="col-md-6">
     <form>
-        Find the best match to a word by typing in a word and see it in a new word cloud:<br>
-        <input data-bind="textInput: word"><br>
-        <input type="submit" value="Submit" data-bind="click: submitword">
+        <h1>Best match words displayed in a word cloud:</h1>
+        <div class="col-md-7">
+            <input data-bind="textInput: word">
+            <input type="submit" value="Submit" data-bind="click: submitword">
+        </div>
+        <div class="col-md-5">
+            <button data-bind="click: showtags">See most common tags</button>
+        </div>
     </form>
-    <button data-bind="click: showtags">See most common tags</button>
+    <div class="cloud" data-bind="cloud: {words}"></div>
 </div>
-
 <div class="col-md-6" data-bind="template: {name: currentView}"></div>
-
-
 <script type="text/html" id="postlist">
     <h1>Latest Questions</h1>
     <div data-bind="foreach: posts">
@@ -17,37 +19,74 @@
             <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a>
         </div>
     </div>
-
 </script>
-
 <script type="text/html" id="postview">
     <div>
         <button data-bind="click: home">Back</button>
     </div>
     <div data-bind="with: currentPost">
-        <h2 data-bind="text: title"></h2>
-        <h3>
-            Creation Date: <span data-bind="text: creationDate"></span>
-        </h3>
-        <h3>
-            Score: <span data-bind="text: score"></span>
-        </h3>
-        <div data-bind="html: body"></div>
-
-        <hr />
-
-        <div data-bind="foreach: answers">
-            <div data-bind="html: body"></div>
-            <hr />
-
+        <h1 data-bind="text: title"></h1>
+        <h2 class="creation-date">Creation Date: <span data-bind="text: creationDate"></span></h2>
+        <h2>Score: <span data-bind="text: score"></span></h2>
+        <div class="row">
+            <div class="col-md-1">
+                <input type="image" class="thumb" src="../../img/blue_thumb.png" />
+                <input type="image" class="thumb" src="../../img/red_thumb.png" />
+                <input type="image" class="annotation" data-toggle="modal" data-target="#myModal" src="../../img/annotation.jpg" />
+            </div>
+            <div class="col-md-11">
+                <div data-bind="html: body"></div>
+            </div>
         </div>
+        <hr />
         <div style="background-color: blue" data-bind="foreach: comments">
             <div data-bind="html: body"></div>
             <hr />
-
+        </div>
+        <div style="background-color: darkgreen" data-bind="foreach: answers">
+            <div class="row">
+                <div class="col-md-1">
+                    <input type="image" class="thumb" src="../../img/blue_thumb.png" />
+                    <input type="image" class="thumb" src="../../img/red_thumb.png" />
+                    <input type="image" class="annotation" data-toggle="modal" data-target="#myModal" src="../../img/annotation.jpg" />
+                </div>
+                <div class="col-md-11">
+                    <div data-bind="html: body"></div>
+                </div>
+            </div>
+            <hr />
         </div>
 
+        <div style="background-color: red" data-bind="foreach: linkedPosts">
+            <div>
+                <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a>
+            </div>
+            <hr />
+        </div>
 
+        <div style="background-color: black" data-bind="foreach: showTags">
+            <div>
+                <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: name"></span></a>
+            </div>
+            <hr />
+        </div>
     </div>
-
 </script>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Write annotation</h4>
+            </div>
+            <div class="modal-body">
+                <textarea placeholder="Enter some text" data-bind="textInput: annotation"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bind="click: saveAnnotation">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
