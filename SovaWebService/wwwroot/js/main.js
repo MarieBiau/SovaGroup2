@@ -4,13 +4,20 @@
         jquery: "../lib/jquery/dist/jquery.min",
         knockout: "../lib/knockout/dist/knockout",
         text: "../lib/text/text",    
-        jqcloud: '../lib/jqcloud2/dist/jqcloud.min'
+        jqcloud: "../lib/jqcloud2/dist/jqcloud.min",
+        d3: "https://d3js.org/d3.v3.min"
+
     },
     shim: {
         jqcloud: {
             deps: ['jquery']
+        
         }
     }
+});
+
+require(["d3"], function (d3) {
+    console.log(d3.version);
 });
 
 require(['knockout', 'jquery', 'jqcloud'], function (ko, $) {
@@ -34,7 +41,6 @@ require(['knockout', 'jquery', 'jqcloud'], function (ko, $) {
         }
     };
 });
-
 
 require(['knockout'], function (ko) {
     ko.components.register("history",

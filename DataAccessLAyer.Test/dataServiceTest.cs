@@ -51,7 +51,7 @@ namespace DataAccessLayer.Test
             var service = new DataService();
             var mark = service.MarkPost(1243, 1);
 
-            Assert.Equal(true, mark);
+            Assert.True(mark);
 
         }
 
@@ -145,6 +145,15 @@ namespace DataAccessLayer.Test
             var result = service.ClosestTerms("java");
             Assert.Equal(12, result.Count);
 
+        }
+        [Fact]
+        public void ReturnTermNetworks()
+        {
+            var service = new DataService();
+            var result = service.TermNetworkList("abc");
+            Assert.NotEqual(1,result.Count);
+           // Assert.Contains("'var graph = '", result.ToString());
+            
         }
     }
 }

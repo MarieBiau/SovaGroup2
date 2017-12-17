@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DataAccessLayer.dbDTO;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Serialization;
 
 namespace DataAccessLayer.dbContext
 {
@@ -344,7 +345,20 @@ namespace DataAccessLayer.dbContext
                 return listClosestTerm;
             }
         }
-        
+
+        public List<TermNetwork> TermNetworkList(string text)
+        {
+            using (var db = new SovaDbContext())
+            {
+                var termNetworks = db.TermNetworks.FromSql("call term_network({0})", text).ToList();
+                //if (termNetworks.ToString().Contains("graph: "))
+                //{
+                //    return ;
+                //}
+                //termNetworks.ToString().Replace("graph", " ");
+                return termNetworks;
+            }
+        }
 
 
     }

@@ -8,5 +8,18 @@
 <div data-bind="cloud: {words}" style="width: 500px; height: 500px"></div>
 <button data-bind="click: showtags">See most common tags</button>
 
+<style>
+
+    .link {
+        stroke: #ccc;
+    }
+
+    .node text {
+        pointer-events: none;
+        font: 14px sans-serif;
+    }
+
+</style>
+<div data-bind="visual: graph"></div>
 
 

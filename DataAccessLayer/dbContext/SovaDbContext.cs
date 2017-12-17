@@ -24,6 +24,7 @@ namespace DataAccessLayer.dbContext
         public DbSet<ClosestTerm> ClosestTerms { get; set; }
         public DbSet<Answers> Answers { get; set; }
         public DbSet<Comments> Comments { get; set; }
+        public DbSet<TermNetwork> TermNetworks { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
