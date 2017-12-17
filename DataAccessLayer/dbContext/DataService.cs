@@ -15,7 +15,6 @@ namespace DataAccessLayer.dbContext
             using (var db = new SovaDbContext())
             {
                 var post = db.posts.FirstOrDefault(x => x.id == id);
-
                 return post;
             }
         }
@@ -30,9 +29,7 @@ namespace DataAccessLayer.dbContext
 
                 foreach (var post in posts)
                 {
-
                     listPosts.Add(post);
-
                 }
 
                 return listPosts
@@ -66,13 +63,21 @@ namespace DataAccessLayer.dbContext
         
         public posts ReturnQuestionById(int id)
         {
+            posts results;
             using (var db = new SovaDbContext())
             {
-                var results = db.posts.FirstOrDefault(x=>x.id == id);
-
-                return results;
+                results = db.posts.FirstOrDefault(x => x.id == id);
             }
+            return results;
         }
+
+        //public bool AddVisitedPost(int id)
+        //{
+        //    //return updated posts id 
+
+        //    var results = db.AddVisitedPost.FromSql("call add_visited_post({0})", id);
+        //    return results.Any();
+        //}
 
         public List<comments> ReturnCommentsById(int id)
         {
@@ -85,7 +90,10 @@ namespace DataAccessLayer.dbContext
                 {
                     CommentList.Add(comment);
                 }
-                return  CommentList;
+
+                db.QuestionSearchResults.FromSql("call add_visited_post({0})", id);
+
+                return CommentList;
             }
         }
 
@@ -101,6 +109,8 @@ namespace DataAccessLayer.dbContext
                     answerList.Add(answer);
                 }
 
+                db.QuestionSearchResults.FromSql("call add_visited_post({0})", id);
+
                 return answerList;
             }
         }
@@ -115,9 +125,7 @@ namespace DataAccessLayer.dbContext
 
                 foreach (var Question in Questions)
                 {
-
                     listQuestions.Add(Question);
-
                 }
 
                 return listQuestions.Count();
@@ -133,15 +141,12 @@ namespace DataAccessLayer.dbContext
                 var Searches = db.ReturnSearches.FromSql("call return_searches()");
                 foreach (var search in Searches)
                 {
-
                     listSearches.Add(search);
-
                 }
 
                 return listSearches;
             }
         }
-
 
         public bool  MarkPost(int post_id, int type)
         {
@@ -164,7 +169,6 @@ namespace DataAccessLayer.dbContext
                 {
                     db.marks.Remove(mark);
                     db.SaveChanges();
-
                     return true;
                 }
                 return false;
@@ -180,9 +184,7 @@ namespace DataAccessLayer.dbContext
                 var marks = db.ReturnGoodMarks.FromSql("call return_good_marks()");
                 foreach (var mark in marks)
                 {
-
                     listReturnGoodMarks.Add(mark);
-
                 }
 
                 return listReturnGoodMarks;
@@ -193,14 +195,15 @@ namespace DataAccessLayer.dbContext
         {
             using (var db = new SovaDbContext())
             {
-                var marks = db.marks.FirstOrDefault(x => x.id == id);
+                var marks = db.marks.FirstOrDefault(x => x.posts_id == id);
+
                 if (marks != null)
                 {
                     marks.annotation = annotation;
-
                     db.SaveChanges();
                     return true;
                 }
+
                 return false;
             }
         }
@@ -225,9 +228,7 @@ namespace DataAccessLayer.dbContext
                 var visitedPosts = db.ReturnVisitedPosts.FromSql("call return_visited_posts()");
                 foreach (var post in visitedPosts)
                 {
-
                     listReturnVisitedPosts.Add(post);
-
                 }
 
                 return listReturnVisitedPosts;
@@ -243,9 +244,7 @@ namespace DataAccessLayer.dbContext
                 var newestPosts = db.ReturnNewestQuestions.FromSql("call return_newest_questions({0})",amount);
                 foreach (var post in newestPosts)
                 {
-
                     listReturnNewestQuestions.Add(post);
-
                 }
 
                 return listReturnNewestQuestions;
@@ -262,9 +261,7 @@ namespace DataAccessLayer.dbContext
                 var linkPosts = db.ReturnLinkPosts.FromSql("call return_linkposts({0})", id);
                 foreach (var post in linkPosts)
                 {
-
                     listReturnLinkPosts.Add(post);
-
                 }
 
                 return listReturnLinkPosts;
@@ -280,9 +277,7 @@ namespace DataAccessLayer.dbContext
                 var postTags = db.ReturnPostTags.FromSql("call return_tags({0})", id);
                 foreach (var tag in postTags)
                 {
-
                     listReturnPostTags.Add(tag);
-
                 }
 
                 return listReturnPostTags;
@@ -308,7 +303,16 @@ namespace DataAccessLayer.dbContext
             }
         }
 
-        
+        public int BestMatchesTotal(string text)
+        {
+            using (var db = new SovaDbContext())
+            {
+                var returnPosts = db.BestMatches.FromSql("call bestmatch({0})", text);
+                return returnPosts.Count();
+            }
+        }
+
+
         public List<BestmatchKeywordList> BestmatchKeywordLists(string text)
         {
             using (var db = new SovaDbContext())

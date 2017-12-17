@@ -32,6 +32,7 @@ namespace DataAccessLayer.dbContext
         marks GetMark(int id);
 
         List<BestMatch> BestMatches(string text, int page, int pageSize);
+        int BestMatchesTotal(string text);
         List<BestmatchKeywordList> BestmatchKeywordLists(string text);
         List<ClosestTerm> ClosestTerms(string text);
 
@@ -39,6 +40,8 @@ namespace DataAccessLayer.dbContext
         List<ReturnPostTags> ReturnPostTags(int id);
 
         List<PopularTags> PopularTagsList(int number);
+
+        //bool AddVisitedPost(int id);
 
     }
 }

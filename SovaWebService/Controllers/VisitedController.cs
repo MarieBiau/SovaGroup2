@@ -47,7 +47,8 @@ namespace SovaWebService.Controllers
         public IActionResult GetPostVisited(int id)
         {
             var post = _dataService.ReturnQuestionById(id);
-
+            //add visited 
+            //_dataService.AddVisitedPost(id);
             var result = new
             {
                 Link = Url.Link(nameof(GetPostVisited), new { post.id }),

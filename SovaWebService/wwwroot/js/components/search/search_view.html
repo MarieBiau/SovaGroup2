@@ -4,10 +4,17 @@
 
 <script type="text/html" id="postlist">
     <div data-bind="foreach: posts">
-        <div>
+    <div class="row">
+        <div class="col-md-1">
+            <input type="image" class="thumb" src="../../img/blue_thumb.png" data-bind="click: $parent.addMark" />
+            <input type="image" class="thumb" src="../../img/red_thumb.png" data-bind="click: $parent.removeMark" />
+            <input type="image" class="annotation" src="../../img/annotation.jpg" data-bind="click: $parent.saveAnnotation" />
+        </div>
+        <div class="col-md-11">
             <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a>
             <div data-bind="html: body"></div>
             <br>
+        </div>
         </div>
     </div>
     <nav aria-label="Page navigation">
@@ -37,9 +44,9 @@
 
         <div class="row">
             <div class="col-md-1">
-                <input type="image" class="thumb" src="../../img/blue_thumb.png"/>
-                <input type="image" class="thumb" src="../../img/red_thumb.png"/>
-                <input type="image" class="annotation" data-toggle="modal" data-target="#myModal" src="../../img/annotation.jpg"/>
+                <input type="image" class="thumb" src="../../img/blue_thumb.png" data-bind="click: $parent.addMark" />
+                <input type="image" class="thumb" src="../../img/red_thumb.png" data-bind="click: $parent.removeMark" />
+                <input type="image" class="annotation" src="../../img/annotation.jpg" data-bind="click: $parent.saveAnnotation" />
             </div>
             <div class="col-md-11">
                 <div data-bind="html: body"></div>
@@ -49,16 +56,11 @@
         <hr/>
 
         <div style="background-color: blue" data-bind="foreach: comments">
-            <div data-bind="html: body"></div>
-            <hr/>
-        </div>
-
-        <div style="background-color: darkgreen" data-bind="foreach: answers">
             <div class="row">
                 <div class="col-md-1">
-                    <input type="image" class="thumb" src="../../img/blue_thumb.png"/>
-                    <input type="image" class="thumb" src="../../img/red_thumb.png"/>
-                    <input type="image" class="annotation" data-toggle="modal" data-target="#myModal" src="../../img/annotation.jpg"/>
+                    <input type="image" class="thumb" src="../../img/blue_thumb.png" data-bind="click: $parent.addMark" />
+                    <input type="image" class="thumb" src="../../img/red_thumb.png" data-bind="click: $parent.removeMark" />
+                    <input type="image" class="annotation" src="../../img/annotation.jpg" data-bind="click: $parent.saveAnnotation" />
                 </div>
                 <div class="col-md-11">
                     <div data-bind="html: body"></div>
@@ -66,6 +68,25 @@
             </div>
             <hr/>
         </div>
+
+        <div style="background-color: darkgreen" data-bind="foreach: answers">
+            <div class="row">
+                <div class="col-md-1">
+                    <input type="image" class="thumb" src="../../img/blue_thumb.png" data-bind="click: $parent.addMark" />
+                    <input type="image" class="thumb" src="../../img/red_thumb.png" data-bind="click: $parent.removeMark" />
+                    <input type="image" class="annotation" src="../../img/annotation.jpg" data-bind="click: $parent.saveAnnotation" />
+                </div>
+                <div class="col-md-11">
+                    <div data-bind="html: body"></div>
+                </div>
+            </div>
+            <hr/>
+        </div>
+        
+        <!--<div style="background-color: blueviolet" data-bind="foreach: commentsOfAnswers">
+            <div data-bind="html: body"></div>
+            <hr/>
+        </div>-->
         
         <div style="background-color: red" data-bind="foreach: linkedPosts">
             <div>
