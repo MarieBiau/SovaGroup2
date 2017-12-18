@@ -39,7 +39,7 @@
           "lib/netstandard1.3/Microsoft.DotNet.PlatformAbstractions.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore/2.0.0": {
+      "Microsoft.EntityFrameworkCore/2.0.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Caching.Memory": "2.0.0",
@@ -58,10 +58,10 @@
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Design/2.0.0": {
+      "Microsoft.EntityFrameworkCore.Design/2.0.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "2.0.0"
+          "Microsoft.EntityFrameworkCore.Relational": "2.0.1"
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.dll": {}
@@ -70,11 +70,11 @@
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational/2.0.0": {
+      "Microsoft.EntityFrameworkCore.Relational/2.0.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.4.0",
-          "Microsoft.EntityFrameworkCore": "2.0.0",
+          "Microsoft.EntityFrameworkCore": "2.0.1",
           "Microsoft.Extensions.Configuration.Abstractions": "2.0.0"
         },
         "compile": {
@@ -708,7 +708,7 @@
           }
         }
       },
-      "MySqlConnector/0.29.2": {
+      "MySqlConnector/0.32.0": {
         "type": "package",
         "dependencies": {
           "System.Buffers": "4.3.0",
@@ -774,13 +774,13 @@
           "lib/netstandard1.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Pomelo.EntityFrameworkCore.MySql/2.0.0.1": {
+      "Pomelo.EntityFrameworkCore.MySql/2.0.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Design": "2.0.0",
-          "Microsoft.EntityFrameworkCore.Relational": "2.0.0",
+          "Microsoft.EntityFrameworkCore.Design": "2.0.1",
+          "Microsoft.EntityFrameworkCore.Relational": "2.0.1",
           "Microsoft.Extensions.Logging.Console": "2.0.0",
-          "MySqlConnector": "0.29.2",
+          "MySqlConnector": "0.32.0",
           "Pomelo.JsonObject": "1.1.1"
         },
         "compile": {
@@ -2528,7 +2528,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
-          "Pomelo.EntityFrameworkCore.MySql": "2.0.0.1"
+          "Pomelo.EntityFrameworkCore.MySql": "2.0.1"
         },
         "compile": {
           "bin/placeholder/DataAccessLayer.dll": {}
@@ -2626,38 +2626,38 @@
         "microsoft.dotnet.platformabstractions.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore/2.0.0": {
-      "sha512": "wmgBEpjoxd6ElVh13dlzmsl/9BtE5lky97vutJxLwFopP0IuWAyclCC2WHoXq4bYRmtzYSpmA4Q/kNugynswSA==",
+    "Microsoft.EntityFrameworkCore/2.0.1": {
+      "sha512": "RlwInZHfIUWwFgQJCpUMKrLeE8QJ64MA/GxD881oTMFa9j7iiGKCtI0xK4J1NNgRKvgVDPJbh9CIGJiu0KEdeA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore/2.0.0",
+      "path": "microsoft.entityframeworkcore/2.0.1",
       "files": [
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.dll",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.xml",
-        "microsoft.entityframeworkcore.2.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.2.0.1.nupkg.sha512",
         "microsoft.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Design/2.0.0": {
-      "sha512": "v8e4OwmK+BIm7jINmGJaQz1+r6BiFl+bGJNVUF4JQZ9H40keeTIHEgKDxdEr+24EdllfLLKTisEziq1H089TYg==",
+    "Microsoft.EntityFrameworkCore.Design/2.0.1": {
+      "sha512": "gEdT/YSI/buO15X/UN+gQY6D7qeozRYU80WuesZCj33jJBw4wCHHn8SYcp38k2BPOBDC4I2AfsOFH6Vaf8CeLQ==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.design/2.0.0",
+      "path": "microsoft.entityframeworkcore.design/2.0.1",
       "files": [
         "lib/net461/Microsoft.EntityFrameworkCore.Design.dll",
         "lib/net461/Microsoft.EntityFrameworkCore.Design.xml",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.dll",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.xml",
-        "microsoft.entityframeworkcore.design.2.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.design.2.0.1.nupkg.sha512",
         "microsoft.entityframeworkcore.design.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Relational/2.0.0": {
-      "sha512": "/Ay6EZXUZuPLCKdbLW59AuwCm+hqDgIxBzDTHIx6uEIvDFfC0Bs99CRL8Lgi1NgU9NOhFDmeRgE1goViru+Zgg==",
+    "Microsoft.EntityFrameworkCore.Relational/2.0.1": {
+      "sha512": "aZgfEDEzub+n9Kmsz/l4iiUHfB+R2iDDAFtW55OLpT7ANj7mS8k/bq8mqd60rVPgWKKy1l0+BK26ao4el/07lA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.relational/2.0.0",
+      "path": "microsoft.entityframeworkcore.relational/2.0.1",
       "files": [
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Relational.dll",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Relational.xml",
-        "microsoft.entityframeworkcore.relational.2.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.relational.2.0.1.nupkg.sha512",
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
@@ -3419,16 +3419,16 @@
         "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Registry.dll"
       ]
     },
-    "MySqlConnector/0.29.2": {
-      "sha512": "pkahXELIVPq7qdXNUs4KhxUqU2xk8S2V/+7/+NdqG6AnSHonbGn3z5JC5O4ppW7oPTdJenyjj70s8xpKpkDCig==",
+    "MySqlConnector/0.32.0": {
+      "sha512": "BsPX6w3Ctb6JSZlMPf+LNad+de6L4EWgovU5vjnkWq9m09KW9GySHwcAdWgXobPgke9uK706JzDdmRxQriUa1w==",
       "type": "package",
-      "path": "mysqlconnector/0.29.2",
+      "path": "mysqlconnector/0.32.0",
       "files": [
         "lib/net45/MySqlConnector.dll",
         "lib/net46/MySqlConnector.dll",
         "lib/netstandard1.3/MySqlConnector.dll",
         "lib/netstandard2.0/MySqlConnector.dll",
-        "mysqlconnector.0.29.2.nupkg.sha512",
+        "mysqlconnector.0.32.0.nupkg.sha512",
         "mysqlconnector.nuspec"
       ]
     },
@@ -3584,13 +3584,13 @@
         "tools/install.ps1"
       ]
     },
-    "Pomelo.EntityFrameworkCore.MySql/2.0.0.1": {
-      "sha512": "lFFOzEmBvegBs6cJscgtxVy1juDKJMf8Cg2yuk4+NsF8/bYticL6E4M9AzAWhW11DVHP4CUw4D2fLSg8DVdytw==",
+    "Pomelo.EntityFrameworkCore.MySql/2.0.1": {
+      "sha512": "7EvKOe8hczKfgeeG7JIlHLUb3Pc+OrM4xQwhYb1a2sNdnDMMTMH203zKeeetSP6HBaoZqaBJTAjliNtJDkGFsA==",
       "type": "package",
-      "path": "pomelo.entityframeworkcore.mysql/2.0.0.1",
+      "path": "pomelo.entityframeworkcore.mysql/2.0.1",
       "files": [
         "lib/netstandard2.0/Pomelo.EntityFrameworkCore.MySql.dll",
-        "pomelo.entityframeworkcore.mysql.2.0.0.1.nupkg.sha512",
+        "pomelo.entityframeworkcore.mysql.2.0.1.nupkg.sha512",
         "pomelo.entityframeworkcore.mysql.nuspec"
       ]
     },
@@ -7840,7 +7840,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kestutis\\.nuget\\packages\\": {},
+    "C:\\Users\\Louise\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -7849,17 +7849,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\DataAccessLAyer.Test\\DataAccessLayer.Test.csproj",
+      "projectUniqueName": "C:\\Users\\Louise\\Documents\\GitHub\\SovaGroup2\\SovaGroup2\\DataAccessLAyer.Test\\DataAccessLayer.Test.csproj",
       "projectName": "DataAccessLayer.Test",
-      "projectPath": "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\DataAccessLAyer.Test\\DataAccessLayer.Test.csproj",
-      "packagesPath": "C:\\Users\\kestutis\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\DataAccessLAyer.Test\\obj\\",
+      "projectPath": "C:\\Users\\Louise\\Documents\\GitHub\\SovaGroup2\\SovaGroup2\\DataAccessLAyer.Test\\DataAccessLayer.Test.csproj",
+      "packagesPath": "C:\\Users\\Louise\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Louise\\Documents\\GitHub\\SovaGroup2\\SovaGroup2\\DataAccessLAyer.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\kestutis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Louise\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7872,8 +7872,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\DataAccessLayer\\DataAccessLayer.csproj": {
-              "projectPath": "C:\\Users\\kestutis\\Documents\\Visual Studio 2017\\Projects\\SovaGroup2\\DataAccessLayer\\DataAccessLayer.csproj"
+            "C:\\Users\\Louise\\Documents\\GitHub\\SovaGroup2\\SovaGroup2\\DataAccessLayer\\DataAccessLayer.csproj": {
+              "projectPath": "C:\\Users\\Louise\\Documents\\GitHub\\SovaGroup2\\SovaGroup2\\DataAccessLayer\\DataAccessLayer.csproj"
             }
           }
         }
@@ -7893,7 +7893,7 @@
           },
           "Microsoft.NETCore.App": {
             "target": "Package",
-            "version": "2.0",
+            "version": "2.0.0",
             "autoReferenced": true
           },
           "xunit": {

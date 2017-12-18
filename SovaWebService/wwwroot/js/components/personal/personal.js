@@ -7,7 +7,7 @@
         var currentView = ko.observable('postlist');
         var currentPost = ko.observable();
         //annotation binding
-        var annotationText = ko.observable();
+        //var annotationText = ko.observable();
         var annotation = ko.observable();
         var save = true;
         var marked = ko.observable(false);
@@ -48,7 +48,7 @@
         
         saveAnnotation = (data) => {
 
-            var json = '[{ "op": "replace", "path": "/annotation", "value": "' + annotationText() + '" }]';
+            var json = '[{ "op": "replace", "path": "/annotation", "value": "' + data.annotationText() + '" }]';
             $.ajax({
                 type: "PATCH",
                 contentType: "application/json",
@@ -117,8 +117,12 @@
         };
 
         $.getJSON("api/marks/", data => {
-            posts(data.items);
-            console.log(data.items);
+            var p = data.items.map(function (e) {
+                e.annotationText = ko.observable("");
+                return e;
+            });
+            posts(p);
+            console.log(p);
 
         });
 
@@ -139,8 +143,7 @@
             bool,
             saveAnnotation,
             addMark,
-            removeMark,
-            annotationText
+            removeMark
 
         };
 

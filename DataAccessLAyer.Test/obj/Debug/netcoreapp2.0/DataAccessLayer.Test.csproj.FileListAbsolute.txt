@@ -14,3 +14,19 @@ C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\DataAccessLAy
 C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\DataAccessLAyer.Test\obj\Debug\netcoreapp2.0\DataAccessLayer.Test.AssemblyInfo.cs
 C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\DataAccessLAyer.Test\obj\Debug\netcoreapp2.0\DataAccessLayer.Test.dll
 C:\Users\kestutis\Documents\Visual Studio 2017\Projects\SovaGroup2\DataAccessLAyer.Test\obj\Debug\netcoreapp2.0\DataAccessLayer.Test.pdb
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\DataAccessLAyer.Test\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\DataAccessLAyer.Test\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\DataAccessLAyer.Test\bin\Debug\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\DataAccessLAyer.Test\bin\Debug\netcoreapp2.0\DataAccessLayer.Test.deps.json
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\DataAccessLAyer.Test\bin\Debug\netcoreapp2.0\DataAccessLayer.Test.runtimeconfig.json
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\DataAccessLAyer.Test\bin\Debug\netcoreapp2.0\DataAccessLayer.Test.runtimeconfig.dev.json
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\DataAccessLAyer.Test\bin\Debug\netcoreapp2.0\DataAccessLayer.Test.dll
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\DataAccessLAyer.Test\bin\Debug\netcoreapp2.0\DataAccessLayer.Test.pdb
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\DataAccessLAyer.Test\bin\Debug\netcoreapp2.0\DataAccessLayer.dll
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\DataAccessLAyer.Test\bin\Debug\netcoreapp2.0\DataAccessLayer.pdb
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\DataAccessLAyer.Test\obj\Debug\netcoreapp2.0\DataAccessLayer.Test.csprojResolveAssemblyReference.cache
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\DataAccessLAyer.Test\obj\Debug\netcoreapp2.0\DataAccessLayer.Test.csproj.CoreCompileInputs.cache
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\DataAccessLAyer.Test\obj\Debug\netcoreapp2.0\DataAccessLayer.Test.AssemblyInfoInputs.cache
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\DataAccessLAyer.Test\obj\Debug\netcoreapp2.0\DataAccessLayer.Test.AssemblyInfo.cs
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\DataAccessLAyer.Test\obj\Debug\netcoreapp2.0\DataAccessLayer.Test.dll
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\DataAccessLAyer.Test\obj\Debug\netcoreapp2.0\DataAccessLayer.Test.pdb
