@@ -151,7 +151,7 @@ namespace DataAccessLayer.Test
         {
             var service = new DataService();
             var result = service.TermNetworkList("abc");
-            Assert.NotEqual(1,result.Count);
+            Assert.Contains("nodes", result);
            // Assert.Contains("'var graph = '", result.ToString());
             
         }

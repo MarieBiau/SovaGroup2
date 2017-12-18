@@ -2,7 +2,7 @@
 <form>
     Find the best match to a word by typing in a word and see it in a new word cloud:<br>
     <input data-bind="textInput: word"><br>
-    <input type="submit" value="Submit" data-bind="click: submitword">
+    <input type="submit" value="Submit" data-bind="click: changeWords">
 </form>
 
 <div data-bind="cloud: {words}" style="width: 500px; height: 500px"></div>
@@ -20,6 +20,8 @@
     }
 
 </style>
+<input data-bind="value: graphword"><br>
+<input type="submit" value="Submit" data-bind="click: makeAssociation">
 <div data-bind="visual: graph"></div>
 
 

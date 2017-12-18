@@ -5722,11 +5722,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Louise\\Documents\\GitHub\\SovaGroup2\\SovaWebService.Test\\SovaWebService.Test.csproj",
+      "projectUniqueName": "C:\\Users\\Louise\\Documents\\GitHub\\SovaGroup2\\SovaGroup2\\SovaWebService.Test\\SovaWebService.Test.csproj",
       "projectName": "SovaWebService.Test",
-      "projectPath": "C:\\Users\\Louise\\Documents\\GitHub\\SovaGroup2\\SovaWebService.Test\\SovaWebService.Test.csproj",
+      "projectPath": "C:\\Users\\Louise\\Documents\\GitHub\\SovaGroup2\\SovaGroup2\\SovaWebService.Test\\SovaWebService.Test.csproj",
       "packagesPath": "C:\\Users\\Louise\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Louise\\Documents\\GitHub\\SovaGroup2\\SovaWebService.Test\\obj\\",
+      "outputPath": "C:\\Users\\Louise\\Documents\\GitHub\\SovaGroup2\\SovaGroup2\\SovaWebService.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

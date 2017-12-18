@@ -346,7 +346,7 @@ namespace DataAccessLayer.dbContext
             }
         }
 
-        public List<TermNetwork> TermNetworkList(string text)
+        public string TermNetworkList(string text)
         {
             using (var db = new SovaDbContext())
             {
@@ -356,7 +356,8 @@ namespace DataAccessLayer.dbContext
                 //    return ;
                 //}
                 //termNetworks.ToString().Replace("graph", " ");
-                return termNetworks;
+
+                return string.Join("", termNetworks.Select(x => x.graph)).Replace(",]", "]");
             }
         }
 

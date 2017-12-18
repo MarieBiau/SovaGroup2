@@ -30,7 +30,7 @@ namespace DataAccessLayer.dbContext
         List<BestMatch> BestMatches(string text);
         List<BestmatchKeywordList> BestmatchKeywordLists(string text);
         List<ClosestTerm> ClosestTerms(string text);
-        List<TermNetwork> TermNetworkList(string text);
+        string TermNetworkList(string text);
 
     }
 }

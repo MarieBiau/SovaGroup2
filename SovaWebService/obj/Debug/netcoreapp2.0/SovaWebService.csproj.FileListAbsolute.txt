@@ -24,3 +24,16 @@ C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaWebService\obj\Debug\netcoreapp2
 C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaWebService\obj\Debug\netcoreapp2.0\SovaWebService.AssemblyInfo.cs
 C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaWebService\obj\Debug\netcoreapp2.0\SovaWebService.dll
 C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaWebService\obj\Debug\netcoreapp2.0\SovaWebService.pdb
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\SovaWebService\obj\Debug\netcoreapp2.0\SovaWebService.dll
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\SovaWebService\obj\Debug\netcoreapp2.0\SovaWebService.pdb
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\SovaWebService\bin\Debug\netcoreapp2.0\SovaWebService.deps.json
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\SovaWebService\bin\Debug\netcoreapp2.0\SovaWebService.runtimeconfig.json
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\SovaWebService\bin\Debug\netcoreapp2.0\SovaWebService.runtimeconfig.dev.json
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\SovaWebService\bin\Debug\netcoreapp2.0\SovaWebService.dll
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\SovaWebService\bin\Debug\netcoreapp2.0\SovaWebService.pdb
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\SovaWebService\bin\Debug\netcoreapp2.0\DataAccessLayer.dll
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\SovaWebService\bin\Debug\netcoreapp2.0\DataAccessLayer.pdb
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\SovaWebService\obj\Debug\netcoreapp2.0\SovaWebService.csprojResolveAssemblyReference.cache
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\SovaWebService\obj\Debug\netcoreapp2.0\SovaWebService.csproj.CoreCompileInputs.cache
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\SovaWebService\obj\Debug\netcoreapp2.0\SovaWebService.AssemblyInfoInputs.cache
+C:\Users\Louise\Documents\GitHub\SovaGroup2\SovaGroup2\SovaWebService\obj\Debug\netcoreapp2.0\SovaWebService.AssemblyInfo.cs

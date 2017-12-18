@@ -4,13 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using DataAccessLayer.dbContext;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace SovaWebService.Controllers
 {
     [Route("api/graph")]
     public class TermNetworkController : Controller
     {
-        private IDataService _dataService;
+        private readonly IDataService _dataService;
 
         public TermNetworkController(IDataService dataService)
         {
@@ -23,15 +24,8 @@ namespace SovaWebService.Controllers
         {
 
 
-            if (_dataService.TermNetworkList(searchText).Count > 0)
-            {
-                return Ok(_dataService.TermNetworkList(searchText));
+            return Ok(JsonConvert.SerializeObject(_dataService.TermNetworkList(searchText)));
 
-            }
-            else
-            {
-                return NotFound();
-            }
 
         }
     }
