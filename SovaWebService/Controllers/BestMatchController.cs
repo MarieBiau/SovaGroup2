@@ -40,12 +40,8 @@ namespace SovaWebService.Controllers
                 {
                     Link = Url.Link(nameof(GetPostBestMatch), new { x.id }),
                     title = x.title,
-<<<<<<< HEAD
-                    body = x.body.Substring(0, x.body.Length < 300 ? x.body.Length : 300)
-=======
                     body = x.body.Substring(0, x.body.Length < 300 ? x.body.Length : 300),
                     creationDate = x.creation_date
->>>>>>> forSafetypush
                 });
 
             var prev = page > 0 ? Url.Link(nameof(GetResultsOfBestMatch), new { page = page - 1, pageSize }) : null;

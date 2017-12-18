@@ -148,29 +148,10 @@ namespace DataAccessLayer.dbContext
             }
         }
 
-<<<<<<< HEAD
-        public bool  MarkPost(int post_id, int type)
-        {
-            using (var db = new SovaDbContext())
-            {
-                //1 Good
-                //2 Bad
-                var result = db.MarkPosts.FromSql("call mark_post({0},{1})", post_id, type);
-                return result.Any();
-=======
         public List<MarkPost>  MarkPost(int post_id, int type)
         {
-            //using (var db = new SovaDbContext())
-            //{
-    
-            //}
-
-            ////1 Good
-            ////2 Bad
-            //MarkPost results = db.MarkPosts.FromSql("call mark_post({0},{1})", post_id, type);
-            //return results;
-
-
+            //1 Good
+            //2 Bad
             using (var db = new SovaDbContext())
             {
                 List<MarkPost> listMarkPost = new List<MarkPost>();
@@ -182,7 +163,6 @@ namespace DataAccessLayer.dbContext
                 }
 
                 return listMarkPost;
->>>>>>> forSafetypush
             }
         }
 
