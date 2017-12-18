@@ -1,115 +1,132 @@
-﻿<h1 data-bind="text: title"></h1>
-<div data-bind="template: {name: currentView}"></div>
+﻿<div data-bind="template: {name: currentView}"></div>
 <script type="text/html" id="postlist">
     <div data-bind="foreach: posts">
-        <div>
-            <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a>
-            <span class="search-date" data-bind="text: date"></span>
-            <div class="row">
-                <div class="col-md-1">
-                    <input type="image" class="thumb" src="../../img/blue_thumb.png" data-bind="click: $parent.addMark" />
-                    <input type="image" class="thumb" src="../../img/red_thumb.png" data-bind="click: $parent.removeMark" />
-                    <input type="image" class="annotation" src="../../img/annotation.jpg" data-bind="click: $parent.saveAnnotation" />
-                    <input type="text" class="annotation" data-bind="textInput: annotationText" ><br>
-                </div>
-                <div class="col-md-11">
-                    <div data-bind="html: body"></div>
-                    <div data-bind="text: annotation"></div>
 
-                </div>
-            </div>
-            <br>
-        </div>
-    </div>
-</script>
-<script type="text/html" id="postview">
-    <div>
-        <button class="btn btn-default" data-bind="click: home">Back</button>
-    </div>
-    <div data-bind="foreach: currentPost">
-        <h1 data-bind="text: title"></h1>
-        <h2 class="creation-date">Creation Date: <span data-bind="text: creationDate"></span></h2>
-        <h2>Score: <span data-bind="text: score"></span></h2>
         <div class="row">
             <div class="col-md-1">
                 <input type="image" class="thumb" src="../../img/blue_thumb.png" data-bind="click: $parent.addMark" />
                 <input type="image" class="thumb" src="../../img/red_thumb.png" data-bind="click: $parent.removeMark" />
-                <input type="image" class="annotation" src="../../img/annotation.jpg" data-bind="click: $parent.saveAnnotation" />
 
             </div>
             <div class="col-md-11">
-                <div data-bind="html: body"></div>
-            </div>
-        </div>
-        <div style="background-color: blue" data-bind="foreach: comments">
-            <div class="row">
-                <div class="col-md-1">
-                    <input type="image" class="thumb" src="../../img/blue_thumb.png" data-bind="click: $parent.addMark" />
-                    <input type="image" class="thumb" src="../../img/red_thumb.png" data-bind="click: $parent.removeMark" />
-                    <input type="image" class="annotation" src="../../img/annotation.jpg" data-bind="click: $parent.saveAnnotation" />
 
-                </div>
-                <div class="col-md-11">
-                    <div data-bind="html: body"></div>
-                </div>
-            </div>
-            <hr />
-        </div>
-        <hr />
-        <div style="background-color: darkgreen" data-bind="foreach: answers">
-            <div class="row">
-                <div class="col-md-1">
-                    <input type="image" class="thumb" src="../../img/blue_thumb.png" data-bind="click: $parent.addMark" />
-                    <input type="image" class="thumb" src="../../img/red_thumb.png" data-bind="click: $parent.removeMark" />
-                    <input type="image" class="annotation" src="../../img/annotation.jpg" data-bind="click: $parent.saveAnnotation" />
+                <a href="#" data-bind="click: $parent.showPost"><h4 data-bind="text: title"></h4></a>
+                <p data-bind="text: body">
 
-                </div>
-                <div class="col-md-11">
-                    <div data-bind="html: body"></div>
-                </div>
-            </div>
-            <hr />
+                </p>
+                <p>Annotation</p>
+                <span class="label label-info" data-bind="text: annotation"></span>
+                <p></p>
+                <div>
+                    <span class="badge" data-bind="text: date"></span>
 
-        </div>
-        <!--<div style="background-color: blueviolet" data-bind="foreach: commentsOfAnswers">
-            <div data-bind="html: body"></div>
-            <hr/>
-        </div>-->
+                    <div class="pull-right">
+                        <div col-xs-2>
+                            <span>Edit Annotation</span>
+                            <input type="text" data-bind="textInput: annotationText">
+                            <button type="button" class="btn btn-success" data-bind="click: $parent.saveAnnotation">Save Annotation</button>
+                        </div>
 
-        <div style="background-color: red" data-bind="foreach: linkedPosts">
-            <div>
-                <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a>
+                    </div>
+                </div>
+
             </div>
-            <hr />
         </div>
-        <div style="background-color: black" data-bind="foreach: showTags">
-            <div>
-                <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: name"></span></a>
-            </div>
-            <hr />
-        </div>
+        <hr>
 
     </div>
-
-    <!-- Modal -->
-    <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Write annotation</h4>
-                    </div>
-                    <div class="modal-body">
-                        <textarea placeholder="Enter some text" data-bind="textInput: annotation"></textarea>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" data-bind="click: $parent.saveAnnotation">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-
 </script>
 
+
+
+<script type="text/html" id="postview">
+    <h1 data-bind="text: title"></h1>
+    <div>
+        <button data-bind="click: home">Back</button>
+    </div>
+
+    <div data-bind="with: currentPost">
+        <h1 data-bind="text: title"></h1>
+        <h2 class="creation-date">
+            Creation Date: <span data-bind="text: creationDate"></span>
+        </h2>
+        <h2>
+            Score: <span data-bind="text: score"></span>
+        </h2>
+        <div class="row">
+            <div class="col-md-1">
+                
+                <!--<input type="image" class="thumb" src="../../img/blue_thumb.png" data-bind="click: $parent.addMark" />
+                <input type="image" class="thumb" src="../../img/red_thumb.png" data-bind="click: $parent.removeMark" />-->
+              
+
+            </div>
+            <div class="col-md-7">
+                <div data-bind="html: body"></div>
+            </div>
+
+
+            <div class="col-md-7" data-bind="foreach: comments">
+                <h1>Comments</h1>
+                <div data-bind="html: body"></div>
+                <hr />
+            </div>
+        </div>
+        <div data-bind="foreach: answers">
+            <div class="row">
+                <div class="col-md-1">
+                    
+                    <input type="image" class="thumb" src="../../img/blue_thumb.png" data-bind="click: $parent.addMark" />
+                    <input type="image" class="thumb" src="../../img/red_thumb.png" data-bind="click: $parent.removeMark" />
+
+                </div>
+                <div class="col-md-7">
+                    <h1>Answers</h1>
+                    <div data-bind="html: body"></div>
+                </div>
+            </div>
+            <hr />
+        </div>
+        
+        <div class="col-md-7" data-bind="foreach: comments">
+            <h1>Comments of the Answers</h1>
+            <div data-bind="html: body"></div>
+            <hr/>
+        </div>
+
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar sidebar-linked">
+            <h4>Linked posts</h4>
+            <div data-bind="foreach: linkedPosts">
+
+                <div class="sidebar-module">
+
+                    <ul class="list-group">
+                        <li class="list-group-item"> <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a></li>
+
+                    </ul>
+
+                </div>
+
+                <hr />
+            </div>
+        </div>
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar sidebar">
+            <h4>Tags</h4>
+            <div data-bind="foreach: showTags">
+
+                <div class="sidebar-module">
+
+                    <ul class="list-group">
+                        <li class="list-group-item"> <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: name"></span></a></li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</script>
 

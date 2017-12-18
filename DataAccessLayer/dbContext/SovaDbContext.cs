@@ -27,6 +27,7 @@ namespace DataAccessLayer.dbContext
         public DbSet<PopularTags> PopularTags { get; set; }
         public DbSet<AddVisitedPost> AddVisitedPost { get; set; }
         public DbSet<AddSearches> AddSearches { get; set; }
+        public DbSet<TermNetwork> TermNetworks { get; set; }
 
 
 

@@ -98,6 +98,7 @@ namespace SovaWebService.Controllers
                 {
                     Link = Url.Link(nameof(GetPostBestMatch), new { x.id }),
                     Parent = Url.Link(nameof(GetPostBestMatch), new { id }),
+                    comments = Url.Link(nameof(GetCommentsBestMatch), new { x.id }),
                     body = x.body,
                     x.creation_date,
                     x.score

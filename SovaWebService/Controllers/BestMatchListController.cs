@@ -27,7 +27,7 @@ namespace SovaWebService.Controllers
 
             if (_dataService.BestmatchKeywordLists(searchText).Count > 0)
             {
-                return Ok(_dataService.BestmatchKeywordLists(searchText).Take(5));
+                return Ok(_dataService.BestmatchKeywordLists(searchText).Take(20));
 
             }
             else

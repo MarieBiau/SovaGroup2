@@ -1,13 +1,83 @@
-﻿define(['knockout'], function (ko) {
+﻿define(['knockout','d3'], function (ko , d3) {
     return function (params) {
         var title = ko.observable("Component Home");
 
         var word = ko.observable();
 
-        var submitword = function () {
-            word = word();
-            changeWords();
+        var graph = ko.observable({});
+        var graphword = ko.observable();
+
+
+        //association graph
+        var makeAssociation = function () {
+            $.getJSON("api/graph/" + graphword(),
+                data => {
+                    graph = ko.observable({});
+
+                    graph(JSON.parse(data));
+
+
+                    var width = 960,
+                        height = 500;
+
+                    d3.select("#graph").append("");
+
+                    var svg = d3.select("#graph").append("svg")
+                        .attr("width", width)
+                        .attr("height", height);
+
+
+                    var force = d3.layout.force()
+                        .gravity(0.05)
+                        .distance(100)
+                        .charge(-200)
+                        .size([width, height]);
+
+                    //var color = d3.scaleOrdinal(d3.schemeCategory20);
+                    var color = d3.scale.category20c();
+
+                    //d3.json("graph.json", function(error, json) {
+                    (function () {
+                        //if (error) throw error;
+
+                        force
+                            .nodes(graph().nodes)
+                            .links(graph().links)
+                            .start();
+
+                        var link = svg.selectAll(".link")
+                            .data(graph().links)
+                            .enter().append("line")
+                            .attr("class", "link")
+                            .attr("stroke-width", function (d) { return Math.sqrt(d.value); });
+
+                        var node = svg.selectAll(".node")
+                            .data(graph().nodes)
+                            .enter().append("g")
+                            .attr("class", "node")
+                            .call(force.drag);
+                        node.append("circle")
+                            .attr("r", function (d) { return 5; })
+                            .style("fill", "red");
+
+                        node.append("text")
+                            .attr("dx", function (d) { return -(d.name.length * 3) })
+                            .attr("dy", ".65em")
+                            .text(function (d) { return d.name });
+
+                        force.on("tick",
+                            function () {
+                                link.attr("x1", function (d) { return d.source.x; })
+                                    .attr("y1", function (d) { return d.source.y; })
+                                    .attr("x2", function (d) { return d.target.x; })
+                                    .attr("y2", function (d) { return d.target.y; });
+
+                                node.attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; });
+                            });
+                    })();
+                });
         }
+
 
         //tags for wordcloud
         var words = ko.observableArray([]);
@@ -46,7 +116,7 @@
 
         var changeWords = function () {
             //words = ko.observableArray([]);
-            $.getJSON("api/BestMatchList/" + word, data => {
+            $.getJSON("api/BestMatchList/" + word(), data => {
 
                 var obj = [];
 
@@ -78,34 +148,36 @@
 
                 }
 
-
                 $.getJSON(postData.comments, cms => {
 
                     post.comments = ko.observableArray(cms);
-                   // console.log(post.comments);
 
                     $.getJSON(postData.answers, ans => {
 
-                        post.answers = ko.observableArray(ans);
-                        //console.log(post.answers);
-                        //currentPost(post);
                         $.getJSON(postData.linkedPosts, linkPosts => {
 
                             post.linkedPosts = ko.observableArray(linkPosts);
+                        });
+                        $.getJSON(postData.showTags, stags => {
 
-                            $.getJSON(postData.showTags, stags => {
+                            post.showTags = ko.observableArray(stags);
+                            currentPost(post);
 
-                                post.showTags = ko.observableArray(stags);
-                                currentPost(post);
+                        });
 
+                        ans.forEach(e => {
+                            $.getJSON(e.comments, comments => {
+                                e.comments = comments;
                             });
                         });
+
+
+                        post.answers = ko.observableArray(ans);
+                        
                     });
 
                 });
-
-
-
+                
             });
             title("Question");
             currentView('postview');
@@ -127,13 +199,15 @@
             words,
             showtags,
             word,
-            submitword,
             changeWords,
             posts,
             currentView,
             showPost,
             currentPost,
-            home
+            home,
+            graph,
+            graphword,
+            makeAssociation
         };
 
 

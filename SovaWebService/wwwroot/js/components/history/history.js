@@ -50,23 +50,31 @@
 
                 }
 
-                
-
                 $.getJSON(postData.comments, cms => {
 
                     post.comments = ko.observableArray(cms);
-                    console.log(post.comments);
 
                     $.getJSON(postData.answers, ans => {
 
                         post.answers = ko.observableArray(ans);
-                        console.log(post.answers);
-                        currentPostVisited(post);
+
+                        $.getJSON(postData.linkedPosts, linkPosts => {
+
+                            post.linkedPosts = ko.observableArray(linkPosts);
+
+                            $.getJSON(postData.showTags, stags => {
+
+                                post.showTags = ko.observableArray(stags);
+                                currentPostVisited(post);
+
+                            });
+                        });
                     });
 
                 });
 
             });
+
             title("Post");
             visitedPostsView('visitedPostsView');
         };
@@ -104,7 +112,8 @@
             home,
             homevisited,
             ShowVisitedPost,
-            currentPostVisited
+            currentPostVisited,
+
         };
     }
 });

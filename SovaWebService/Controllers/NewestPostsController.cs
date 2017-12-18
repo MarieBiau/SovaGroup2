@@ -76,6 +76,7 @@ namespace SovaWebService.Controllers
                 {
                     Link = Url.Link(nameof(GetPostHome), new { x.id }),
                     Parent = Url.Link(nameof(GetPostHome), new { id }),
+                    comments = Url.Link(nameof(GetCommentsHome), new { x.id }),
                     body = x.body,
                     x.creation_date,
                     x.score

@@ -14,73 +14,107 @@
             <th>Date</th>
         </tr>
         <tbody data-bind="foreach: recentSearchPosts">
-        <tr>
-            <td data-bind="text: text"></td>
-            <td data-bind="text: date"></td>
-        </tr>
+            <tr>
+                <td data-bind="text: text"></td>
+                <td data-bind="text: date"></td>
+            </tr>
         </tbody>
     </table>
-    
+
 
 </script>
+
 <script type="text/html" id="visitedpostlist">
     <div data-bind="foreach: visitedPosts">
-        <div>
-            <a href="#" data-bind="click: $parent.ShowVisitedPost"><span data-bind="text: title"></span></a>
-            <span class="search-date" data-bind="text: date"></span>
-            <p data-bind="html: body"></p>
+
+        <div class="col-md-12">
+            <a href="#" data-bind="click: $parent.ShowVisitedPost"><h4 data-bind="text: title"></h4></a>
+            <p data-bind="html: body">
+
+            </p>
+            <div>
+                <span class="badge" data-bind="text: date"></span>
+            </div>
+            <hr>
         </div>
     </div>
 </script>
+
+
+
 <script type="text/html" id="visitedPostsView">
+    <h1 data-bind="text: title"></h1>
     <div>
         <button data-bind="click: homevisited">Back</button>
     </div>
     <div data-bind="with: currentPostVisited">
         <h1 data-bind="text: title"></h1>
-        <h2 class="creation-date">Creation Date: <span data-bind="text: creationDate"></span></h2>
-        <h2>Score: <span data-bind="text: score"></span></h2>
+        <h2 class="creation-date">
+            Creation Date: <span data-bind="text: creationDate"></span>
+        </h2>
+        <h2>
+            Score: <span data-bind="text: score"></span>
+        </h2>
         <div class="row">
             <div class="col-md-1">
-                <input type="image" class="thumb" src="../../img/blue_thumb.png" />
-                <input type="image" class="thumb" src="../../img/red_thumb.png" />
-                <input type="image" class="annotation" data-toggle="modal" data-target="#myModal" src="../../img/annotation.jpg" />
+
             </div>
-            <div class="col-md-11">
+            <div class="col-md-7">
                 <div data-bind="html: body"></div>
             </div>
+
+
+            <div class="col-md-7" data-bind="foreach: comments">
+                <h1>Comments</h1>
+                <div data-bind="html: body"></div>
+                <hr />
+            </div>
         </div>
-        <hr />
-        <div style="background-color: blue" data-bind="foreach: comments">
-            <div data-bind="html: body"></div>
-            <hr />
-        </div>
-        <div style="background-color: darkgreen" data-bind="foreach: answers">
+        <div data-bind="foreach: answers">
             <div class="row">
                 <div class="col-md-1">
-                    <input type="image" class="thumb" src="../../img/blue_thumb.png" />
-                    <input type="image" class="thumb" src="../../img/red_thumb.png" />
-                    <input type="image" class="annotation" data-toggle="modal" data-target="#myModal" src="../../img/annotation.jpg" />
+
                 </div>
-                <div class="col-md-11">
+                <div class="col-md-7">
+                    <h1>Answers</h1>
                     <div data-bind="html: body"></div>
                 </div>
             </div>
             <hr />
         </div>
 
-        <div style="background-color: red" data-bind="foreach: linkedPosts">
-            <div>
-                <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a>
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar sidebar-linked">
+            <h4>Linked posts</h4>
+            <div data-bind="foreach: linkedPosts">
+
+                <div class="sidebar-module">
+
+                    <ul class="list-group">
+                        <li class="list-group-item"> <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a></li>
+
+                    </ul>
+
+                </div>
+
+                <hr />
             </div>
-            <hr />
         </div>
 
-        <div style="background-color: black" data-bind="foreach: showTags">
-            <div>
-                <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: name"></span></a>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar sidebar">
+            <h4>Tags</h4>
+            <div data-bind="foreach: showTags">
+
+                <div class="sidebar-module">
+
+                    <ul class="list-group">
+                        <li class="list-group-item"> <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: name"></span></a></li>
+
+                    </ul>
+                </div>
             </div>
-            <hr />
+
         </div>
     </div>
 </script>
+

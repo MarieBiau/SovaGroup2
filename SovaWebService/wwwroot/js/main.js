@@ -5,7 +5,8 @@
         knockout: "../lib/knockout/dist/knockout",
         text: "../lib/text/text",
         jqcloud: '../lib/jqcloud2/dist/jqcloud.min',
-        bootstrap: '../lib/bootstrap/dist/js/bootstrap.min'
+        bootstrap: '../lib/bootstrap/dist/js/bootstrap.min',
+        d3: "https://d3js.org/d3.v3.min"
     },
     shim: {
         jqcloud: {

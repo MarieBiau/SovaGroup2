@@ -114,3 +114,24 @@ hr {
     right: 0%;
     top: 50%;
 }
+.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    margin-bottom: 5px;
+    font-size: 120%;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+.link {
+    stroke: #ccc;
+}
+
+.node text {
+    pointer-events: none;
+    font: 14px sans-serif;
+}

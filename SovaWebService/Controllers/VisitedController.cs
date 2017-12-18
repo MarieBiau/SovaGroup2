@@ -58,6 +58,8 @@ namespace SovaWebService.Controllers
                 post.creation_date,
                 answers = Url.Link(nameof(GetAnswersVisited), new { post.id }),
                 comments = Url.Link(nameof(GetCommentsVisited), new { post.id }),
+                linkedPosts = Url.Link(nameof(GetlinkedPostsVisited), new { post.id }),
+                showTags = Url.Link(nameof(GetshowTagsVisited), new { post.id }),
 
             };
 
@@ -97,6 +99,36 @@ namespace SovaWebService.Controllers
                 });
 
             return Ok(comments);
+        }
+
+        [HttpGet("{id}/linkedPosts", Name = nameof(GetlinkedPostsVisited))]
+        public IActionResult GetlinkedPostsVisited(int id)
+        {
+
+            var linkedPosts = _dataService.ReturnLinkPosts(id)
+                .Select(x => new
+                {
+                    Link = Url.Link(nameof(GetlinkedPostsVisited), new { x.id }),
+                    Parent = Url.Link(nameof(GetlinkedPostsVisited), new { id }),
+                    title = x.title
+                });
+
+            return Ok(linkedPosts);
+        }
+
+        [HttpGet("{id}/showTags", Name = nameof(GetshowTagsVisited))]
+        public IActionResult GetshowTagsVisited(int id)
+        {
+
+            var linkedPosts = _dataService.ReturnPostTags(id)
+                .Select(x => new
+                {
+                    Link = Url.Link(nameof(GetshowTagsVisited), new { x.id }),
+                    Parent = Url.Link(nameof(GetshowTagsVisited), new { id }),
+                    name = x.name
+                });
+
+            return Ok(linkedPosts);
         }
 
 

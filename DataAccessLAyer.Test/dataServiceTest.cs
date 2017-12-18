@@ -162,6 +162,15 @@ namespace DataAccessLayer.Test
             Assert.Equal(true, result);
 
         }
+        [Fact]
+        public void ReturnTermNetworks()
+        {
+            var service = new DataService();
+            var result = service.TermNetworkList("abc");
+            Assert.Contains("nodes", result);
+            // Assert.Contains("'var graph = '", result.ToString());
+
+        }
 
     }
 }

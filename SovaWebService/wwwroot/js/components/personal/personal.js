@@ -9,24 +9,9 @@
         //annotation binding
 
         var annotation = ko.observable();
-        var save = true;
-        var marked = ko.observable(false);
-        var bool = true;
         var saveAnnotation = ko.observable();
         var addMark = ko.observable();
         var removeMark = ko.observable();
-
-
-        var checkIfMarked = function() {
-            if (marked()===true) {
-                return true;
-            } else {
-                return false;
-            }
-
-        }
-        bool=checkIfMarked();
-        console.log(checkIfMarked());
 
         addMark = (data) => {
     
@@ -82,26 +67,28 @@
 
                     $.getJSON(postData.answers, ans => {
 
-                        post.answers = ko.observableArray(ans);
-
                         $.getJSON(postData.linkedPosts, linkPosts => {
 
                             post.linkedPosts = ko.observableArray(linkPosts);
+                        });
+                        $.getJSON(postData.showTags, stags => {
 
-                            $.getJSON(postData.showTags, stags => {
+                            post.showTags = ko.observableArray(stags);
+                            currentPost(post);
 
-                                post.showTags = ko.observableArray(stags);
-                                currentPost(post);
+                        });
 
-                                //$.getJSON(postData.commentsOfAnswers, anws => {
-
-                                //    post.commentsOfAnswers = ko.observableArray(anws);
-                                //    console.log(post.commentsOfAnswers + "commentsOfAnswers");
-                                //    currentPost(post);
-                                //});
+                        ans.forEach(e => {
+                            $.getJSON(e.comments, comments => {
+                                e.comments = comments;
                             });
                         });
+
+
+                        post.answers = ko.observableArray(ans);
+
                     });
+
                 });
 
             });
@@ -126,10 +113,7 @@
 
         });
 
-
-
-
-
+        
         return {
             currentPost,
             home,
@@ -138,9 +122,6 @@
             posts,
             currentView,
             annotation,
-            marked,
-            checkIfMarked,
-            bool,
             saveAnnotation,
             addMark,
             removeMark

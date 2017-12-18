@@ -13,27 +13,11 @@
         var currentView = ko.observable('postlist');
         var linkedPostsView = ko.observable('linkedPosts');
 
-
-        //annotation binding
-        //var annotation = ko.observable();
-        var save = true;
-        var marked = ko.observable(true);
-        var bool = null;
-        var saveAnnotation = ko.observable();
         var addMark = ko.observable();
         var removeMark = ko.observable();
 
 
-        var checkIfMarked = function () {
-            if (marked() === true) {
-                return true;
-            } else {
-                return false;
-            }
 
-        }
-        bool = checkIfMarked();
-        console.log(checkIfMarked());
 
         addMark = (data) => {
 
@@ -71,24 +55,8 @@
 
         };
 
-        saveAnnotation = (data) => {
-
-            var json = '[{ "op": "replace", "path": "/annotation", "value": "' + annotationText() + '" }]';
-            $.post({
-                type: "PATCH",
-                contentType: "application/json",
-                url: "api/marks/" + data.id + "/updateAnnotation",
-                data: json,
-                success: success
-            });
 
 
-        };
-
-        function success() {
-            //alert("saved");
-            //do some stuff
-        }
         
         var next = () => {
             $.getJSON(nextLink(), data => {
@@ -130,22 +98,30 @@
 
                     $.getJSON(postData.answers, ans => {
 
-                        post.answers = ko.observableArray(ans);
-
                         $.getJSON(postData.linkedPosts, linkPosts => {
 
                             post.linkedPosts = ko.observableArray(linkPosts);
+                        });
+                        $.getJSON(postData.showTags, stags => {
 
-                            $.getJSON(postData.showTags, stags => {
+                            post.showTags = ko.observableArray(stags);
+                            currentPost(post);
 
-                                post.showTags = ko.observableArray(stags);
-                                currentPost(post);
-    
+                        });
+
+                        ans.forEach(e => {
+                            $.getJSON(e.comments, comments => {
+                                e.comments = comments;
                             });
                         });
+
+
+                        post.answers = ko.observableArray(ans);
+
                     });
+
                 });
-                
+
             });
             title("Post");
             currentView('postview');
@@ -188,11 +164,8 @@
             home,
             searchText,
             addMark,
-            removeMark,
-            marked,
-            checkIfMarked,
-            bool,
-            saveAnnotation
+            removeMark
+         
 
         };
         

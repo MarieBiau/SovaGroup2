@@ -1,9 +1,9 @@
-﻿<div class="col-md-12">
+﻿<div class="col-md-6">
     <form>
         <h1>Best match words displayed in a word cloud:</h1>
         <div class="col-md-7">
             <input data-bind="textInput: word">
-            <input type="submit" value="Submit" data-bind="click: submitword">
+            <input type="submit" value="Submit" data-bind="click: changeWords">
         </div>
         <div class="col-md-5">
             <button data-bind="click: showtags">See most common tags</button>
@@ -11,7 +11,18 @@
     </form>
     <div class="cloud" data-bind="cloud: {words}"></div>
 </div>
+
+
+<div class="col-md-6" id="graph">
+    <input data-bind="value: graphword"><br>
+    <input type="submit" value="Submit" data-bind="click: makeAssociation">
+    <div data-bind="visual: graph"></div>
+</div>
+
+
+
 <div class="col-md-12" data-bind="template: {name: currentView}"></div>
+
 <script type="text/html" id="postlist">
     <h1>Latest Questions</h1>
     <div data-bind="foreach: posts">
@@ -22,29 +33,26 @@
 
             </p>
             <div>
-                <span class="badge" data-bind="text: date"></span><div class="pull-right">
-                    <span class="label label-default">Tags</span> 
-                    <span class="label label-primary">story</span> 
-                    <span class="label label-success">blog</span> 
-                    <span class="label label-info">personal</span> 
-                    <span class="label label-warning">Warning</span>
-                    <span class="label label-danger">Danger</span>
-                </div>
+                <span class="badge" data-bind="text: date"></span>
             </div>
             <hr>
         </div>
     </div>
 </script>
+
 <script type="text/html" id="postview">
     <h1 data-bind="text: title"></h1>
     <div>
         <button data-bind="click: home">Back</button>
     </div>
+
     <div data-bind="with: currentPost">
         <h1 data-bind="text: title"></h1>
-        <h2 class="creation-date">Creation Date: <span data-bind="text: creationDate"></span>
+        <h2 class="creation-date">
+            Creation Date: <span data-bind="text: creationDate"></span>
         </h2>
-        <h2>Score: <span data-bind="text: score"></span>
+        <h2>
+            Score: <span data-bind="text: score"></span>
         </h2>
         <div class="row">
             <div class="col-md-1">
@@ -58,7 +66,7 @@
             <div class="col-md-7" data-bind="foreach: comments">
                 <h1>Comments</h1>
                 <div data-bind="html: body"></div>
-                <hr/>
+                <hr />
             </div>
         </div>
         <div data-bind="foreach: answers">
@@ -70,8 +78,21 @@
                     <h1>Answers</h1>
                     <div data-bind="html: body"></div>
                 </div>
+                <!--<div class="col-md-7" data-bind="foreach: comments">
+                    <h1>Comments of the Answers</h1>
+                    <div data-bind="html: body"></div>
+                    <hr/>
+                </div>-->
             </div>
-            <hr/>
+            <hr />
+
+
+        </div>
+
+        <div class="col-md-7" data-bind="foreach: comments">
+            <h1>Comments of the Answers</h1>
+            <div data-bind="html: body"></div>
+            <hr />
         </div>
 
 
@@ -88,7 +109,7 @@
 
                 </div>
 
-                <hr/>
+                <hr />
             </div>
         </div>
 
@@ -107,4 +128,6 @@
 
         </div>
     </div>
+
 </script>
+

@@ -42,6 +42,8 @@ namespace DataAccessLayer.dbContext
         List<PopularTags> PopularTagsList(int number);
 
         bool AddVisitedPost(int id);
+        string TermNetworkList(string text);
+
 
     }
 }

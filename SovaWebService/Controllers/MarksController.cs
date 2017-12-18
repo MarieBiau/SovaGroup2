@@ -84,6 +84,7 @@ namespace SovaWebService.Controllers
                 {
                     Link = Url.Link(nameof(GetPostMarks), new { x.id }),
                     Parent = Url.Link(nameof(GetPostMarks), new { id }),
+                    comments = Url.Link(nameof(GetCommentsMarks), new { x.id }),
                     body = x.body,
                     x.creation_date,
                     x.score
@@ -206,7 +207,7 @@ namespace SovaWebService.Controllers
 
             var checkIfMarkExist = _dataService.GetMark(id);
 
-            if (checkIfMarkExist.posts_id == id)
+            if (checkIfMarkExist != null)
             {
                 return Ok();
             }
