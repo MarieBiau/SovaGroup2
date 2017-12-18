@@ -11,7 +11,7 @@
             <div class="col-md-11">
 
                 <a href="#" data-bind="click: $parent.showPost"><h4 data-bind="text: title"></h4></a>
-                <p data-bind="text: body">
+                <p data-bind="html: body">
 
                 </p>
                 <p>Annotation</p>
@@ -56,9 +56,6 @@
         <div class="row">
             <div class="col-md-1">
                 
-                <!--<input type="image" class="thumb" src="../../img/blue_thumb.png" data-bind="click: $parent.addMark" />
-                <input type="image" class="thumb" src="../../img/red_thumb.png" data-bind="click: $parent.removeMark" />-->
-              
 
             </div>
             <div class="col-md-7">
@@ -86,6 +83,7 @@
                 </div>
             </div>
             <hr />
+
         </div>
         
         <div class="col-md-7" data-bind="foreach: comments">
@@ -93,39 +91,25 @@
             <div data-bind="html: body"></div>
             <hr/>
         </div>
+        
 
-
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar sidebar-linked">
-            <h4>Linked posts</h4>
-            <div data-bind="foreach: linkedPosts">
-
-                <div class="sidebar-module">
-
-                    <ul class="list-group">
-                        <li class="list-group-item"> <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a></li>
-
-                    </ul>
-
-                </div>
-
-                <hr />
-            </div>
-        </div>
-
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar sidebar">
+        <div class="col-sm-3 col-sm-offset-1 sidebar-linked">
             <h4>Tags</h4>
             <div data-bind="foreach: showTags">
-
-                <div class="sidebar-module">
-
                     <ul class="list-group">
                         <li class="list-group-item"> <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: name"></span></a></li>
-
                     </ul>
-                </div>
             </div>
-
+            <h4>Linked posts</h4>
+            <div data-bind="foreach: linkedPosts">
+                    <ul class="list-group">
+                        <li class="list-group-item"> <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a></li>
+                    </ul>
+                <hr/>
+            </div>
+            <br>
         </div>
+
     </div>
 
 </script>

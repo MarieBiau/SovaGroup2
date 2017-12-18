@@ -135,3 +135,7 @@ hr {
     pointer-events: none;
     font: 14px sans-serif;
 }
+
+.sidebar {
+    position: absolute;
+}

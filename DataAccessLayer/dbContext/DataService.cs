@@ -73,10 +73,13 @@ namespace DataAccessLayer.dbContext
 
         public bool AddVisitedPost(int id)
         {
-            //return updated posts id 
+            using (var db = new SovaDbContext())
+            {
 
-            var results = db.AddVisitedPost.FromSql("call add_visited_post({0})", id);
-            return results.Any();
+                var results = db.AddVisitedPost.FromSql("call add_visited_post({0})", id);
+                return results.Any();
+            }
+
         }
 
         public List<comments> ReturnCommentsById(int id)

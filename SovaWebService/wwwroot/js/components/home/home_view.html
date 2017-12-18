@@ -1,23 +1,25 @@
 ﻿<div class="col-md-6">
     <form>
         <h1>Best match words displayed in a word cloud:</h1>
-        <div class="col-md-7">
+      
             <input data-bind="textInput: word">
             <input type="submit" value="Submit" data-bind="click: changeWords">
-        </div>
-        <div class="col-md-5">
             <button data-bind="click: showtags">See most common tags</button>
-        </div>
+      
     </form>
     <div class="cloud" data-bind="cloud: {words}"></div>
 </div>
 
 
 <div class="col-md-6" id="graph">
-    <h1>Association network:</h1>
-    <input data-bind="value: graphword"><br>
-    <input type="submit" value="Submit" data-bind="click: makeAssociation">
-    <div data-bind="visual: graph"></div>
+    <form>
+        
+        <h1>Association network:</h1>
+        <input data-bind="value: graphword">
+        <input type="submit" value="Submit" data-bind="click: makeAssociation">
+        <div data-bind="visual: graph"></div>
+
+    </form>
 </div>
 
 
@@ -30,7 +32,7 @@
 
         <div class="col-md-12">
             <a href="#" data-bind="click: $parent.showPost"><h4 data-bind="text: title"></h4></a>
-            <p data-bind="text: body">
+            <p data-bind="html: body">
 
             </p>
             <div>
