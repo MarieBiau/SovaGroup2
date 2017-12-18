@@ -10,10 +10,11 @@
                     <input type="image" class="thumb" src="../../img/blue_thumb.png" data-bind="click: $parent.addMark" />
                     <input type="image" class="thumb" src="../../img/red_thumb.png" data-bind="click: $parent.removeMark" />
                     <input type="image" class="annotation" src="../../img/annotation.jpg" data-bind="click: $parent.saveAnnotation" />
-                    <input type="text" class="annotation" data-bind="textInput: $parent.annotationText" ><br>
+                    <input type="text" class="annotation" data-bind="textInput: annotationText" ><br>
                 </div>
                 <div class="col-md-11">
                     <div data-bind="html: body"></div>
+                    <div data-bind="text: annotation"></div>
 
                 </div>
             </div>

@@ -7,12 +7,21 @@
     <div data-bind="template: {name: visitedPostsView}"></div>
 </div>
 <script type="text/html" id="postlist">
-    <div data-bind="foreach: recentSearchPosts">
-        <div>
-            <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: text"></span></a>
-            <span class="search-date" data-bind="text: date"></span>
-        </div>
-    </div>
+
+    <table class="table table-striped">
+        <tr>
+            <th>Searched text</th>
+            <th>Date</th>
+        </tr>
+        <tbody data-bind="foreach: recentSearchPosts">
+        <tr>
+            <td data-bind="text: text"></td>
+            <td data-bind="text: date"></td>
+        </tr>
+        </tbody>
+    </table>
+    
+
 </script>
 <script type="text/html" id="visitedpostlist">
     <div data-bind="foreach: visitedPosts">
@@ -75,21 +84,3 @@
         </div>
     </div>
 </script>
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Write annotation</h4>
-            </div>
-            <div class="modal-body">
-                <textarea placeholder="Enter some text" data-bind="textInput: annotation"></textarea>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-bind="click: saveAnnotation">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
