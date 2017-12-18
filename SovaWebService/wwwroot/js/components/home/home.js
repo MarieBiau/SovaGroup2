@@ -8,20 +8,21 @@
         var graphword = ko.observable();
 
 
+
         //association graph
         var makeAssociation = function () {
             $.getJSON("api/graph/" + graphword(),
                 data => {
+
+                    $("svg").remove();
+
                     graph = ko.observable({});
 
                     graph(JSON.parse(data));
 
-
-                    var width = 960,
-                        height = 500;
-
-                    d3.select("#graph").append("");
-
+                    var width = 540,
+                        height = 200;
+                        
                     var svg = d3.select("#graph").append("svg")
                         .attr("width", width)
                         .attr("height", height);
