@@ -8,19 +8,12 @@
         var nextLink = ko.observable();
         var prevLink = ko.observable();
         var searchText = ko.observable(params.searchText || '');
-        
-       
         var currentView = ko.observable('postlist');
         var linkedPostsView = ko.observable('linkedPosts');
-
         var addMark = ko.observable();
         var removeMark = ko.observable();
 
-
-
-
         addMark = (data) => {
-
 
             $.getJSON(data.link,
                 postData => {
@@ -29,7 +22,6 @@
                         score: postData.score,
                         creationDate: postData.creation_date,
                         body: postData.body
-
                     }
                     
                     $.getJSON(postData.addMark);
@@ -54,9 +46,6 @@
                 });
 
         };
-
-
-
         
         var next = () => {
             $.getJSON(nextLink(), data => {
@@ -65,6 +54,7 @@
                 prevLink(data.prev);
             });
         };
+        
         var canNext = ko.computed(() => {
             return nextLink() !== null;
         });
@@ -115,7 +105,6 @@
                             });
                         });
 
-
                         post.answers = ko.observableArray(ans);
 
                     });
@@ -126,16 +115,7 @@
             title("Post");
             currentView('postview');
             linkedPostsView('linkedPosts');
-
         };
-
-        
-
-        $.getJSON("api/bestmatch/", dataAnswers => {
-
-            answers(data.items);
-
-        });
 
         var home = () => {
             title("Show posts");
@@ -148,8 +128,6 @@
             prevLink(data.prev);
             console.log(data.items);
         });
-
-
 
         return {
             title,
@@ -165,10 +143,7 @@
             searchText,
             addMark,
             removeMark
-         
-
         };
         
-
     }
 });

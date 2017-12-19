@@ -7,13 +7,12 @@
         var graph = ko.observable({});
         var graphword = ko.observable();
 
-
-
         //association graph
         var makeAssociation = function () {
             $.getJSON("api/graph/" + graphword(),
                 data => {
 
+                    //remove if old exists
                     $("svg").remove();
 
                     graph = ko.observable({});
@@ -113,8 +112,6 @@
             });
         }
 
-
-
         var changeWords = function () {
             //words = ko.observableArray([]);
             $.getJSON("api/BestMatchList/" + word(), data => {
@@ -152,28 +149,30 @@
                 $.getJSON(postData.comments, cms => {
 
                     post.comments = ko.observableArray(cms);
+                    post.linkedPosts = ko.observableArray([]);
+                    post.showTags = ko.observableArray([]);
+                    post.answers = ko.observableArray([]);
 
                     $.getJSON(postData.answers, ans => {
 
                         $.getJSON(postData.linkedPosts, linkPosts => {
 
-                            post.linkedPosts = ko.observableArray(linkPosts);
+                            post.linkedPosts(linkPosts);
                         });
                         $.getJSON(postData.showTags, stags => {
 
-                            post.showTags = ko.observableArray(stags);
-                            currentPost(post);
+                            post.showTags(stags);
 
                         });
 
                         ans.forEach(e => {
                             $.getJSON(e.comments, comments => {
-                                e.comments = comments;
+                                e.comments = ko.observableArray(comments);
                             });
                         });
 
-
-                        post.answers = ko.observableArray(ans);
+                        post.answers(ans);
+                        currentPost(post);
                         
                     });
 
@@ -191,9 +190,7 @@
 
         $.getJSON("api/newestposts/", data => {
             posts(data.items);
-           // console.log(data.items);
         });
-
 
         return {
             title,
@@ -210,7 +207,6 @@
             graphword,
             makeAssociation
         };
-
 
     }
 });

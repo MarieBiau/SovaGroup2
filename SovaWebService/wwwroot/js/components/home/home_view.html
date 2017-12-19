@@ -5,36 +5,27 @@
             <input data-bind="textInput: word">
             <input type="submit" value="Submit" data-bind="click: changeWords">
             <button data-bind="click: showtags">See most common tags</button>
-      
     </form>
     <div class="cloud" data-bind="cloud: {words}"></div>
 </div>
 
-
 <div class="col-md-6" id="graph">
     <form>
-        
         <h1>Association network:</h1>
-        <input data-bind="value: graphword">
+        <input data-bind="value: graphword" value="abc">
         <input type="submit" value="Submit" data-bind="click: makeAssociation">
         <div data-bind="visual: graph"></div>
-
     </form>
 </div>
-
-
 
 <div class="col-md-12" data-bind="template: {name: currentView}"></div>
 
 <script type="text/html" id="postlist">
     <h1>Latest Questions</h1>
     <div data-bind="foreach: posts">
-
         <div class="col-md-12">
             <a href="#" data-bind="click: $parent.showPost"><h4 data-bind="text: title"></h4></a>
-            <p data-bind="html: body">
-
-            </p>
+            <p data-bind="html: body"></p>
             <div>
                 <span class="badge" data-bind="text: date"></span>
             </div>
@@ -50,87 +41,69 @@
     </div>
 
     <div data-bind="with: currentPost">
-        <h1 data-bind="text: title"></h1>
-        <h2 class="creation-date">
-            Creation Date: <span data-bind="text: creationDate"></span>
-        </h2>
-        <h2>
-            Score: <span data-bind="text: score"></span>
-        </h2>
-        <div class="row">
-            <div class="col-md-1">
+        <div class="col-md-8">
+            <h1 data-bind="text: title"></h1>
+            <h2 class="creation-date">
+                Creation Date: <span data-bind="text: creationDate"></span>
+            </h2>
+            <h2>
+                Score: <span data-bind="text: score"></span>
+            </h2>
 
-            </div>
-            <div class="col-md-7">
-                <div data-bind="html: body"></div>
-            </div>
-
-
-            <div class="col-md-7" data-bind="foreach: comments">
-                <h1>Comments</h1>
-                <div data-bind="html: body"></div>
-                <hr />
-            </div>
-        </div>
-        <div data-bind="foreach: answers">
             <div class="row">
                 <div class="col-md-1">
-
+                    <!--<input type="image" class="thumb" src="../../img/blue_thumb.png" data-bind="click: $parent.addMark" />
+                    <input type="image" class="thumb" src="../../img/red_thumb.png" data-bind="click: $parent.removeMark" />-->
                 </div>
-                <div class="col-md-7">
-                    <h1>Answers</h1>
+                <div class="col-md-11">
                     <div data-bind="html: body"></div>
                 </div>
-                <!--<div class="col-md-7" data-bind="foreach: comments">
-                    <h1>Comments of the Answers</h1>
+
+                <div class="col-md-11" data-bind="foreach: comments">
+                    <h1>Comments</h1>
                     <div data-bind="html: body"></div>
                     <hr/>
-                </div>-->
-            </div>
-            <hr />
-
-
-        </div>
-
-        <div class="col-md-7" data-bind="foreach: comments">
-            <h1>Comments of the Answers</h1>
-            <div data-bind="html: body"></div>
-            <hr />
-        </div>
-
-
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar sidebar-linked">
-            <h4>Linked posts</h4>
-            <div data-bind="foreach: linkedPosts">
-
-                <div class="sidebar-module">
-
-                    <ul class="list-group">
-                        <li class="list-group-item"> <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a></li>
-
-                    </ul>
-
                 </div>
-
-                <hr />
             </div>
+            <div data-bind="foreach: answers">
+                <div class="row">
+                    <div class="col-md-1">
+                        <!--<input type="image" class="thumb" src="../../img/blue_thumb.png" data-bind="click: $parent.addMark" />
+                        <input type="image" class="thumb" src="../../img/red_thumb.png" data-bind="click: $parent.removeMark" />-->
+                    </div>
+                    <div class="col-md-11">
+                        <h1>Answers</h1>
+                        <div data-bind="html: body"></div>
+                    </div>
+                </div>
+                <hr/>
+                <div class="col-md-11" data-bind="foreach: comments">
+                    <h1>Comments of the Answers here but without body because of the async call issue</h1>
+
+                    <!--<div data-bind="html: body"></div>-->
+                    <hr/>
+                </div>
+            </div>
+            
+    
         </div>
 
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar sidebar">
+        <div class="col-md-4">
             <h4>Tags</h4>
             <div data-bind="foreach: showTags">
-
-                <div class="sidebar-module">
-
-                    <ul class="list-group">
-                        <li class="list-group-item"> <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: name"></span></a></li>
-
-                    </ul>
-                </div>
+                <ul class="list-group">
+                    <li class="list-group-item"> <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: name"></span></a></li>
+                </ul>
             </div>
-
+            <br>
+            <h4>Linked posts</h4>
+            <div data-bind="foreach: linkedPosts">
+                <ul class="list-group">
+                    <li class="list-group-item"> <a href="#" data-bind="click: $parent.showPost"><span data-bind="text: title"></span></a></li>
+                </ul>
+            </div>
+            <br/>
         </div>
+        
     </div>
-
 </script>
-

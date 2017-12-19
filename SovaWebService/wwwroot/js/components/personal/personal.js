@@ -94,9 +94,9 @@
             });
             title("Post");
             currentView('postview');
-         
-
         };
+
+
 
         var home = () => {
             title("Show posts");
@@ -125,7 +125,6 @@
             saveAnnotation,
             addMark,
             removeMark
-            
 
         };
 

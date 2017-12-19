@@ -1,13 +1,11 @@
 ﻿define(['knockout'], function (ko) {
     return function (params) {
+        
         var title = ko.observable("Component History");
-
-
         var recentSearchPosts = ko.observableArray([]);
         var recentSearchView = ko.observable('postlist');
         var visitedPosts = ko.observableArray([]);
         var visitedPostsView = ko.observable('visitedpostlist');
-
         var currentPost = ko.observable();
         var currentPostVisited = ko.observable();
 
@@ -18,19 +16,34 @@
                     score: postData.score,
                     creationDate: postData.creation_date,
                     body: postData.body
-
                 }
 
                 $.getJSON(postData.comments, cms => {
 
                     post.comments = ko.observableArray(cms);
-                    console.log(post.comments);
 
                     $.getJSON(postData.answers, ans => {
 
+                        $.getJSON(postData.linkedPosts, linkPosts => {
+
+                            post.linkedPosts = ko.observableArray(linkPosts);
+                        });
+                        $.getJSON(postData.showTags, stags => {
+
+                            post.showTags = ko.observableArray(stags);
+                            currentPost(post);
+
+                        });
+
+                        ans.forEach(e => {
+                            $.getJSON(e.comments, comments => {
+                                e.comments = comments;
+                            });
+                        });
+
+
                         post.answers = ko.observableArray(ans);
-                        console.log(post.answers);
-                        currentPost(post);
+
                     });
 
                 });
